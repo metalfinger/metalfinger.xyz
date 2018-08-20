@@ -1,5 +1,5 @@
 body {
-    background: black;
+    background: white;
     color: white;
     /* font-family: 'Rubik', sans-serif; */
     font-family: 'Montserrat', sans-serif;
@@ -29,7 +29,7 @@ body {
 .about-this-desktop{
   position: fixed;
   left: 50%;
-  top: 10%;
+  top: 50%;
   transform: translate(-50%, -50%);
   margin: 0 auto;
   color: #ffffff;
@@ -37,16 +37,13 @@ body {
   font-weight: 200;
   font-style: italic;
   text-align: center;
-  line-height: 1.5;
-  background: #c0392b;
-  border-radius: 25px;
 }
 
 .about-this-mobile{
   position: fixed;
   left: 50%;
-  top: 10%;
-  transform: translate(-50%,  0%);
+  top: 50%;
+  transform: translate(-50%,  -50%);
   margin: 0 auto;
   color: #ffffff;
   padding: 8px 16px 8px 16px;
@@ -88,6 +85,43 @@ body {
   /* text-shadow: 1px 1px 20px #000000; */
 }
 
+.you{
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  color: #ffffff;
+  padding: 10px 15px 10px 15px;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 20px;
+  background: #000000;
+  text-align: center;
+  white-space: nowrap;
+  background: #000000;
+  border-radius: 50px 50px 50px 50px
+  /* text-shadow: 1px 1px 20px #000000; */
+}
+
+.grief{
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  color: #ffffff;
+  padding: 10px 15px 10px 15px;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 20px;
+  background: #000000;
+  text-align: center;
+  white-space: nowrap;
+  background: #000000;
+  border-radius: 50px 50px 50px 50px
+  /* text-shadow: 1px 1px 20px #000000; */
+}
 
 #panel {
     position: relative;
