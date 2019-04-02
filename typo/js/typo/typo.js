@@ -75,7 +75,7 @@ function changeTypo(stagee, timing, nextStep)
               stagee++;
               if(stagee == stringCubeRotation.length)
               {
-                stagee = 0;
+                stagee = 1;
               }
 
               // console.log("Complete", stagee);
