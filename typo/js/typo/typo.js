@@ -1,11 +1,11 @@
 var rendererColorArray = [];
-rendererColorArray.push({r: 0, g: 0, b: 1}); //0
+rendererColorArray.push({r: 1, g: 1, b: 1}); //0
 rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //1
 rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //1
 rendererColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //1
 
 var arrayColorArray = [];
-arrayColorArray.push({r: 18/255, g:  65/255, b: 204/255}); //0\
+arrayColorArray.push({r: 0, g:  0, b: 0}); //0\
 arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
 arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
 

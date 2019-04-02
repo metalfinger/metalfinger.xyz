@@ -238,7 +238,7 @@ function changeScene(d)
         array1Tween.easing(TWEEN.Easing.Elastic.InOut)
         array1Tween.start();
 
-        changeTypo(2, 1);
+        changeTypo(1, 1);
       }
     }
 }
@@ -253,8 +253,8 @@ function render(){
 
   if(isDevicePhone)
   {
-    mouseX = phoneOrientationZ*36;
-    mouseY = phoneOrientationY*18;
+    mouseX = -phoneOrientationZ*18;
+    mouseY = -phoneOrientationY*9;
   }
 
 
