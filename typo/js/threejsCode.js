@@ -238,7 +238,7 @@ function changeScene(d)
         array1Tween.easing(TWEEN.Easing.Elastic.InOut)
         array1Tween.start();
 
-        changeTypo(1, 3);
+        changeTypo(1, 1);
       }
     }
 }
@@ -260,7 +260,7 @@ function render(){
 
   if(1)//!animateBool)
   {
-    camera.position.x += ( - mouseX/20 - camera.position.x ) * .05;
+    camera.position.x += ( - mouseX/30 - camera.position.x ) * .05;
     camera.position.y += ( - mouseY/15 - camera.position.y ) * .05;
   }
 
