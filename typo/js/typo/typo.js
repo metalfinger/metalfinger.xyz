@@ -1,13 +1,13 @@
 var rendererColorArray = [];
 rendererColorArray.push({r: 0, g: 0, b: 1}); //0
-rendererColorArray.push({r: 223/255, g: 75/255, b: 64/255}); //1
-rendererColorArray.push({r: 223/255, g: 75/255, b: 64/255}); //1
-rendererColorArray.push({r: 96/255, g: 96/255, b: 96/255}); //2
+rendererColorArray.push({r: 250/255, g: 250/255, b: 250/255}); //1
+rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //1
+rendererColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //1
 
 var arrayColorArray = [];
-arrayColorArray.push({r: 102/255, g:  252/2550, b: 241/255}); //0
-arrayColorArray.push({r: 0/255, g: 255/255, b: 250/255}); //0
-arrayColorArray.push({r: 255/255, g: 255/255, b: 56/255}); //0
+arrayColorArray.push({r: 241/255, g:  240/255, b: 236/255}); //0
+arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
+arrayColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //0
 
 
 var smartYPos = 10;
