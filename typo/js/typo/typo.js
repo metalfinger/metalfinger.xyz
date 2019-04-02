@@ -89,7 +89,7 @@ function changeTypo(stagee, timing, nextStep)
               array1Tween.start();
 
 
-              changeTypo(stagee, 1, nextStep);
+              changeTypo(stagee, 3, nextStep);
             }
           });
         }
