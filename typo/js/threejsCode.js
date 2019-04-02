@@ -44,7 +44,7 @@ scene.add(light3);
 //  scene.add(light4);
 
 var light5 = new THREE.DirectionalLight(0xffffff, 0.5);
-light5.position.y = -1;
+// light5.position.y = -1;
 // scene.add(light5);
 
 var light = new THREE.AmbientLight( 0xffffff ); // soft white light
