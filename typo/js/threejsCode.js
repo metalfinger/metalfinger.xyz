@@ -238,7 +238,7 @@ function changeScene(d)
         array1Tween.easing(TWEEN.Easing.Elastic.InOut)
         array1Tween.start();
 
-        changeTypo(1, 1);
+        changeTypo(2, 1);
       }
     }
 }
