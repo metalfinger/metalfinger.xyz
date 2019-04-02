@@ -47,6 +47,9 @@ var light5 = new THREE.DirectionalLight(0xffffff, 1);
 light5.position.z = -1;
 scene.add(light5);
 
+var light = new THREE.AmbientLight( 0xffffff ); // soft white light
+scene.add( light );
+
 // var light1 = new THREE.DirectionalLight(0x00ff00, 1);
 //light1.position.x = 1;
 // scene.add(light1);
@@ -137,7 +140,7 @@ material= new THREE.MeshPhongMaterial( {
 
 var texture = new THREE.TextureLoader().load( "tex.png" );
 
-material = new THREE.MeshBasicMaterial( { map: texture} );
+material = new THREE.MeshLambertMaterial( { map: texture} );
 
 
 
