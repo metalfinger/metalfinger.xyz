@@ -135,7 +135,7 @@ material= new THREE.MeshPhongMaterial( {
 //material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true } ) ;
 
 
-var texture = new THREE.TextureLoader().load( "checkered.png" );
+var texture = new THREE.TextureLoader().load( "tex.png" );
 
 material = new THREE.MeshBasicMaterial( { map: texture} );
 
