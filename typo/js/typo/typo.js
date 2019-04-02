@@ -1,11 +1,11 @@
 var rendererColorArray = [];
 rendererColorArray.push({r: 0, g: 0, b: 1}); //0
-rendererColorArray.push({r: 252/255, g: 238/255, b: 128/255}); //1
+rendererColorArray.push({r: 96/255, g: 96/255, b: 96/255}); //1
 rendererColorArray.push({r: 96/255, g: 96/255, b: 96/255}); //2
 
 var arrayColorArray = [];
 arrayColorArray.push({r: 102/255, g:  252/2550, b: 241/255}); //0
-arrayColorArray.push({r: 255/255, g: 255/255, b: 56/255}}); //0
+arrayColorArray.push({r: 252/255, g: 238/255, b: 128/255}); //0
 arrayColorArray.push({r: 255/255, g: 255/255, b: 56/255}); //0
 
 
@@ -74,7 +74,7 @@ function changeTypo(stagee, timing, nextStep)
               stagee++;
               if(stagee == stringCubeRotation.length)
               {
-                stagee = 1;
+                stagee = 0;
               }
 
               // console.log("Complete", stagee);
