@@ -214,6 +214,8 @@ camera.position.z = -15;
 camera.lookAt(scene.position);
 
 
+
+
 //SCENE CHANGING CODE STARTS
 
 var currentScene = -1;
@@ -305,7 +307,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
    console.log("DeviceOrientation is supported");
    isDevicePhone = true;
-   camera.position.z = -100;
+   camera.position.z = -50;
 
    window.addEventListener('deviceorientation', function(event) {
     //  document.getElementById("moAccel").innerHTML = 0;//event.alpha;
