@@ -253,14 +253,14 @@ function render(){
 
   if(isDevicePhone)
   {
-    mouseX = -phoneOrientationZ*18;
+    mouseX = -phoneOrientationZ*9;
     mouseY = -phoneOrientationY*9;
   }
 
 
   if(1)//!animateBool)
   {
-    camera.position.x += ( - mouseX/30 - camera.position.x ) * .05;
+    camera.position.x += ( - mouseX/20 - camera.position.x ) * .05;
     camera.position.y += ( - mouseY/15 - camera.position.y ) * .05;
   }
 
