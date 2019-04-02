@@ -23,7 +23,7 @@ var scene = new THREE.Scene();
 
 
 var light = new THREE.DirectionalLight(0x2c2c54, 1);
-light.position.x = 1;
+// light.position.x = 1;
 // scene.add(light);
 
  // var light2 = new THREE.DirectionalLight(0x00ff00, 1);
@@ -36,7 +36,7 @@ light.position.x = 1;
 //
 
 var light3 = new THREE.DirectionalLight(0xffffff, 1);
-light3.position.x = -1;
+light3.position.x = 1;
 scene.add(light3);
 
 //  var light4 = new THREE.DirectionalLight(0x00ff00, 0.5);
@@ -44,7 +44,7 @@ scene.add(light3);
 //  scene.add(light4);
 
 var light5 = new THREE.DirectionalLight(0xffffff, 1);
-light5.position.z = -1;
+light5.position.y = -1;
 scene.add(light5);
 
 var light = new THREE.AmbientLight( 0xffffff ); // soft white light
