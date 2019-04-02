@@ -139,9 +139,9 @@ material= new THREE.MeshPhongMaterial( {
 
 
 var texture = new THREE.TextureLoader().load( "tex.png" );
-var bMap = new THREE.TextureLoader().load( "blackwhite.png" );
+var bMap = new THREE.TextureLoader().load( "fiber.jpg" );
 
-material = new THREE.MeshPhongMaterial( { map: texture, normalMap :bMap} );
+material = new THREE.MeshPhongMaterial( { normalMap :bMap} );
 
 
 

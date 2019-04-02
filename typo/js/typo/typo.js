@@ -63,7 +63,7 @@ function changeTypo(stagee, timing, nextStep)
 
         tween.easing(TWEEN.Easing.Elastic.InOut)
         tween.start();
-        
+
 
         if( (i == 0) && (j == 0) && (k == 0))
         {
