@@ -139,8 +139,9 @@ material= new THREE.MeshPhongMaterial( {
 
 
 var texture = new THREE.TextureLoader().load( "tex.png" );
+var bMap = new THREE.TextureLoader().load( "bump.png" );
 
-material = new THREE.MeshLambertMaterial( { map: texture} );
+material = new THREE.MeshLambertMaterial( { map: texture, bumpMap :bMap} );
 
 
 
