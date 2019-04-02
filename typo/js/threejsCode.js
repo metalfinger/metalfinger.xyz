@@ -36,7 +36,7 @@ light.position.x = 1;
 //
 
 var light3 = new THREE.DirectionalLight(0xffffff, 1);
-light3.position.x = 1;
+light3.position.x = -1;
 scene.add(light3);
 
 //  var light4 = new THREE.DirectionalLight(0x00ff00, 0.5);
