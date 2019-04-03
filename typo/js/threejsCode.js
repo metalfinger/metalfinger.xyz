@@ -96,7 +96,7 @@ var stringCube = [
     [1, 1, 1,  0, 0, 1,  0, 0, 0],
     [1, 0, 0,  0, 0, 0,  0, 0, 1],
     [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 1, 0,  0, 0, 1],
+    [1, 0, 0,  0, 1, 0,  0, 0, 0],
     [1, 0, 0,  0, 0, 0,  0, 0, 1],
     [1, 0, 0,  0, 0, 0,  0, 0, 1],
     [1, 0, 0,  1, 0, 0,  1, 1, 0]
@@ -141,13 +141,13 @@ var stringCubeRotation = [
     [0, 0, 0,  0, 0, 0,  0, 0, 0]
   ],
   [ //Capital B -> 3
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],  //10 for the top-right edge //11 is support
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 10,  0, 0, 0],  //10 for the top-right edge //11 is support
+    [0, 0, 0,  0, 0, 0,  0, 0, 5],
+    [0, 0, 0,  0, 0, 0,  0, 0, 5],
     [0, 0, 0,  0, 45, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0]  //20 for the bottom-right edge
+    [0, 0, 0,  0, 0, 0,  0, 0, 5],
+    [0, 0, 0,  0, 0, 0,  0, 0, 5],
+    [0, 0, 0,  0, 0, 0,  0, 20, 0]  //20 for the bottom-right edge
   ],
   [ //Small B -> 4
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
@@ -175,8 +175,8 @@ material= new THREE.MeshPhongMaterial( {
 //material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true } ) ;
 
 
-var texture = new THREE.TextureLoader().load( "texB.png" );
-var bMap = new THREE.TextureLoader().load( "bump.png" );
+var texture = new THREE.TextureLoader().load( "texB.jpg" );
+var bMap = new THREE.TextureLoader().load( "bumpB.jpg" );
 
 material = new THREE.MeshPhongMaterial( { map:texture, normalMap :bMap} );
 

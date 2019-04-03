@@ -56,6 +56,22 @@ function changeTypo(stagee, timing, nextStep)
           _sx = Math.sqrt(2);
         }
 
+        if(stringCubeRotation[stagee][k+3][arrayCounter] == 10)
+         {
+          _sz = 2;
+          // _sx = Math.sqrt(2);
+        }
+        if(stringCubeRotation[stagee][k+3][arrayCounter] == 20)
+         {
+          _sx = 2;
+          // _sx = Math.sqrt(2);
+        }
+        if(stringCubeRotation[stagee][k+3][arrayCounter] == 5)
+         {
+          _sy = 2;
+          // _sx = Math.sqrt(2);
+        }
+
 
 
         var target = {sx: _sx,
@@ -83,7 +99,7 @@ function changeTypo(stagee, timing, nextStep)
               stagee++;
               if(stagee == stringCubeRotation.length)
               {
-                stagee = stagee - 2; //1
+                stagee = 1;//stagee - 2; //1
               }
 
               // console.log("Complete", stagee);
