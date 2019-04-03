@@ -2,10 +2,13 @@ var rendererColorArray = [];
 rendererColorArray.push({r: 1, g: 1, b: 1}); //0
 rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //1
 rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //1
-rendererColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //1
+rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //1
+rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //1
 
 var arrayColorArray = [];
 arrayColorArray.push({r: 0, g:  0, b: 0}); //0\
+arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
+arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
 arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
 arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
 
@@ -43,12 +46,17 @@ function changeTypo(stagee, timing, nextStep)
         var _ry = 0;
         var _rz = 0;
 
-        _ry = stringCubeRotation[stagee][k+3][arrayCounter]*(Math.PI/180);
-        if(stringCubeRotation[stagee][k+3][arrayCounter] != 0)
-        {
+
+        // Middle bar rotation
+
+        if(stringCubeRotation[stagee][k+3][arrayCounter] == 45)
+         {
+           _ry = 45*(Math.PI/180);
           _sz = Math.sqrt(2)*2;
           _sx = Math.sqrt(2);
         }
+
+
 
         var target = {sx: _sx,
                       sy: _sy,
@@ -75,7 +83,7 @@ function changeTypo(stagee, timing, nextStep)
               stagee++;
               if(stagee == stringCubeRotation.length)
               {
-                stagee = 1;
+                stagee = stagee - 2; //1
               }
 
               // console.log("Complete", stagee);

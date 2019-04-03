@@ -91,11 +91,29 @@ var stringCube = [
     [1, 0, 0,  0, 0, 0,  0, 0, 1],
     [1, 0, 0,  0, 0, 0,  0, 0, 1],
     [1, 0, 0,  1, 0, 0,  1, 1, 1]
+  ],
+  [  //Capital B -> 3
+    [1, 1, 1,  0, 0, 1,  0, 0, 0],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 1, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  1, 0, 0,  1, 1, 0]
+  ],
+  [  //Small B -> 4
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  0, 1, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  1, 0, 0,  1, 1, 1]
   ]
 ]
 
 var stringCubeRotation = [
-  [
+  [// Initial ->0
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
@@ -104,7 +122,7 @@ var stringCubeRotation = [
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0]
   ],
-  [
+  [ //Capital A -> 1
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
@@ -113,7 +131,25 @@ var stringCubeRotation = [
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0]
   ],
-  [
+  [ //Small A -> 2
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 45, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0]
+  ],
+  [ //Capital B -> 3
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],  //10 for the top-right edge //11 is support
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 45, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0]  //20 for the bottom-right edge
+  ],
+  [ //Small B -> 4
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
@@ -139,7 +175,7 @@ material= new THREE.MeshPhongMaterial( {
 //material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true } ) ;
 
 
-var texture = new THREE.TextureLoader().load( "tex.png" );
+var texture = new THREE.TextureLoader().load( "texB.png" );
 var bMap = new THREE.TextureLoader().load( "bump.png" );
 
 material = new THREE.MeshPhongMaterial( { map:texture, normalMap :bMap} );
@@ -238,7 +274,7 @@ function changeScene(d)
         array1Tween.easing(TWEEN.Easing.Elastic.InOut)
         array1Tween.start();
 
-        changeTypo(1, 1);
+        changeTypo(3, 1);
       }
     }
 }
