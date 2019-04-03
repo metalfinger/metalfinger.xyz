@@ -10,7 +10,7 @@ arrayColorArray.push({r: 0, g:  0, b: 0}); //0\
 arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
 arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
 arrayColorArray.push({r: 255/255, g: 255/255, b: 255/255}); //0
-arrayColorArray.push({r: 255/255, g: 255/255, b: 255/255}); //0
+arrayColorArray.push({r: 0, g: 0, b: 255/255}); //0
 
 
 var smartYPos = 10;
