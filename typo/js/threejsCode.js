@@ -176,7 +176,7 @@ material= new THREE.MeshPhongMaterial( {
 
 
 var texture = new THREE.TextureLoader().load( "texB.png" );
-var bMap = new THREE.TextureLoader().load( "blackwhite.png" );
+var bMap = new THREE.TextureLoader().load( "bumpB2.png" );
 
 material = new THREE.MeshPhongMaterial( { map:texture, normalMap :bMap} );
 
