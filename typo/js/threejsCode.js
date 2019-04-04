@@ -325,7 +325,7 @@ function changeScene(d)
         array1Tween.easing(TWEEN.Easing.Elastic.InOut)
         array1Tween.start();
 
-        changeTypo(3, 3);
+        changeTypo(3, 1);
       }
     }
 }
