@@ -21,6 +21,8 @@ renderer.setSize(winWidth, winHeight);
 var camera = new THREE.PerspectiveCamera(50, winWidth/winHeight, 0.1, 30000);
 var scene = new THREE.Scene();
 
+var lightGroup = new THREE.Object3D();
+
 
 var light = new THREE.DirectionalLight(0x2c2c54, 1);
 // light.position.x = 1;
@@ -35,18 +37,19 @@ var light = new THREE.DirectionalLight(0x2c2c54, 1);
 // scene.add(light2);
 //
 
-var light3 = new THREE.DirectionalLight(0xffffff, 0.5);
+var light3 = new THREE.DirectionalLight(0xffffff, 0.2);
 light3.position.x = 1;
-scene.add(light3);
+light3.rotation.y = 45*(Math.PI/180);
+lightGroup.add(light3);
 
 
- var light4 = new THREE.DirectionalLight(0xffffff, 0.5);
+ var light4 = new THREE.DirectionalLight(0xffffff, 0.2);
  light4.position.y = -1;
-  scene.add(light4);
+  lightGroup.add(light4);
 
 var light5 = new THREE.DirectionalLight(0xffffff, 1);
 light5.position.z = -1;
-scene.add(light5);
+lightGroup.add(light5);
 
 var light = new THREE.AmbientLight( 0xffffff ); // soft white light
 // scene.add( light );
@@ -175,10 +178,10 @@ material= new THREE.MeshPhongMaterial( {
 //material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true } ) ;
 
 
-var texture = new THREE.TextureLoader().load( "texB.png" );
-var bMap = new THREE.TextureLoader().load( "bumpB21.png" );
+var texture = new THREE.TextureLoader().load( "texBB.png" );
+var bMap = new THREE.TextureLoader().load( "bump.png" );
 
-material = new THREE.MeshPhongMaterial( { map:texture, normalMap :bMap} );
+material = new THREE.MeshPhongMaterial( { normalMap :bMap} );
 
 
 
@@ -195,7 +198,10 @@ var cubeArrayAnimation = [];
 var arrayCube = [];
 
 var masterGroup = new THREE.Object3D();
+
 scene.add(masterGroup);
+
+masterGroup.add(lightGroup);
 
 masterGroup.rotation.y = 45*(Math.PI/180);
 masterGroup.rotation.x = -35*(Math.PI/180);
@@ -241,6 +247,51 @@ for(var k = -3 ; k <= 3 ; k++)
 
 
 
+var subArray = [];
+
+var subGroup = new THREE.Object3D();
+
+
+
+subGroup.rotation.x = 45*(Math.PI/180);
+
+masterGroup.add(subGroup);
+
+geometry = new THREE.SphereGeometry( 0.2, 32, 32 );
+material = new THREE.MeshBasicMaterial( {color: 0xffb46e} );
+
+subGroup.position.x = -1;
+subGroup.position.y = 3;
+subGroup.position.z = -1;
+
+
+
+
+for(var k = 0 ; k <= 120 ; k++)
+{
+  var angle = 0;
+
+  angle = k*2*(Math.PI/180);
+
+  var mesh = new THREE.Mesh( geometry, material );
+
+  mesh.position.x = Math.sin(angle)*1.5;
+  mesh.position.y = 0;
+  mesh.position.z = Math.cos(angle)*1.5;;
+
+  mesh.scale.z = mesh.scale.y = mesh.scale.x = 0.3*(k/120);
+
+
+
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+
+  subArray.push(mesh);
+  subGroup.add(mesh);
+}
+
+
+
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ENDS
 
@@ -274,7 +325,7 @@ function changeScene(d)
         array1Tween.easing(TWEEN.Easing.Elastic.InOut)
         array1Tween.start();
 
-        changeTypo(3, 1);
+        changeTypo(3, 3);
       }
     }
 }
@@ -283,6 +334,8 @@ function changeScene(d)
 //Request for Render
 
 requestAnimationFrame(render);
+
+var counter = 0;
 
 //RENDER STARTS
 function render(){
@@ -301,6 +354,25 @@ function render(){
   }
 
   camera.lookAt(scene.position);
+
+  // BBBBBBB
+
+
+
+   subGroup.rotation.y = subGroup.rotation.y + 0.05;
+
+
+
+  counter = counter + 3;
+
+  if(counter == 180)
+  {
+     counter = 0;
+  }
+
+
+
+  // BBBBBBB
 
   renderer.render(scene, camera);
   requestAnimationFrame(render);
