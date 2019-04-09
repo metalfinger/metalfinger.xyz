@@ -1,16 +1,20 @@
 var rendererColorArray = [];
 rendererColorArray.push({r: 1, g: 1, b: 1}); //0
-rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //1
-rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //1
-rendererColorArray.push({r: 204/255, g: 44/255, b: 76/255}); //1
-rendererColorArray.push({r: 204/255, g: 44/255, b: 76/255}); //1
+rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //A
+rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //a
+rendererColorArray.push({r: 204/255, g: 44/255, b: 76/255}); //B
+rendererColorArray.push({r: 204/255, g: 44/255, b: 76/255}); //b
+rendererColorArray.push({r: 255/255, g: 183/255, b: 54/255}); //B
+rendererColorArray.push({r: 255/255, g: 183/255, b: 54/255}); //B
 
 var arrayColorArray = [];
-arrayColorArray.push({r: 0, g:  0, b: 0}); //0\
-arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
-arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //0
-arrayColorArray.push({r: 49/255, g: 63/255, b: 225/255}); //0
-arrayColorArray.push({r: 49/255, g: 63/255, b: 225/255}); //0
+arrayColorArray.push({r: 0, g:  0, b: 0}); //0
+arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //A
+arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //a
+arrayColorArray.push({r: 49/255, g: 63/255, b: 225/255}); //B
+arrayColorArray.push({r: 49/255, g: 63/255, b: 225/255}); //b
+arrayColorArray.push({r: 255/255, g: 255/255, b: 255/255}); //carrayColorArray.push({r: 254/255, g: 56/255, b: 5/255}); //c    rgb(254, , 5)
+arrayColorArray.push({r: 255/255, g: 255/255, b: 255/255}); //c
 
 
 
@@ -114,7 +118,7 @@ function changeTypo(stagee, timing, nextStep)
               array1Tween.start();
 
 
-              changeTypo(stagee, 1, nextStep);
+              changeTypo(stagee, 3, nextStep);
             }
           });
         }

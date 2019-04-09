@@ -112,6 +112,33 @@ var stringCube = [
     [1, 0, 0,  0, 0, 0,  0, 0, 1],
     [1, 0, 0,  0, 0, 0,  0, 0, 1],
     [1, 0, 0,  1, 0, 0,  1, 1, 1]
+  ],
+  [  //Capital C -> 5
+    [1, 1, 1,  0, 0, 1,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  1, 0, 0,  1, 1, 1]
+  ],
+  [  //Small C -> 6
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 1, 1,  0, 0, 1,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  1, 0, 0,  1, 1, 1],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0]
+  ],
+  [  //Small C -> 6
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 1, 1,  0, 0, 1,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+    [1, 0, 0,  1, 0, 0,  1, 1, 1]
   ]
 ]
 
@@ -160,6 +187,24 @@ var stringCubeRotation = [
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0]
+  ],
+  [ //Capital C -> 5
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0]
+  ],
+  [ //Small C -> 6
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0]
   ]
 ]
 
@@ -178,10 +223,14 @@ material= new THREE.MeshPhongMaterial( {
 //material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true } ) ;
 
 
-var texture = new THREE.TextureLoader().load( "texBB.png" );
-var bMap = new THREE.TextureLoader().load( "bump.png" );
+// BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+// var texture = new THREE.TextureLoader().load( "texBB.png" );
+// var bMap = new THREE.TextureLoader().load( "bump.png" );
 
-material = new THREE.MeshPhongMaterial( { normalMap :bMap} );
+var texture = new THREE.TextureLoader().load( "texCat.png" );
+var bMap = new THREE.TextureLoader().load( "norCat.png" );
+
+material = new THREE.MeshPhongMaterial( { tex :texture, normalMap :bMap} );
 
 
 
@@ -255,7 +304,7 @@ var subGroup = new THREE.Object3D();
 
 subGroup.rotation.x = 45*(Math.PI/180);
 
-masterGroup.add(subGroup);
+// masterGroup.add(subGroup);
 
 geometry = new THREE.SphereGeometry( 0.2, 32, 32 );
 material = new THREE.MeshBasicMaterial( {color: 0xffb46e} );
@@ -317,15 +366,15 @@ function changeScene(d)
     currentScene = d;
       if(d == 0)
       {
-        var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[1], 1*animationTime);
+        var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[d], 1*animationTime);
         tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
         tweenAnimation.start();
 
-        var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[1], 1*animationTime);
+        var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[d], 1*animationTime);
         array1Tween.easing(TWEEN.Easing.Elastic.InOut)
         array1Tween.start();
 
-        changeTypo(3, 1);
+        changeTypo(5, 3);
       }
     }
 }
@@ -355,7 +404,7 @@ function render(){
 
   camera.lookAt(scene.position);
 
-  // BBBBBBB
+  // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 
 
 
@@ -372,7 +421,7 @@ function render(){
 
 
 
-  // BBBBBBB
+  // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 
   renderer.render(scene, camera);
   requestAnimationFrame(render);
