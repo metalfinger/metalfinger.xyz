@@ -4,8 +4,13 @@ rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //A
 rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //a
 rendererColorArray.push({r: 204/255, g: 44/255, b: 76/255}); //B
 rendererColorArray.push({r: 204/255, g: 44/255, b: 76/255}); //b
-rendererColorArray.push({r: 255/255, g: 183/255, b: 54/255}); //B
-rendererColorArray.push({r: 255/255, g: 183/255, b: 54/255}); //B
+rendererColorArray.push({r: 255/255, g: 183/255, b: 54/255}); //C
+rendererColorArray.push({r: 255/255, g: 183/255, b: 54/255}); //c
+rendererColorArray.push({r: 1/255, g: 20/255, b: 1/255}); //c
+rendererColorArray.push({r: 1/255, g: 20/255, b: 1/255}); //c
+
+// rendererColorArray.push({r: 234/255, g: 120/255, b: 178/255}); //Drgb(234, 120, 178)
+// rendererColorArray.push({r: 234/255, g: 120/255, b: 178/255}); //Drgb(234, 120, 178)
 
 var arrayColorArray = [];
 arrayColorArray.push({r: 0, g:  0, b: 0}); //0
@@ -13,8 +18,10 @@ arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //A
 arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //a
 arrayColorArray.push({r: 49/255, g: 63/255, b: 225/255}); //B
 arrayColorArray.push({r: 49/255, g: 63/255, b: 225/255}); //b
-arrayColorArray.push({r: 255/255, g: 255/255, b: 255/255}); //carrayColorArray.push({r: 254/255, g: 56/255, b: 5/255}); //c    rgb(254, , 5)
+arrayColorArray.push({r: 255/255, g: 255/255, b: 255/255}); //C
 arrayColorArray.push({r: 255/255, g: 255/255, b: 255/255}); //c
+arrayColorArray.push({r: 102/255, g: 245/255, b: 150/255}); //Drgb(102, 245, 150)
+arrayColorArray.push({r: 102/255, g: 245/255, b: 150/255}); //Drgb(102, 245, 150)
 
 
 

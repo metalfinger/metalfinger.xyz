@@ -131,13 +131,22 @@ var stringCube = [
     [1, 0, 0,  1, 0, 0,  1, 1, 1],
     [0, 0, 0,  0, 0, 0,  0, 0, 0]
   ],
-  [  //Small C -> 6
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 1, 1,  0, 0, 1,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
+  [  //Capital D -> 7
+    [1, 1, 1,  0, 0, 1,  0, 0, 0],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  1, 0, 0,  1, 1, 0]
+  ],
+  [  //Small D -> 8
+    [0, 0, 0,  0, 0, 0,  0, 0, 1],
+    [0, 0, 0,  0, 0, 0,  0, 0, 1],
+    [0, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 1, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
+    [1, 0, 0,  0, 0, 0,  0, 0, 1],
     [1, 0, 0,  1, 0, 0,  1, 1, 1]
   ]
 ]
@@ -205,6 +214,24 @@ var stringCubeRotation = [
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0],
     [0, 0, 0,  0, 0, 0,  0, 0, 0]
+  ],
+  [ //Capital D -> 7
+    [0, 0, 0,  0, 0, 10,  0, 0, 0],  //10 for the top-right edge //11 is support
+    [0, 0, 0,  0, 0, 0,  0, 0, 5],
+    [0, 0, 0,  0, 0, 0,  0, 0, 5],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 5],
+    [0, 0, 0,  0, 0, 0,  0, 0, 5],
+    [0, 0, 0,  0, 0, 0,  0, 20, 0]  //20 for the bottom-right edge
+  ],
+  [ //Small D -> 8
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 45, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0],
+    [0, 0, 0,  0, 0, 0,  0, 0, 0]
   ]
 ]
 
@@ -227,10 +254,16 @@ material= new THREE.MeshPhongMaterial( {
 // var texture = new THREE.TextureLoader().load( "texBB.png" );
 // var bMap = new THREE.TextureLoader().load( "bump.png" );
 
-var texture = new THREE.TextureLoader().load( "texCat.png" );
-var bMap = new THREE.TextureLoader().load( "norCat.png" );
 
-material = new THREE.MeshPhongMaterial( { tex :texture, normalMap :bMap} );
+//CCd
+// var texture = new THREE.TextureLoader().load( "texCat.png" );
+// var bMap = new THREE.TextureLoader().load( "norCat.png" );
+
+var texture = new THREE.TextureLoader().load( "tex.png" );
+  var bMap = new THREE.TextureLoader().load( "normD.png" );
+
+
+material = new THREE.MeshPhongMaterial( {normalMap :bMap} );
 
 
 
@@ -374,7 +407,7 @@ function changeScene(d)
         array1Tween.easing(TWEEN.Easing.Elastic.InOut)
         array1Tween.start();
 
-        changeTypo(5, 3);
+        changeTypo(7, 3);
       }
     }
 }
