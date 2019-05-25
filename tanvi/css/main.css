@@ -1,3 +1,8 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
 
 
 #pre-title-sec{
