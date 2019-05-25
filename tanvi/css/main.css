@@ -1,18 +1,19 @@
 
 
 #pre-title-sec{
-    background-color: red;
+    /* background-color: red; */
     height: 50vh;
     position: relative;
 }
 
 #title-sec{
-    background-color: red;
+    /* background-color: red; */
     height: 100vh;
     position: relative;
 }
 
 #title{
+    font-size: 100px;
     text-align: center;
     vertical-align: middle;
     top: 30%;
@@ -41,14 +42,14 @@
 
 #brief-text-1-parent{
     margin-top: 200px;
-    background-color: aqua;
+    /* background-color: aqua; */
     height: 100vh;
 }
 
 .center-text{
     text-align: center;
     padding: 50px;
-    background-color: green;
+    /* background-color: green; */
 }
 
 #brief-text-1, #brief-title

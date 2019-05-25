@@ -4,7 +4,7 @@ $(document).ready(function()
     var controller = new ScrollMagic.Controller();
 
     //Pre Title 
-    var pre_title_tween = TweenMax.to('#title', 1, {
+    var pre_title_tween = TweenMax.to('#title', 0.2, {
         opacity:1,
     });
 
@@ -15,6 +15,11 @@ $(document).ready(function()
     // .addIndicators()
     .setTween(pre_title_tween)
     .addTo(controller);
+
+
+    
+
+    // alert($('#brief-sec').outerHeight(true));
 
     //Brief
     var brief_timeline = new TimelineMax();
@@ -32,12 +37,15 @@ $(document).ready(function()
     var brief_title_scene = new ScrollMagic.Scene({
         triggerElement: '#brief-sec',
         triggerHook: 0.3,
-        duration: $(window).height()*3.3  //THIS IS HARDCODED, NEED TO CALCULATE HEIGHT OF CORRELENT ELEMTNS AND PUT HERE
+        duration: $('#brief-sec').outerHeight(true) - $('#brief-text-1').outerHeight(true) //$(window).height()*3.3  //THIS IS HARDCODED, NEED TO CALCULATE HEIGHT OF CORRELENT ELEMTNS AND PUT HERE
     })
     // .addIndicators()
     .setTween(brief_timeline)
     .setPin('#brief-text-1', {pushFollowers:false})
     .addTo(controller);
+
+
+    
 
 
     $( ".header-sec" ).each(function() {
@@ -49,14 +57,14 @@ $(document).ready(function()
             {
             // transform: 'translateX(100%)'
             x: "-200%"
-        },0.15);
+        });
 
         var big_text_scene = new ScrollMagic.Scene({
             triggerElement: this,
             triggerHook: 0,
-            duration:$(window).height()
+            duration: $(window).height()
         })
-        .setPin(this)
+        .setPin(this,{pushFollowers: false})
         // .addIndicators()
         .setTween(big_text_tween)
         .addTo(controller);
