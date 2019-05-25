@@ -1,0 +1,61 @@
+
+
+#pre-title-sec{
+    background-color: red;
+    height: 50vh;
+    position: relative;
+}
+
+#title-sec{
+    background-color: red;
+    height: 100vh;
+    position: relative;
+}
+
+#title{
+    text-align: center;
+    vertical-align: middle;
+    top: 30%;
+    left: 50%;
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.header-sec{
+    height: 100vh;
+    position: relative;
+}
+
+.header-text{
+    font-size: 500px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    -ms-transform: translate(200%, -50%);
+    transform: translate(200%, -50%);
+}
+
+#brief-text-1-parent{
+    margin-top: 200px;
+    background-color: aqua;
+    height: 100vh;
+}
+
+.center-text{
+    text-align: center;
+    padding: 50px;
+    background-color: green;
+}
+
+#brief-text-1, #brief-title
+{
+    opacity: 1;
+}
+
+
+img{
+    max-width:100%;
+    max-height:100%
+}
