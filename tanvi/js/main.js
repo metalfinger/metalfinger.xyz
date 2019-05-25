@@ -42,10 +42,14 @@ $(document).ready(function()
 
     $( ".header-sec" ).each(function() {
         //test Big Text Left to Right
-        var big_text_tween = TweenMax.to(this.children[0], 1, {
+        var big_text_tween = TweenMax.fromTo(this.children[0], 1, 
+            {
+                x: "200%"
+            },
+            {
             // transform: 'translateX(100%)'
             x: "-200%"
-        });
+        },0.15);
 
         var big_text_scene = new ScrollMagic.Scene({
             triggerElement: this,

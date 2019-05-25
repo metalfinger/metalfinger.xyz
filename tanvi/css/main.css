@@ -26,15 +26,17 @@
 .header-sec{
     height: 100vh;
     position: relative;
+    overflow:hidden;
 }
 
 .header-text{
     font-size: 500px;
-    top: 50%;
+    left: 200%;
+    /* top: 50%;
     left: 50%;
-    position: absolute;
-    -ms-transform: translate(200%, -50%);
-    transform: translate(200%, -50%);
+    position: absolute; */
+    /* -ms-transform: translate(-50%%, -50%);
+    transform: translate(-50%, -50%); */
 }
 
 #brief-text-1-parent{
