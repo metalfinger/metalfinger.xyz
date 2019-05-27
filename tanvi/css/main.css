@@ -1,20 +1,24 @@
 body{
+    
     background-color: black!important;
+    /* background-image: linear-gradient(to right, #320094 , #F32C41); */
 }
 
 
 body, h1, h2{
     font-family: 'Righteous', cursive;
+    
     color: white;
 }
 
 h3, h4, h5, h6, div{
 font-family: 'Roboto', sans-serif;
+
     color: white;
 }
 
 
-.wrapper{
+.grid-wrapper-2{
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 5px;
@@ -38,6 +42,7 @@ font-family: 'Roboto', sans-serif;
     position: absolute;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    font-family: 'Kumar One Outline', cursive;
 }
 
 .area {
@@ -47,12 +52,12 @@ font-family: 'Roboto', sans-serif;
 }
 @-webkit-keyframes neon1 {
     from {
-      text-shadow: 0 0 10px #00f,
-                 0 0 75px  #00f;
+        text-shadow: 0 0 0px #000,
+                    0px 0 0px #000;
     }
     to {
-      text-shadow: 0 0 10px #FF1177,
-                 0 0 75px #FF1177;
+      text-shadow: 0 0 5px #000,
+                 0px 0 50px #000;
     }
   }
 
@@ -65,13 +70,15 @@ font-family: 'Roboto', sans-serif;
 
 .header-text{
     color: white;
-    font-size: 500px;
-    left: 200%;
-    /* top: 50%;
-    left: 50%;
+    font-size: 35vw;
+    /* left: 50%; */
+    top: 50%;
+    position: absolute;
+    /*left: 50%;
     position: absolute; */
-    /* -ms-transform: translate(-50%%, -50%);
-    transform: translate(-50%, -50%); */
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Righteous', cursive;
 }
 
 #brief-text-1-parent{
@@ -89,7 +96,6 @@ font-family: 'Roboto', sans-serif;
 #brief-text-1
 {
     padding: 5px;
-    text-align: right;
     opacity: 1;
 }
 
@@ -104,4 +110,17 @@ img{
     margin: 10px;
     border: #888;
     border-style: solid;
+    margin-bottom: 100px;
+
+}
+
+.movie-name
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: white;
+    color: black;
 }

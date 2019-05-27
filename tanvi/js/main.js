@@ -14,7 +14,7 @@ $(document).ready(function()
     var pre_title = new ScrollMagic.Scene({
         triggerElement: '#title-sec',
         triggerHook: 0.2,
-        duration:600
+        duration:1000
     })
     .setPin("#title")
     // .addIndicators()
@@ -27,25 +27,16 @@ $(document).ready(function()
     // alert($('#brief-sec').outerHeight(true));
 
     //Brief
-    var brief_timeline = new TimelineMax();
-
     var brief_title_tween = TweenMax.to('#brief-title', 0.5, {
         opacity:1
     });
-
-    var brief_text_1_tween = TweenMax.to('#brief-text-1', 0.5, {
-        opacity:1
-    });
-
-    brief_timeline.add(brief_title_tween).add(brief_text_1_tween);
-
     var brief_title_scene = new ScrollMagic.Scene({
         triggerElement: '#brief-sec',
         triggerHook: 0.3,
         duration: $('#brief-sec').outerHeight(true) - $('#brief-text-1').outerHeight(true) //$(window).height()*3.3  //THIS IS HARDCODED, NEED TO CALCULATE HEIGHT OF CORRELENT ELEMTNS AND PUT HERE
     })
     // .addIndicators()
-    .setTween(brief_timeline)
+    .setTween(brief_title_tween)
     .setPin('#brief-text-1', {pushFollowers:false})
     .addTo(controller);
 
@@ -57,17 +48,17 @@ $(document).ready(function()
         //test Big Text Left to Right
         var big_text_tween = TweenMax.fromTo(this.children[0], 1, 
             {
-                x: "100%"
+                x: "200%"
             },
             {
             // transform: 'translateX(100%)'
-            x: "-200%"
+            x: "0%"
         });
 
         var big_text_scene = new ScrollMagic.Scene({
             triggerElement: this,
             triggerHook: 0,
-            duration: $(window).height()*2
+            duration: $(window).height()
         })
         .setPin(this)//,{pushFollowers: false})
         // .addIndicators()
