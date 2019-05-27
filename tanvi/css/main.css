@@ -56,8 +56,8 @@ font-family: 'Roboto', sans-serif;
                     0px 0 0px #000;
     }
     to {
-      text-shadow: 0 0 5px #000,
-                 0px 0 50px #000;
+      text-shadow: 0 0 5px #fff,
+                 0px 0 50px #fff;
     }
   }
 
