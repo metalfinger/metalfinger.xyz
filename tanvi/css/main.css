@@ -1,14 +1,15 @@
+body{
+    background-color: black!important;
+}
 
 
 body, h1, h2{
     font-family: 'Righteous', cursive;
-    background-color: black;
     color: white;
 }
 
 h3, h4, h5, h6, div{
 font-family: 'Roboto', sans-serif;
-background-color: black;
     color: white;
 }
 
@@ -23,7 +24,6 @@ background-color: black;
 
 
 #title-sec{
-    background-color:black;
     height: 100vh;
     position: relative;
 }
@@ -58,7 +58,6 @@ background-color: black;
 
 
 .header-sec{
-    background-color:black;
     height: 100vh;
     position: relative;
     overflow:hidden;

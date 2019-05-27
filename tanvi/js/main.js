@@ -67,7 +67,7 @@ $(document).ready(function()
         var big_text_scene = new ScrollMagic.Scene({
             triggerElement: this,
             triggerHook: 0,
-            duration: $(window).height()
+            duration: $(window).height()*2
         })
         .setPin(this)//,{pushFollowers: false})
         // .addIndicators()
