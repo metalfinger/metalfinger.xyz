@@ -24,7 +24,17 @@ font-family: 'Roboto', sans-serif;
     column-gap: 5px;
     padding-right: 5px;
     padding-left: 5px;
+    
 }
+
+.grid-wrapper-3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
 
 
 #title-sec{
@@ -123,4 +133,17 @@ img{
     text-align: center;
     background-color: white;
     color: black;
+}
+
+
+.big-text{
+    font-size: 8vw;
+    /* left: 50%; */
+    top: 100%;
+    position: absolute;
+    /*left: 50%;
+    position: absolute; */
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    font-family: 'Righteous', cursive;
 }

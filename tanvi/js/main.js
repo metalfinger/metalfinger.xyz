@@ -26,18 +26,18 @@ $(document).ready(function()
 
     // alert($('#brief-sec').outerHeight(true));
 
-    //Brief
+    //Brief Section First Pin
     var brief_title_tween = TweenMax.to('#brief-title', 0.5, {
         opacity:1
     });
     var brief_title_scene = new ScrollMagic.Scene({
         triggerElement: '#brief-sec',
         triggerHook: 0.3,
-        duration: $('#brief-sec').outerHeight(true) - $('#brief-text-1').outerHeight(true) //$(window).height()*3.3  //THIS IS HARDCODED, NEED TO CALCULATE HEIGHT OF CORRELENT ELEMTNS AND PUT HERE
+        duration: $('#brief-sec').outerHeight(true) - $('#brief-text-2').outerHeight(true)*1.5 //$(window).height()*3.3  //THIS IS HARDCODED, NEED TO CALCULATE HEIGHT OF CORRELENT ELEMTNS AND PUT HERE
     })
     // .addIndicators()
     .setTween(brief_title_tween)
-    .setPin('#brief-text-1', {pushFollowers:false})
+    .setPin('#brief-text-1', {pushFollowers:true})
     .addTo(controller);
 
 
@@ -65,7 +65,25 @@ $(document).ready(function()
         .setTween(big_text_tween)
         .addTo(controller);
     });
-    
+
+
+//SUbtext
+$( ".subtext-parent" ).each(function(index) {
+
+    var subtext_tween = TweenMax.to(this.children[0], 1, {
+        opacity:1
+    });
+
+    var subtext_scene = new ScrollMagic.Scene({
+        triggerElement: this,
+        triggerHook: 0.05,
+        duration: $(window).height()*4
+    })
+    .addIndicators()
+    .setTween(subtext_tween)
+    .setPin(this, {pushFollowers:false})
+    .addTo(controller);
+});
 
 
 
