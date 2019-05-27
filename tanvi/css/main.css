@@ -1,27 +1,35 @@
+
+
+body, h1, h2{
+    font-family: 'Righteous', cursive;
+    background-color: black;
+    color: white;
+}
+
+h3, h4, h5, h6, div{
+font-family: 'Roboto', sans-serif;
+background-color: black;
+    color: white;
+}
+
+
 .wrapper{
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-gap: 5px;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin: 0px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
-
-
-#pre-title-sec{
-    /* background-color: red; */
-    height: 50vh;
-    position: relative;
-}
 
 #title-sec{
-    /* background-color: red; */
+    background-color:black;
     height: 100vh;
     position: relative;
 }
 
 #title{
+    color: white;
     font-size: 100px;
     text-align: center;
     vertical-align: middle;
@@ -30,16 +38,34 @@
     position: absolute;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    opacity: 0;
 }
 
+.area {
+    -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate; 
+}
+@-webkit-keyframes neon1 {
+    from {
+      text-shadow: 0 0 10px #00f,
+                 0 0 75px  #00f;
+    }
+    to {
+      text-shadow: 0 0 10px #FF1177,
+                 0 0 75px #FF1177;
+    }
+  }
+
+
 .header-sec{
+    background-color:black;
     height: 100vh;
     position: relative;
     overflow:hidden;
 }
 
 .header-text{
+    color: white;
     font-size: 500px;
     left: 200%;
     /* top: 50%;
@@ -61,8 +87,10 @@
     /* background-color: green; */
 }
 
-#brief-text-1, #brief-title
+#brief-text-1
 {
+    padding: 5px;
+    text-align: right;
     opacity: 1;
 }
 
@@ -70,4 +98,11 @@
 img{
     max-width:100%;
     max-height:100%
+}
+
+.movie-ref{
+    padding: 10px;
+    margin: 10px;
+    border: #888;
+    border-style: solid;
 }

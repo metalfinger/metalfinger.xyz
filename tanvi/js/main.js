@@ -1,5 +1,8 @@
 $(document).ready(function()
 {
+
+
+    
     // init ScrollMagic Controller
     var controller = new ScrollMagic.Controller();
 
@@ -10,8 +13,10 @@ $(document).ready(function()
 
     var pre_title = new ScrollMagic.Scene({
         triggerElement: '#title-sec',
-        triggerHook: 0.2
+        triggerHook: 0.2,
+        duration:600
     })
+    .setPin("#title")
     // .addIndicators()
     .setTween(pre_title_tween)
     .addTo(controller);
@@ -52,7 +57,7 @@ $(document).ready(function()
         //test Big Text Left to Right
         var big_text_tween = TweenMax.fromTo(this.children[0], 1, 
             {
-                x: "200%"
+                x: "100%"
             },
             {
             // transform: 'translateX(100%)'
@@ -64,7 +69,7 @@ $(document).ready(function()
             triggerHook: 0,
             duration: $(window).height()
         })
-        .setPin(this,{pushFollowers: false})
+        .setPin(this)//,{pushFollowers: false})
         // .addIndicators()
         .setTween(big_text_tween)
         .addTo(controller);
