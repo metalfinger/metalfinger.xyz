@@ -52,7 +52,7 @@ $(document).ready(function()
             },
             {
             // transform: 'translateX(100%)'
-            x: "0%"
+            x: "2%"
         });
 
         var big_text_scene = new ScrollMagic.Scene({
@@ -77,9 +77,9 @@ $( ".subtext-parent" ).each(function(index) {
     var subtext_scene = new ScrollMagic.Scene({
         triggerElement: this,
         triggerHook: 0.05,
-        duration: $(window).height()*4
+        duration: $(window).height()*2
     })
-    .addIndicators()
+    // .addIndicators()
     .setTween(subtext_tween)
     .setPin(this, {pushFollowers:false})
     .addTo(controller);

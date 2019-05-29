@@ -6,8 +6,7 @@ body{
 
 
 body, h1, h2{
-    font-family: 'Righteous', cursive;
-    
+    font-family: 'Righteous', cursive;   
     color: white;
 }
 
@@ -22,8 +21,8 @@ font-family: 'Roboto', sans-serif;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 4%;
+    padding-left: 4%;
     
 }
 
@@ -56,9 +55,9 @@ font-family: 'Roboto', sans-serif;
 }
 
 .area {
-    -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+    /* -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
   -moz-animation: neon1 1.5s ease-in-out infinite alternate;
-  animation: neon1 1.5s ease-in-out infinite alternate; 
+  animation: neon1 1.5s ease-in-out infinite alternate;  */
 }
 @-webkit-keyframes neon1 {
     from {
@@ -78,8 +77,8 @@ font-family: 'Roboto', sans-serif;
     overflow:hidden;
 }
 
-.header-text{
-    color: white;
+.header-text-1-brief{
+    color: #1EB4E7;
     font-size: 35vw;
     /* left: 50%; */
     top: 50%;
@@ -89,6 +88,20 @@ font-family: 'Roboto', sans-serif;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     font-family: 'Righteous', cursive;
+}
+
+.header-text-2-intend{
+    color: #1EB4E7;
+    font-size: 33vw;
+    /* left: 50%; */
+    top: 50%;
+    position: absolute;
+    /*left: 50%;
+    position: absolute; */
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Righteous', cursive;
+    line-height: 19vw;
 }
 
 #brief-text-1-parent{
@@ -103,10 +116,11 @@ font-family: 'Roboto', sans-serif;
     /* background-color: green; */
 }
 
-#brief-text-1
+#brief-text-1, #brief-text-2
 {
     padding: 5px;
     opacity: 1;
+    color: #1EB4E7;
 }
 
 
@@ -147,4 +161,20 @@ img{
     -ms-transform: translate(0%, -50%);
     transform: translate(0%, -50%);
     font-family: 'Righteous', cursive;
+}
+
+
+.center-text{
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    /*left: 50%;
+    position: absolute; */
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Righteous', cursive;
+}
+
+.subtext-parent{
+    /* background-color: #9F0626; */
 }
