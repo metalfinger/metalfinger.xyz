@@ -5,17 +5,26 @@ body{
 }
 
 
-body, h1, h2{
+body{
     font-family: 'Righteous', cursive;   
     color: white;
 }
 
-h3, h4, h5, h6, div{
+h1, h2, h3, h4, h5, h6, div{
 font-family: 'Roboto', sans-serif;
 
     color: white;
 }
 
+
+.grid-wrapper-10-1{
+    /* display: grid; */
+    /* grid-template-columns: 1fr 10fr; */
+    column-gap: 5px;
+    padding-right: 4%;
+    padding-left: 4%;
+    
+}
 
 .grid-wrapper-2{
     display: grid;
@@ -120,33 +129,50 @@ font-family: 'Roboto', sans-serif;
 {
     padding: 5px;
     opacity: 1;
-    color: #1EB4E7;
+    color: #fff;
 }
 
 
 img{
     max-width:100%;
-    max-height:100%
+    max-height:100%;
+}
+
+.important-text-1{
+    background-color: white;
+    border-radius: 4px; 
+    color: #073349;
+    padding-right: 5px;
+    padding-left: 5px;
+    font-weight: 600;
 }
 
 .movie-ref{
     padding: 10px;
-    margin: 10px;
-    border: #888;
+    margin: 10px;    
+    border: #fff;
     border-style: solid;
     margin-bottom: 100px;
+    border-radius: 4px; 
+    position: relative;
+}
 
+.movie-ref img{
+    display: inline-block;
 }
 
 .movie-name
 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
-    background-color: white;
-    color: black;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 3vw;
+    text-align: left;
+    background-color: black;
+    border-radius: 4px; 
+    color: white;
+    font-weight: 600;
+    
+    position: absolute; 
 }
 
 
@@ -154,13 +180,34 @@ img{
     font-size: 8vw;
     /* left: 50%; */
     top: 100%;
-    left: 10%;
+    left: 15%;
     position: absolute;
     /*left: 50%;
     position: absolute; */
     -ms-transform: translate(0%, -50%);
     transform: translate(0%, -50%);
     font-family: 'Righteous', cursive;
+}
+
+.big-text-1{
+    font-size: 5vw;
+    /* left: 50%; */
+    top: 100%;
+    /* left: 10%; */
+    /* position: absolute; */
+    /*left: 50%;
+    position: absolute; */
+    /* -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%); */
+    text-align: right;
+    font-family: 'Righteous', cursive;
+}
+
+.right-big-text{
+    font-size: 5vw;
+    font-family: 'Righteous', cursive;
+    /* left: 36%; */
+    text-align: left;
 }
 
 

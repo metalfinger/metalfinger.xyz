@@ -40,6 +40,27 @@ $(document).ready(function()
     .setPin('#brief-text-1', {pushFollowers:true})
     .addTo(controller);
 
+$( ".movie-name" ).each(function() {
+    console.log($(this).next().outerHeight(true))
+    
+});
+
+$( ".movie-name" ).each(function() {
+    var film_title_tween = TweenMax.to(this, 0.5, {
+        opacity:1
+    });
+    var film_title_scene = new ScrollMagic.Scene({
+        triggerElement: this,
+        triggerHook: 0.3,
+        duration: $(this).next().outerHeight(true) - $(this).height()
+    })
+    // .addIndicators()
+    .setTween(brief_title_tween)
+    .setPin(this, {pushFollowers:true})
+    .addTo(controller);
+
+    
+});
 
     
 
@@ -78,6 +99,23 @@ $( ".subtext-parent" ).each(function(index) {
         triggerElement: this,
         triggerHook: 0.05,
         duration: $(window).height()*2
+    })
+    // .addIndicators()
+    .setTween(subtext_tween)
+    .setPin(this, {pushFollowers:false})
+    .addTo(controller);
+});
+
+$( ".subtext-parent-3" ).each(function(index) {
+
+    var subtext_tween = TweenMax.to(this.children[0], 1, {
+        opacity:1
+    });
+
+    var subtext_scene = new ScrollMagic.Scene({
+        triggerElement: this,
+        triggerHook: 0.05,
+        duration: $(window).height()*4
     })
     // .addIndicators()
     .setTween(subtext_tween)
