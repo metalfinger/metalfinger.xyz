@@ -464,8 +464,8 @@ requestAnimationFrame(render);
 function render() {
 
   if (isDevicePhone) {
-    mouseX = phoneOrientationZ * 36;
-    mouseY = phoneOrientationY * 18;
+    mouseX = phoneOrientationZ * 18;//36;
+    mouseY = phoneOrientationY * 9;//18;
   }
 
   
@@ -735,7 +735,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
     console.log("DeviceOrientation is supported");
     isDevicePhone = true;
-    camera.position.z = -20;
+    camera.position.z = -60;
 
     window.addEventListener('deviceorientation', function (event) {
       //  document.getElementById("moAccel").innerHTML = 0;//event.alpha;
