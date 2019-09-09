@@ -1,5 +1,5 @@
 body {
-    background: white;
+    background: black;
     color: white;
     /* font-family: 'Rubik', sans-serif; */
     font-family: 'Montserrat', sans-serif;
@@ -27,6 +27,7 @@ body {
 
 
 .about-this-desktop{
+  display: none;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -37,9 +38,13 @@ body {
   font-weight: 200;
   font-style: italic;
   text-align: center;
+  line-height: 1.5;
+  background: #c0392b;
+  border-radius: 25px;
 }
 
 .about-this-mobile{
+  display: none;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -85,43 +90,47 @@ body {
   /* text-shadow: 1px 1px 20px #000000; */
 }
 
-.you{
-  position: fixed;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  color: #ffffff;
-  padding: 10px 15px 10px 15px;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 20px;
-  background: #000000;
-  text-align: center;
-  white-space: nowrap;
-  background: #000000;
-  border-radius: 50px 50px 50px 50px
-  /* text-shadow: 1px 1px 20px #000000; */
-}
 
 .grief{
   position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 1%;
+  right: 0%;
+  transform: translate(0%, -50%);
   margin: 0 auto;
   color: #ffffff;
-  padding: 10px 15px 10px 15px;
+  padding: 2px 4px 2px 4px;
   font-weight: 700;
   font-style: italic;
-  font-size: 20px;
+  font-size: 10px;
   background: #000000;
+  border-radius: 0px 25px 25px 0px
   text-align: center;
   white-space: nowrap;
   background: #000000;
-  border-radius: 50px 50px 50px 50px
+  border-radius: 25px 0px 0px 25px
   /* text-shadow: 1px 1px 20px #000000; */
 }
+
+.you{
+  position: fixed;
+  bottom: 3%;
+  right: 0%;
+  transform: translate(0%, -50%);
+  margin: 0 auto;
+  color: #ffffff;
+  padding: 2px 4px 2px 4px;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 10px;
+  background: #000000;
+  border-radius: 0px 25px 25px 0px
+  text-align: center;
+  white-space: nowrap;
+  background: #000000;
+  border-radius: 25px 0px 0px 25px
+  /* text-shadow: 1px 1px 20px #000000; */
+}
+
 
 #panel {
     position: relative;

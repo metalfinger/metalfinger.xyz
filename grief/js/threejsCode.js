@@ -503,7 +503,8 @@ function render(){
     TWEEN.update();
 
     for(var i = 0 ; i < 120 ; i+=1)
-    {
+    {      
+
       var mesh = moebiusArray[i];
       mesh.position.x = moebiusAnimation[i].x;
       mesh.position.y = moebiusAnimation[i].y;
