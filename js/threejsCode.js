@@ -735,7 +735,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
     console.log("DeviceOrientation is supported");
     isDevicePhone = true;
-    camera.position.z = -10;
+    camera.position.z = -20;
 
     window.addEventListener('deviceorientation', function (event) {
       //  document.getElementById("moAccel").innerHTML = 0;//event.alpha;
