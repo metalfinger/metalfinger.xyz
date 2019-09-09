@@ -4,7 +4,7 @@ rendererColorArray.push({r: 1, g: 1, b: 1}); //0
 rendererColorArray.push({r: 227/255, g: 226/255, b: 223/225}); //1
 
 var arrayColorArray = [];
-arrayColorArray.push({r: 102/255, g:  252/2550, b: 241/255}); //0
+arrayColorArray.push({r: 2/255, g:  22/2550, b: 241/255}); //0
 arrayColorArray.push({r: 0, g: 1, b: 0}); //0
 arrayColorArray.push({r: 238/255, g: 76/255, b: 124/255}); //0
 
