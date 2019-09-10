@@ -1,0 +1,648 @@
+<html>
+
+<body>
+    <div id="mainBody">
+
+
+
+        <!-- MAIN HTML CODE STARTS HERE -->
+        <div id="fullpage"
+            style="display: none; height: 100%; width: 100%; position: fixed; top: 0px; bottom: 0px; right: 0px; left:0px;">
+
+        </div>
+
+        <div id="moRotation">
+            moRotation
+        </div>
+
+        <div id="moInterval">
+            moInterval
+        </div>
+
+        
+
+        <canvas id="myCanvas"> </canvas>
+
+
+        <!-- MAIN HTML CODE ENDS HERE -->
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script> -->
+        <!-- <script type="text/javascript" src="js/reveal.js"></script>
+            <script type="text/javascript" src="js/head.min.js"></script> -->
+        <!-- <script type="text/javascript" src="js/menu.js"></script> -->
+        <!-- <script type="text/javascript" src="js/slideout.min.js"></script> -->
+        <!-- <script type="text/javascript" src="js/happy.js"></script> -->
+        <!-- <script type="text/javascript" src="js/index.js"></script> -->
+
+        <!-- <script type="text/javascript" src="js/three.js"></script> -->
+        <!-- <script type="text/javascript" src="js/Tween.js"></script> -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.js"></script>
+
+        <style>
+            #mainBody {
+                margin: 0;
+                background: white;
+                color: red;
+                font-family: 'Rubik', sans-serif;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                /*font-family: 'Montserrat', sans-serif;*/
+            }
+
+            canvas {
+                position: absolute;
+                margin: 0;
+            }
+
+            .reveal {
+                font-family: 'Rubik', sans-serif;
+            }
+
+
+            /*TEMP*/
+            .coming-soon {
+                position: fixed;
+                left: 50%;
+                bottom: 20%;
+                transform: translate(-50%, -50%);
+                margin: 0 auto;
+                font-weight: normal;
+                font-size: x-large;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+
+            /*COLORS*/
+
+            .text-color-teal {
+                color: #3498db;
+            }
+
+            .text-color-dark-teal {
+                color: #2980b9;
+            }
+
+            .text-color-indigo {
+                color: #1abc9c;
+            }
+
+            .text-color-dark-indigo {
+                color: #16a085;
+            }
+
+            .text-color-green {
+                color: #2ecc71;
+            }
+
+            .text-color-dark-green {
+                color: #27ae60;
+            }
+
+            .text-color-blue {
+                color: #34495e;
+            }
+
+            .text-color-dark-blue {
+                color: #2c3e50;
+            }
+
+            .text-color-purple {
+                color: #9b59b6;
+            }
+
+            .text-color-dark-purple {
+                color: #8e44ad;
+            }
+
+            .text-color-yellow {
+                color: #f1c40f;
+            }
+
+            .text-color-dark-yellow {
+                color: #f39c12;
+            }
+
+            .text-color-orange {
+                color: #e67e22;
+            }
+
+            .text-color-dark-orange {
+                color: #d35400;
+            }
+
+            .text-color-red {
+                color: #e74c3c;
+            }
+
+            .text-color-dark-red {
+                color: #c0392b;
+            }
+
+            .bg-color-teal {
+                background-color: #3498db;
+            }
+
+            .bg-color-dark-teal {
+                background-color: #2980b9;
+            }
+
+            .bg-color-indigo {
+                background-color: #1abc9c;
+            }
+
+            .bg-color-dark-indigo {
+                background-color: #16a085;
+            }
+
+            .bg-color-green {
+                background-color: #2ecc71;
+            }
+
+            .bg-color-dark-green {
+                background-color: #27ae60;
+            }
+
+            .bg-color-blue {
+                background-color: #34495e;
+            }
+
+            .bg-color-dark-blue {
+                background-color: #2c3e50;
+            }
+
+            .bg-color-purple {
+                background-color: #9b59b6;
+            }
+
+            .bg-color-dark-purple {
+                background-color: #8e44ad;
+            }
+
+            .bg-color-yellow {
+                background-color: #f1c40f;
+            }
+
+            .bg-color-dark-yellow {
+                background-color: #f39c12;
+            }
+
+            .bg-color-orange {
+                background-color: #e67e22;
+            }
+
+            .bg-color-dark-orange {
+                background-color: #d35400;
+            }
+
+            .bg-color-red {
+                background-color: #e74c3c;
+            }
+
+            .bg-color-dark-red {
+                background-color: #c0392b;
+            }
+
+            body {
+                width: 100%;
+                height: 100%;
+            }
+
+            .slideout-menu {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                width: 256px;
+                min-height: 100vh;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+                z-index: 0;
+                display: none;
+            }
+
+            .slideout-menu-left {
+                left: 0;
+            }
+
+            .slideout-menu-right {
+                right: 0;
+            }
+
+            .slideout-panel {
+                position: relative;
+                z-index: 1;
+                will-change: transform;
+                background-color: inherit;
+                /* A background-color is required */
+                min-height: 100vh;
+            }
+
+            .slideout-open,
+            .slideout-open body,
+            .slideout-open .slideout-panel {
+                overflow: hidden;
+            }
+
+            .slideout-open .slideout-menu {
+                display: block;
+            }
+
+            .main-logo {
+                position: fixed;
+                max-width: 100px;
+                top: 0px;
+                left: 0px;
+            }
+
+            .reveal section img {
+                border: none;
+                box-shadow: none;
+                margin: 0;
+                background: transparent;
+            }
+
+            .reveal section img:hover {
+                background: transparent;
+            }
+
+            .main-logo img {
+                width: 100%;
+                height: auto;
+            }
+
+            #panel {
+                position: relative;
+            }
+
+            #panel header {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 20px;
+                color: white;
+                text-align: right;
+            }
+
+            ul li {
+                list-style: none;
+            }
+
+            #menu {
+                background: gray;
+            }
+
+            .reveal .home-navigation-list {
+                text-align: right;
+                font-size: 20px;
+                color: white;
+                padding-right: 30px;
+                padding-top: 20px;
+            }
+
+            .reveal .home-navigation-list li {
+                line-height: 1.5;
+                text-align: right;
+            }
+
+            .reveal .home-navigation-list li a {
+                font-size: 20px;
+                text-decoration: none;
+
+            }
+
+            .text-align-right {
+                text-align: right;
+            }
+
+            .reveal a {
+                color: #fff;
+            }
+
+            .reveal a:hover,
+            .reveal a:hover img {
+                color: #fff;
+                border: none;
+                box-shadow: none;
+                margin: 0;
+                background: transparent;
+            }
+
+            .bg-color-default {
+                background: black;
+            }
+
+            body {
+                transition: all 0.6s;
+            }
+
+            section {
+                position: relative;
+            }
+
+            section .back-icon {
+                position: fixed;
+                cursor: pointer;
+                left: 25px;
+                top: 5px;
+            }
+
+            @media screen and (max-width: 45em) {
+                .hide-on-mobile {
+                    display: none;
+                }
+            }
+        </style>
+
+        <script>
+
+
+            var winWidth = window.innerWidth * (1);
+            var winHeight = window.innerHeight;
+            var cc = document.getElementById('myCanvas')
+
+            if (window.innerWidth < 720) {
+                winWidth = window.innerWidth;
+                cc.style.margin = "0 0 0 0";
+            }
+            else {
+                cc.style.margin = "0 0 0 0";
+            }
+
+            var group = new THREE.Object3D();
+            var cubeGroup = new THREE.Object3D();
+
+            var doubleArray;
+
+            var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('myCanvas'), antialias: true, alpha: true });
+            renderer.setClearColor(0x000000, 0);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(winWidth, winHeight);
+
+            var camera = new THREE.PerspectiveCamera(50, winWidth / winHeight, 0.1, 30000);
+            var scene = new THREE.Scene();
+
+
+            var light = new THREE.AmbientLight(0xffffff, 0.75);
+            scene.add(light);
+
+            var light1 = new THREE.PointLight(0xffffff, 0.3);
+            scene.add(light1);
+
+
+            var material = new THREE.MeshBasicMaterial({
+                color: 0xffffff
+            });
+
+            var barSize = 0.05;
+            var barDepth = 6;
+
+            geometry = new THREE.CubeGeometry(1, 1, 1);
+            var mesh = new THREE.Mesh(geometry, material);
+
+            var magicalNumberX = 8;
+            var magicalNumberY = 8;
+            var magicalNumberZ = 8;
+
+            var moebiusArray = [];
+            var particleArray = [];
+
+            var numberOfParticle = 1000;
+
+            material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true })
+            var moebiusMaterial = new THREE.MeshPhongMaterial({ color: 0x000000, specular: 0x666666, emissive: 0xffffff, shininess: 10, opacity: 0.9, transparent: true });
+
+            var texture = new THREE.Texture(generateTexture());
+            texture.needsUpdate = true;
+
+            var moebiusMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff, specular: 0xffffff, shininess: 30000, map: texture, transparent: true });
+
+            var moebiusMaterial = new THREE.MeshBasicMaterial({ color: 0x5A5883 });
+
+            //Moebius Strip
+            for (var i = 0; i < 360; i += 3) {
+                var angle = 0;
+
+                angle = i * (Math.PI / 180);
+
+                var mesh = new THREE.Mesh(geometry, moebiusMaterial);
+                mesh.position.x = Math.sin(angle) * magicalNumberX;
+                mesh.position.z = Math.cos(angle) * magicalNumberY;
+                mesh.position.y = Math.sin(((i * 2) + 180) * (Math.PI / 180)) * 2;
+
+                mesh.scale.x = barSize * 3;
+                mesh.scale.y = barDepth;
+                mesh.scale.z = barSize;
+                //
+                if ((0 < i) && (i <= 180)) {
+                    mesh.rotation.y = -angle;
+                }
+                else {
+                    mesh.rotation.y = angle;
+                }
+
+                mesh.rotation.x = ((i / 2)) * (Math.PI / 180);
+
+                mesh.castShadow = true;
+                mesh.receiveShadow = true;
+
+                group.add(mesh);
+                moebiusArray.push(mesh);
+            }
+
+
+            //Environment
+
+            barSize = 0.15;
+
+            geometry = new THREE.CubeGeometry(barSize, barSize, barSize);
+
+            material = new THREE.MeshBasicMaterial({
+                color: 0xCD804E
+            });
+
+            var maxArea = 130;
+            var minArea = maxArea / 2;
+
+            for (var i = 0; i < 1000; i += 1) {
+                var mesh = new THREE.Mesh(geometry, material);
+
+                mesh.position.x = Math.random() * maxArea - minArea;
+                mesh.position.y = Math.random() * maxArea - minArea;
+                mesh.position.z = Math.random() * maxArea - minArea;
+
+                mesh.rotation.x = Math.random() * 2 * Math.PI;
+                mesh.rotation.y = Math.random() * 2 * Math.PI;
+                mesh.rotation.z = Math.random() * 2 * Math.PI;
+
+                particleArray.push(mesh);
+
+                cubeGroup.add(mesh);
+            }
+
+            scene.add(group);
+            scene.add(cubeGroup);
+            group.position.set(0, 0, 0);
+            cubeGroup.position.set(0, 0, 0);
+
+            camera.position.z = -60;
+            camera.lookAt(scene.position);
+
+
+
+            //Request for Render
+
+            requestAnimationFrame(render);
+
+            //RENDER STARTS
+
+            function generateTexture() {
+                var canvas = document.createElement('canvas');
+                canvas.width = 256;
+                canvas.height = 256;
+                var context = canvas.getContext('2d');
+                var image = context.getImageData(0, 0, 256, 256);
+                var x = 0, y = 0;
+                for (var i = 0, j = 0, l = image.data.length; i < l; i += 4, j++) {
+                    x = j % 256;
+                    y = x == 0 ? y + 1 : y;
+                    image.data[i] = 255;
+                    image.data[i + 1] = 255;
+                    image.data[i + 2] = 255;
+                    image.data[i + 3] = Math.floor(x ^ y);
+                }
+                context.putImageData(image, 0, 0);
+                return canvas;
+            }
+
+            function render() {
+
+                if (isDevicePhone) {
+                    camera.position.x += (phoneOrientationZ - camera.position.x) * .05;
+                    camera.position.y += (phoneOrientationY - camera.position.y) * .05;
+
+                    camera.position.z = -40;
+                }
+                else {
+                    camera.position.x += (- mouseX / 8 - camera.position.x) * .05;
+                    camera.position.y += (- mouseY / 4 - camera.position.y) * .05;
+                }
+
+
+                camera.lookAt(scene.position);
+
+                var time = Date.now() * 0.001;
+
+                var multttt = 0.5;
+
+                var rx = Math.sin(time * 0.3) * multttt,
+                    ry = Math.sin(time * 0.4) * multttt,
+                    rz = Math.sin(time * 0.2) * multttt;
+
+                cubeGroup.rotation.x = rx;
+                cubeGroup.rotation.y = ry;
+                cubeGroup.rotation.z = rz;
+
+                // var timer = 0.0001 * Date.now();
+                //
+                // moebiusMaterial.emissive.setHSL( 1, 1, 1 * ( 0.9 + 0.1 * Math.sin( 350 * timer ) ) );
+
+                renderer.render(scene, camera);
+                requestAnimationFrame(render);
+            }
+
+
+            var phoneOrientationZ = 0;
+            var phoneOrientationY = 0;
+
+            var isDevicePhone = false;
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+                if (window.DeviceOrientationEvent) {
+                    console.log("DeviceOrientation is supported");
+                    isDevicePhone = true;
+
+                    window.addEventListener('deviceorientation', function (event) {
+                        // document.getElementById("moAccel").innerHTML = 0;//event.alpha;
+                        document.getElementById("moRotation").innerHTML = event.beta;
+                        document.getElementById("moInterval").innerHTML = event.gamma;
+
+                        
+
+                        // if( (0 < event.beta) && (event.beta < 45) )
+                        // {
+                        //   phoneOrientationY = event.beta;
+                        // }
+                        // if( (45 <= event.beta) && (event.beta < 90) )
+                        // {
+                        //   phoneOrientationY = event.beta;
+                        // }
+
+                        phoneOrientationY = event.beta - 45;
+
+                        if (Math.abs(event.gamma) < 45) {
+                            phoneOrientationZ = event.gamma;
+                        }
+                    }, false);
+                }
+            }
+
+
+
+            //Mouse Position
+
+            var canvas = document.getElementById('mainBody');
+
+            var mouseX = -1;
+            var mouseY = -1;
+
+            canvas.addEventListener('mousemove', function (evt) {
+                var mousePos = getMousePos(canvas, evt);
+                mouseX = mousePos.x - winWidth / 2;
+                mouseY = mousePos.y - winHeight / 2;
+
+            }, false);
+
+            function getMousePos(canvas, evt) {
+                var rect = canvas.getBoundingClientRect();
+                return {
+                    x: evt.clientX - rect.left,
+                    y: evt.clientY - rect.top
+                };
+            }
+
+            //WINDOWS RESIZE
+
+            window.addEventListener('resize', onWindowResize, false);
+
+            function onWindowResize() {
+                winWidth = window.innerWidth * (1);
+                winHeight = window.innerHeight;
+                var cc = document.getElementById('myCanvas');
+
+                if (window.innerWidth < 720) {
+                    winWidth = window.innerWidth;
+                    cc.style.margin = "0 0 0 0";
+
+                }
+                else {
+                    cc.style.margin = "0 0 0 0";
+                    cc.style.position = "absolute";
+                }
+
+                camera.aspect = winWidth / winHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(winWidth, winHeight);
+
+                console.log(winWidth + "     " + winHeight);
+            }
+
+        </script>
+    </div>
+</body>
+
+</html>
