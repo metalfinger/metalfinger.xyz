@@ -18,6 +18,10 @@
         <div id="moInterval">
             moInterval
         </div>
+        <div id="phoneType">
+            phoneType
+        </div>
+        
 
         
 
@@ -524,8 +528,6 @@
                 if (isDevicePhone) {
                     camera.position.x += (phoneOrientationZ - camera.position.x) * .05;
                     camera.position.y += (phoneOrientationY - camera.position.y) * .05;
-
-                    camera.position.z = -40;
                 }
                 else {
                     camera.position.x += (- mouseX / 8 - camera.position.x) * .05;
@@ -565,6 +567,7 @@
                 if (window.DeviceOrientationEvent) {
                     console.log("DeviceOrientation is supported");
                     isDevicePhone = true;
+                    document.getElementById("phoneType").innerHTML = event.gamma;
 
                     window.addEventListener('deviceorientation', function (event) {
                         // document.getElementById("moAccel").innerHTML = 0;//event.alpha;
