@@ -1,6 +1,6 @@
 var rendererColorArray = [];
 rendererColorArray.push({r: 1, g: 1, b: 1}); //0
-rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //A
+rendererColorArray.push({r: 255/255, g: 255/255, b: 255/255}); //A
 rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //a
 rendererColorArray.push({r: 204/255, g: 44/255, b: 76/255}); //B
 rendererColorArray.push({r: 204/255, g: 44/255, b: 76/255}); //b
@@ -13,7 +13,7 @@ rendererColorArray.push({r: 1/255, g: 20/255, b: 1/255}); //c
 // rendererColorArray.push({r: 234/255, g: 120/255, b: 178/255}); //Drgb(234, 120, 178)
 
 var arrayColorArray = [];
-arrayColorArray.push({r: 0, g:  0, b: 0}); //0
+arrayColorArray.push({r: 0, g:  1, b: 0}); //0
 arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //A
 arrayColorArray.push({r: 255/255, g: 114/255, b: 102/255}); //a
 arrayColorArray.push({r: 49/255, g: 63/255, b: 225/255}); //B
@@ -63,9 +63,10 @@ function changeTypo(stagee, timing, nextStep)
 
         if(stringCubeRotation[stagee][k+3][arrayCounter] == 45)
          {
-           _ry = 45*(Math.PI/180);
-          _sz = Math.sqrt(2)*2;
-          _sx = Math.sqrt(2);
+           _ry = -45*(Math.PI/180);
+          _sz = Math.sqrt(2);
+          _sx = Math.sqrt(2)*2;
+          _sy = 1.0001;
         }
 
         if(stringCubeRotation[stagee][k+3][arrayCounter] == 10)
@@ -99,6 +100,8 @@ function changeTypo(stagee, timing, nextStep)
         var tween = new TWEEN.Tween(position).to(target, timing*animationTime);
 
         tween.easing(TWEEN.Easing.Elastic.InOut)
+
+        // tween.easing(TWEEN.Easing.Easing.)
         tween.start();
 
 
@@ -108,24 +111,27 @@ function changeTypo(stagee, timing, nextStep)
             if(currentScene == 0)
             {
 
-              stagee++;
-              if(stagee == stringCubeRotation.length)
+             stagee++;
+
+              if(stagee == 3)//stringCubeRotation.length)
               {
-                stagee = stagee - 2; //1
+                stagee = 1;// stagee - 1; //1
               }
+
 
               // console.log("Complete", stagee);
 
-              var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[stagee], 1*animationTime);
-              tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
-              tweenAnimation.start();
+              // var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[stagee], 1*animationTime);
+              // tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
+              // tweenAnimation.start();
 
-              var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[stagee], 1*animationTime);
-              array1Tween.easing(TWEEN.Easing.Elastic.InOut)
-              array1Tween.start();
+              // var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[stagee], 1*animationTime);
+              // array1Tween.easing(TWEEN.Easing.Elastic.InOut)
+              // array1Tween.start();
 
 
-              changeTypo(stagee, 3, nextStep);
+              changeTypo(stagee, 1, nextStep);
+              currentStage = stagee;
             }
           });
         }

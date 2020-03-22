@@ -24,246 +24,73 @@ var scene = new THREE.Scene();
 var lightGroup = new THREE.Object3D();
 
 
-var light = new THREE.DirectionalLight(0x2c2c54, 1);
-// light.position.x = 1;
-// scene.add(light);
+//   var lightX1 = new THREE.DirectionalLight(0xff2079, 1);
+//   lightX1.position.x = 1;
+//   scene.add(lightX1);
 
- // var light2 = new THREE.DirectionalLight(0x00ff00, 1);
- // light2.position.y = 1;
- // scene.add(light2);
+//   var lightX2 = new THREE.DirectionalLight(0x4005e  , 1);
+// lightX2.position.x = -1;
+// scene.add(lightX2);
 
-// var light2 = new THREE.DirectionalLight(0xffffff, 0.5);
-// light2.position.z = 1;
-// scene.add(light2);
-//
-
-var light3 = new THREE.DirectionalLight(0xffffff, 0.2);
-light3.position.x = 1;
-light3.rotation.y = 45*(Math.PI/180);
-lightGroup.add(light3);
+// var lightY1 = new THREE.DirectionalLight(0xe92efb, 0.5);
+// lightY1.position.y = -1;
+// scene.add(lightY1);
 
 
- var light4 = new THREE.DirectionalLight(0xffffff, 0.2);
- light4.position.y = -1;
-  lightGroup.add(light4);
+var lightX1 = new THREE.DirectionalLight(0xaaaaaa, 0.5);
+lightX1.position.x = 1;
+scene.add(lightX1);
 
-var light5 = new THREE.DirectionalLight(0xffffff, 1);
-light5.position.z = -1;
-lightGroup.add(light5);
+var lightX2 = new THREE.DirectionalLight(0xeeeeee  , 0.5);
+lightX2.position.x = -1;
+scene.add(lightX2);
 
-var light = new THREE.AmbientLight( 0xffffff ); // soft white light
-// scene.add( light );
-
-// var light1 = new THREE.DirectionalLight(0x00ff00, 1);
-//light1.position.x = 1;
-// scene.add(light1);
-
-//var light1 = new THREE.AmbientLight(0xffffff, 1);
-//light1.position.set(0, 100, 0);
-//scene.add(light1);
+var lightY1 = new THREE.DirectionalLight(0xffffff, 0.5);
+lightY1.position.y = -1;
+scene.add(lightY1);
 
 
 
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-var stringCube = [
-  [ //Initial -> 0
-    [1, 1, 1,  1, 0, 1,  1, 1, 1],
-    [1, 0, 1,  0, 0, 0,  1, 0, 1],
-    [1, 0, 1,  0, 0, 0,  1, 0, 1],
-    [1, 1, 1,  1, 0, 1,  1, 1, 1],
-    [1, 0, 1,  0, 0, 0,  1, 0, 1],
-    [1, 0, 1,  0, 0, 0,  1, 0, 1],
-    [1, 1, 1,  1, 0, 1,  1, 1, 1],
-  ],
-  [  //Capital A -> 1
-    [1, 1, 1,  0, 0, 1,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 1, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1]
-  ],
-  [  //Small A -> 2
-    [1, 1, 1,  0, 0, 1,  0, 0, 1],
-    [0, 0, 0,  0, 0, 0,  0, 0, 1],
-    [0, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 1, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  1, 0, 0,  1, 1, 1]
-  ],
-  [  //Capital B -> 3
-    [1, 1, 1,  0, 0, 1,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 1, 0,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  1, 0, 0,  1, 1, 0]
-  ],
-  [  //Small B -> 4
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 0, 0,  0, 1, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  1, 0, 0,  1, 1, 1]
-  ],
-  [  //Capital C -> 5
-    [1, 1, 1,  0, 0, 1,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  1, 0, 0,  1, 1, 1]
-  ],
-  [  //Small C -> 6
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 1, 1,  0, 0, 1,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 0],
-    [1, 0, 0,  1, 0, 0,  1, 1, 1],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0]
-  ],
-  [  //Capital D -> 7
-    [1, 1, 1,  0, 0, 1,  0, 0, 0],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  1, 0, 0,  1, 1, 0]
-  ],
-  [  //Small D -> 8
-    [0, 0, 0,  0, 0, 0,  0, 0, 1],
-    [0, 0, 0,  0, 0, 0,  0, 0, 1],
-    [0, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 1, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  0, 0, 0,  0, 0, 1],
-    [1, 0, 0,  1, 0, 0,  1, 1, 1]
-  ]
-]
-
-var stringCubeRotation = [
-  [// Initial ->0
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0]
-  ],
-  [ //Capital A -> 1
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 45, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0]
-  ],
-  [ //Small A -> 2
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 45, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0]
-  ],
-  [ //Capital B -> 3
-    [0, 0, 0,  0, 0, 10,  0, 0, 0],  //10 for the top-right edge //11 is support
-    [0, 0, 0,  0, 0, 0,  0, 0, 5],
-    [0, 0, 0,  0, 0, 0,  0, 0, 5],
-    [0, 0, 0,  0, 45, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 5],
-    [0, 0, 0,  0, 0, 0,  0, 0, 5],
-    [0, 0, 0,  0, 0, 0,  0, 20, 0]  //20 for the bottom-right edge
-  ],
-  [ //Small B -> 4
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 45, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0]
-  ],
-  [ //Capital C -> 5
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0]
-  ],
-  [ //Small C -> 6
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0]
-  ],
-  [ //Capital D -> 7
-    [0, 0, 0,  0, 0, 10,  0, 0, 0],  //10 for the top-right edge //11 is support
-    [0, 0, 0,  0, 0, 0,  0, 0, 5],
-    [0, 0, 0,  0, 0, 0,  0, 0, 5],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 5],
-    [0, 0, 0,  0, 0, 0,  0, 0, 5],
-    [0, 0, 0,  0, 0, 0,  0, 20, 0]  //20 for the bottom-right edge
-  ],
-  [ //Small D -> 8
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 45, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0],
-    [0, 0, 0,  0, 0, 0,  0, 0, 0]
-  ]
-]
+var light = new THREE.AmbientLight( 0xffffff, 0.5 ); // soft white light
+// scene.add( light);
 
 
+var texture = new THREE.TextureLoader().load( "t3.png" );
+var bMap = new THREE.TextureLoader().load( "normD.png" );
+var eMap = new THREE.TextureLoader().load( "e3.png" );
 
-var material = new THREE.MeshBasicMaterial({
-  color: 0xffffff
-});
+//Phone Material
+var material = new THREE.MeshPhongMaterial( {
+  map: texture,
+  normalMap: bMap,
+  emissiveMap: eMap,
+  emissive: 0xffaa00,
+  emissiveIntensity: 2
+  
+} );
 
-material= new THREE.MeshPhongMaterial( {
-                                        color: 0xffffff,
-                                        specular: 0x000000,
-                                        shininess: 0
-                                      } );
+var textureS = new THREE.TextureLoader().load( "t3e.png" );
+var bMapS = new THREE.TextureLoader().load( "normD.png" );
+var eMapS = new THREE.TextureLoader().load( "e3e.png" );
 
-//material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true } ) ;
-
-
-// BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-// var texture = new THREE.TextureLoader().load( "texBB.png" );
-// var bMap = new THREE.TextureLoader().load( "bump.png" );
-
-
-//CCd
-// var texture = new THREE.TextureLoader().load( "texCat.png" );
-// var bMap = new THREE.TextureLoader().load( "norCat.png" );
-
-var texture = new THREE.TextureLoader().load( "tex.png" );
-  var bMap = new THREE.TextureLoader().load( "normD.png" );
+var stretchedMaterial = new THREE.MeshPhongMaterial( {
+  map: textureS,
+  normalMap: bMapS,
+  emissiveMap: eMapS,
+  emissive: 0xffaa00,
+  emissiveIntensity: 2
+  
+} );
 
 
-material = new THREE.MeshPhongMaterial( {normalMap :bMap} );
+//Lambert Material
+// var material = new THREE.MeshLambertMaterial( {
+//   map: texture,
+//     color: 0xffffff,
+//     reflectivity: 0.8,
+//   // shininess: 0.3,
+// } );
 
 
 
@@ -286,7 +113,7 @@ scene.add(masterGroup);
 masterGroup.add(lightGroup);
 
 masterGroup.rotation.y = 45*(Math.PI/180);
-masterGroup.rotation.x = -35*(Math.PI/180);
+masterGroup.rotation.x = -30*(Math.PI/180);
 
 var multiVar = 1;
 
@@ -369,7 +196,7 @@ for(var k = 0 ; k <= 120 ; k++)
   mesh.receiveShadow = true;
 
   subArray.push(mesh);
-  subGroup.add(mesh);
+  //subGroup.add(mesh);
 }
 
 
@@ -379,14 +206,14 @@ for(var k = 0 ; k <= 120 ; k++)
 
 
 
-camera.position.z = -15;
+camera.position.z = -10;
 camera.lookAt(scene.position);
 
 
 
 
 //SCENE CHANGING CODE STARTS
-
+var currentStage = 1;
 var currentScene = -1;
 var animateBool = false;
 
@@ -399,15 +226,15 @@ function changeScene(d)
     currentScene = d;
       if(d == 0)
       {
-        var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[d], 1*animationTime);
-        tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
-        tweenAnimation.start();
+        // var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[d], 1*animationTime);
+        // tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
+        // tweenAnimation.start();
 
-        var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[d], 1*animationTime);
-        array1Tween.easing(TWEEN.Easing.Elastic.InOut)
-        array1Tween.start();
+        // var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[d], 1*animationTime);
+        // array1Tween.easing(TWEEN.Easing.Elastic.InOut)
+        // array1Tween.start();
 
-        changeTypo(7, 3);
+        changeTypo(currentStage, 1);
       }
     }
 }
@@ -418,6 +245,8 @@ function changeScene(d)
 requestAnimationFrame(render);
 
 var counter = 0;
+var emissionValue = 1;
+var emissionMax = 3;
 
 //RENDER STARTS
 function render(){
@@ -445,7 +274,7 @@ function render(){
 
 
 
-  counter = counter + 3;
+  counter = counter + 0.05;
 
   if(counter == 180)
   {
@@ -464,19 +293,70 @@ function render(){
 
     TWEEN.update();
 
-    for(var i = 0 ; i < stringCube[0].length*stringCube[0][0].length ; i+=1)
+    // for(var i = 0 ; i < stringCube[0].length*stringCube[0][0].length ; i+=1)
+    // {
+    //   var mesh = arrayCube[i];
+
+    //   mesh.scale.x = cubeArrayAnimation[i].sx;
+    //   mesh.scale.y = cubeArrayAnimation[i].sy;
+    //   mesh.scale.z = cubeArrayAnimation[i].sz;
+
+    //   mesh.rotation.x = cubeArrayAnimation[i].rx;
+    //   mesh.rotation.y = cubeArrayAnimation[i].ry;
+    //   mesh.rotation.z = cubeArrayAnimation[i].rz;
+
+    //   // if(stringCubeRotation[stagee][k+3][arrayCounter] == 45)
+    //   // {
+    //   //   mesh.material = stretchedMaterial;
+    //   // }
+
+    //   if(i == 0)
+    //   {
+    //     mesh.material.emissiveIntensity = 1 + Math.sin(counter);
+    //     console.log("HH");
+    //   }
+
+    // }
+
+    var meshArrayCounter = 0;
+
+    for(var k = -3 ; k <= 3 ; k++)
     {
-      var mesh = arrayCube[i];
+      var arrayCounter = 0;
 
-      mesh.scale.x = cubeArrayAnimation[i].sx;
-      mesh.scale.y = cubeArrayAnimation[i].sy;
-      mesh.scale.z = cubeArrayAnimation[i].sz;
+      for(var j = -1 ; j <= 1 ; j++)
+      {
+        for(var i = -1 ; i <= 1 ; i++)
+        {
 
-      mesh.rotation.x = cubeArrayAnimation[i].rx;
-      mesh.rotation.y = cubeArrayAnimation[i].ry;
-      mesh.rotation.z = cubeArrayAnimation[i].rz;
+          var mesh = arrayCube[meshArrayCounter];
 
+         if(stringCubeRotation[currentStage][k+3][arrayCounter] == 45)
+         {
+            mesh.material = stretchedMaterial;
+         }
+
+          mesh.scale.x = cubeArrayAnimation[meshArrayCounter].sx;
+          mesh.scale.y = cubeArrayAnimation[meshArrayCounter].sy;
+          mesh.scale.z = cubeArrayAnimation[meshArrayCounter].sz;
+
+          mesh.rotation.x = cubeArrayAnimation[meshArrayCounter].rx;
+          mesh.rotation.y = cubeArrayAnimation[meshArrayCounter].ry;
+          mesh.rotation.z = cubeArrayAnimation[meshArrayCounter].rz;
+
+          meshArrayCounter++;
+          arrayCounter++;
+
+          if( (i == -1) && (j == -1) && (k == -3))
+          {
+            mesh.material.emissiveIntensity = 1 + Math.sin(counter);  
+            stretchedMaterial.emissiveIntensity = 1 + Math.sin(counter);
+          }
+
+        }
+      }
     }
+
   }
 }
 
@@ -569,7 +449,7 @@ else {
     if(currentScene != -0)
     {
       changeScene(0);
-    }
+    } 
 
   }, false);
 }
