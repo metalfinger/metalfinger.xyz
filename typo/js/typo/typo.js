@@ -1,6 +1,6 @@
 var rendererColorArray = [];
 rendererColorArray.push({r: 1, g: 1, b: 1}); //0
-rendererColorArray.push({r: 255/255, g: 255/255, b: 255/255}); //A
+rendererColorArray.push({r: 11/255, g: 25/255, b: 2/255}); //A
 rendererColorArray.push({r: 86/255, g: 160/255, b: 167/255}); //a
 rendererColorArray.push({r: 204/255, g: 44/255, b: 76/255}); //B
 rendererColorArray.push({r: 204/255, g: 44/255, b: 76/255}); //b

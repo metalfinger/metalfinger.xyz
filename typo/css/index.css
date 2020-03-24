@@ -139,3 +139,28 @@ body {
 section {
     position: relative;
 }
+
+
+
+
+
+/* LATER ADDED */
+
+.text{
+  font-size: 38vh;
+  padding: 6vh;
+  color: #ffffff5c;
+}
+
+.scroller{
+  height: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+.container{
+  background-color: black;
+}

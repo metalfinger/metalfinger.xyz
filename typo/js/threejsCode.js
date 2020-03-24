@@ -37,17 +37,21 @@ var lightGroup = new THREE.Object3D();
 // scene.add(lightY1);
 
 
-var lightX1 = new THREE.DirectionalLight(0xaaaaaa, 0.5);
+var lightX1 = new THREE.DirectionalLight(0xffffff, 0.5);
 lightX1.position.x = 1;
 scene.add(lightX1);
 
-var lightX2 = new THREE.DirectionalLight(0xeeeeee  , 0.5);
+var lightX2 = new THREE.DirectionalLight(0xffffff  , 1);
 lightX2.position.x = -1;
 scene.add(lightX2);
 
-var lightY1 = new THREE.DirectionalLight(0xffffff, 0.5);
+var lightY1 = new THREE.DirectionalLight(0xffffff, 1);
 lightY1.position.y = -1;
 scene.add(lightY1);
+
+var lightY2 = new THREE.DirectionalLight(0xffffff, 0.8);
+lightY2.position.z = 1;
+scene.add(lightY2);
 
 
 
@@ -56,30 +60,38 @@ var light = new THREE.AmbientLight( 0xffffff, 0.5 ); // soft white light
 // scene.add( light);
 
 
-var texture = new THREE.TextureLoader().load( "t3.png" );
-var bMap = new THREE.TextureLoader().load( "normD.png" );
-var eMap = new THREE.TextureLoader().load( "e3.png" );
+var texture = new THREE.TextureLoader().load( "/images/a/tex.jpg" );
+var bMap = new THREE.TextureLoader().load( "/images/a/nor.jpg" );
+var eMap = new THREE.TextureLoader().load( "/images/a/occ.jpg" );
 
 //Phone Material
 var material = new THREE.MeshPhongMaterial( {
   map: texture,
   normalMap: bMap,
   emissiveMap: eMap,
-  emissive: 0xffaa00,
-  emissiveIntensity: 2
+  emissive: 0xffffff,
+  emissiveIntensity: 2,
+  shininess : 0,
+  // specularMap: eMap,
+  // specular: 0x000000,
+  // skinning: true
   
 } );
 
-var textureS = new THREE.TextureLoader().load( "t3e.png" );
-var bMapS = new THREE.TextureLoader().load( "normD.png" );
-var eMapS = new THREE.TextureLoader().load( "e3e.png" );
+var textureS = new THREE.TextureLoader().load( "/images/a/tex2.jpg" );
+var bMapS = new THREE.TextureLoader().load( "/images/a/nor2.jpg" );
+var eMapS = new THREE.TextureLoader().load( "/images/a/occ2.jpg" );
 
 var stretchedMaterial = new THREE.MeshPhongMaterial( {
   map: textureS,
   normalMap: bMapS,
   emissiveMap: eMapS,
-  emissive: 0xffaa00,
-  emissiveIntensity: 2
+  emissive: 0xffffff,
+  emissiveIntensity: 2,
+  shininess : 0,
+  // specularMap: eMap,
+  // specular: 0x000000,
+  // skinning: true
   
 } );
 
@@ -226,7 +238,7 @@ function changeScene(d)
     currentScene = d;
       if(d == 0)
       {
-        // var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[d], 1*animationTime);
+        // var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[currentStage], 1*animationTime);
         // tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
         // tweenAnimation.start();
 
@@ -262,18 +274,15 @@ function render(){
   {
     camera.position.x += ( - mouseX/30 - camera.position.x ) * .05;
     camera.position.y += ( - mouseY/15 - camera.position.y ) * .05;
+
   }
 
   camera.lookAt(scene.position);
 
-  // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+  subGroup.rotation.y = subGroup.rotation.y + 0.05;
 
 
-
-   subGroup.rotation.y = subGroup.rotation.y + 0.05;
-
-
-
+  //  ORIGINAL ANIMATOR
   counter = counter + 0.05;
 
   if(counter == 180)
@@ -281,9 +290,6 @@ function render(){
      counter = 0;
   }
 
-
-
-  // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 
   renderer.render(scene, camera);
   requestAnimationFrame(render);
@@ -349,8 +355,8 @@ function render(){
 
           if( (i == -1) && (j == -1) && (k == -3))
           {
-            mesh.material.emissiveIntensity = 1 + Math.sin(counter);  
-            stretchedMaterial.emissiveIntensity = 1 + Math.sin(counter);
+            mesh.material.emissiveIntensity = 0.5*(1 + Math.sin(counter));  
+            stretchedMaterial.emissiveIntensity = 0.5*(1 + Math.sin(counter));
           }
 
         }
