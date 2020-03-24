@@ -6,42 +6,22 @@ var cc = document.getElementById('myCanvas')
 winWidth = window.innerWidth;
 cc.style.margin = "0 0 0 0";
 
-var cubeGroup = new THREE.Object3D();
-var group = new THREE.Object3D();
-var mainObject = new THREE.Object3D();
-
 var doubleArray;
 
-var renderer = new THREE.WebGLRenderer({canvas: document.getElementById('myCanvas'), antialias: true, alpha: true});
+var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('myCanvas'), antialias: true, alpha: true });
 renderer.setClearColor(0x000000, 1);
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(winWidth, winHeight);
 
-var camera = new THREE.PerspectiveCamera(50, winWidth/winHeight, 0.1, 30000);
+var camera = new THREE.PerspectiveCamera(50, winWidth / winHeight, 0.1, 30000);
 var scene = new THREE.Scene();
-
-var lightGroup = new THREE.Object3D();
-
-
-//   var lightX1 = new THREE.DirectionalLight(0xff2079, 1);
-//   lightX1.position.x = 1;
-//   scene.add(lightX1);
-
-//   var lightX2 = new THREE.DirectionalLight(0x4005e  , 1);
-// lightX2.position.x = -1;
-// scene.add(lightX2);
-
-// var lightY1 = new THREE.DirectionalLight(0xe92efb, 0.5);
-// lightY1.position.y = -1;
-// scene.add(lightY1);
-
 
 var lightX1 = new THREE.DirectionalLight(0xffffff, 0.5);
 lightX1.position.x = 1;
 scene.add(lightX1);
 
-var lightX2 = new THREE.DirectionalLight(0xffffff  , 1);
+var lightX2 = new THREE.DirectionalLight(0xffffff, 1);
 lightX2.position.x = -1;
 scene.add(lightX2);
 
@@ -54,104 +34,86 @@ lightY2.position.z = 1;
 scene.add(lightY2);
 
 
-
-
-var light = new THREE.AmbientLight( 0xffffff, 0.5 ); // soft white light
+var light = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
 // scene.add( light);
 
 
-var texture = new THREE.TextureLoader().load( "/images/a/tex.jpg" );
-var bMap = new THREE.TextureLoader().load( "/images/a/nor.jpg" );
-var eMap = new THREE.TextureLoader().load( "/images/a/occ.jpg" );
+var texture = new THREE.TextureLoader().load("/images/a/tex.jpg");
+var bMap = new THREE.TextureLoader().load("/images/a/nor.jpg");
+var eMap = new THREE.TextureLoader().load("/images/a/occ.jpg");
 
 //Phone Material
-var material = new THREE.MeshPhongMaterial( {
-  map: texture,
-  normalMap: bMap,
-  emissiveMap: eMap,
-  emissive: 0xffffff,
-  emissiveIntensity: 2,
-  shininess : 0,
+var material = new THREE.MeshPhongMaterial({
+  color: 0xff0000,
+  // map: texture,
+  // normalMap: bMap,
+  // emissiveMap: eMap,
+  // emissive: 0xffffff,
+  // emissiveIntensity: 2,
+  shininess: 0,
   // specularMap: eMap,
   // specular: 0x000000,
   // skinning: true
-  
-} );
 
-var textureS = new THREE.TextureLoader().load( "/images/a/tex2.jpg" );
-var bMapS = new THREE.TextureLoader().load( "/images/a/nor2.jpg" );
-var eMapS = new THREE.TextureLoader().load( "/images/a/occ2.jpg" );
+});
 
-var stretchedMaterial = new THREE.MeshPhongMaterial( {
-  map: textureS,
-  normalMap: bMapS,
-  emissiveMap: eMapS,
-  emissive: 0xffffff,
-  emissiveIntensity: 2,
-  shininess : 0,
+var textureS = new THREE.TextureLoader().load("/images/a/tex2.jpg");
+var bMapS = new THREE.TextureLoader().load("/images/a/nor2.jpg");
+var eMapS = new THREE.TextureLoader().load("/images/a/occ2.jpg");
+
+var stretchedMaterial = new THREE.MeshPhongMaterial({
+  color: 0xff0000,
+  // map: textureS,
+  // normalMap: bMapS,
+  // emissiveMap: eMapS,
+  // emissive: 0xffffff,
+  // emissiveIntensity: 2,
+  shininess: 0,
   // specularMap: eMap,
   // specular: 0x000000,
   // skinning: true
-  
-} );
 
-
-//Lambert Material
-// var material = new THREE.MeshLambertMaterial( {
-//   map: texture,
-//     color: 0xffffff,
-//     reflectivity: 0.8,
-//   // shininess: 0.3,
-// } );
-
+});
 
 
 geometry = new THREE.CubeGeometry(1, 1, 1);
 //geometry = new THREE.SphereGeometry(.5, 32, 32);
-var mesh = new THREE.Mesh( geometry, material );
+var mesh = new THREE.Mesh(geometry, material);
 
-
-
-//Hiren New String STARTS
-
+//ANIMATION VALUE CONTAINER ARRAY
 var cubeArrayAnimation = [];
 
+//ALL THE CUBE HOLDER ARRAY
 var arrayCube = [];
 
+//MASTER HOLDER FOR ALL OF THE CUBES -- NO LIGHTS AND CAMERA
 var masterGroup = new THREE.Object3D();
 
 scene.add(masterGroup);
 
-masterGroup.add(lightGroup);
-
-masterGroup.rotation.y = 45*(Math.PI/180);
-masterGroup.rotation.x = -30*(Math.PI/180);
+masterGroup.rotation.y = 45 * (Math.PI / 180);
+masterGroup.rotation.x = -30 * (Math.PI / 180);
 
 var multiVar = 1;
 
-for(var k = -3 ; k <= 3 ; k++)
-{
+for (var k = -3; k <= 3; k++) {
   var arrayCounter = 0;
-  for(var j = -1 ; j <= 1 ; j++)
-  {
-    for(var i = -1 ; i <= 1 ; i++)
-    {
-      var mesh = new THREE.Mesh( geometry, material );
+  for (var j = -1; j <= 1; j++) {
+    for (var i = -1; i <= 1; i++) {
+      var mesh = new THREE.Mesh(geometry, material);
 
       mesh.position.x = -i;
-      mesh.position.y = -k*multiVar;
+      mesh.position.y = -k * multiVar;
       mesh.position.z = -j;
 
-      mesh.scale.z = mesh.scale.x = stringCube[0][k+3][arrayCounter];
-      mesh.scale.y = stringCube[0][k+3][arrayCounter]*multiVar;
+      mesh.scale.z = mesh.scale.x = stringCube[0][k + 3][arrayCounter];
+      mesh.scale.y = stringCube[0][k + 3][arrayCounter] * multiVar;
 
-      mesh.rotation.y = stringCubeRotation[0][k+3][arrayCounter]*(Math.PI/180);
-      if(stringCubeRotation[0][k+3][arrayCounter] != 0)
-      {
-          mesh.scale.z = Math.sqrt(2)*2;
-          mesh.scale.x = Math.sqrt(2);
+      mesh.rotation.y = stringCubeRotation[0][k + 3][arrayCounter] * (Math.PI / 180);
+      if (stringCubeRotation[0][k + 3][arrayCounter] != 0) {
+        mesh.scale.z = Math.sqrt(2) * 2;
+        mesh.scale.x = Math.sqrt(2);
       }
-
 
       arrayCounter++;
 
@@ -163,140 +125,58 @@ for(var k = -3 ; k <= 3 ; k++)
     }
   }
 }
-//Hiren New String ENDS
 
 
 
-
-var subArray = [];
-
-var subGroup = new THREE.Object3D();
-
-
-
-subGroup.rotation.x = 45*(Math.PI/180);
-
-// masterGroup.add(subGroup);
-
-geometry = new THREE.SphereGeometry( 0.2, 32, 32 );
-material = new THREE.MeshBasicMaterial( {color: 0xffb46e} );
-
-subGroup.position.x = -1;
-subGroup.position.y = 3;
-subGroup.position.z = -1;
-
-
-
-
-for(var k = 0 ; k <= 120 ; k++)
-{
-  var angle = 0;
-
-  angle = k*2*(Math.PI/180);
-
-  var mesh = new THREE.Mesh( geometry, material );
-
-  mesh.position.x = Math.sin(angle)*1.5;
-  mesh.position.y = 0;
-  mesh.position.z = Math.cos(angle)*1.5;;
-
-  mesh.scale.z = mesh.scale.y = mesh.scale.x = 0.3*(k/120);
-
-
-
-  mesh.castShadow = true;
-  mesh.receiveShadow = true;
-
-  subArray.push(mesh);
-  //subGroup.add(mesh);
-}
-
-
-
-
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ENDS
-
-
-
+//CAMERA POSITION FOR DESKTOP
 camera.position.z = -10;
 camera.lookAt(scene.position);
 
 
 
-
-//SCENE CHANGING CODE STARTS
-var currentStage = 1;
-var currentScene = -1;
-var animateBool = false;
-
-function changeScene(d)
-{
-  if(d != currentScene)
-  {
-
-    animateBool = true;
-    currentScene = d;
-      if(d == 0)
-      {
-        // var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[currentStage], 1*animationTime);
-        // tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
-        // tweenAnimation.start();
-
-        // var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[d], 1*animationTime);
-        // array1Tween.easing(TWEEN.Easing.Elastic.InOut)
-        // array1Tween.start();
-
-        changeTypo(currentStage, 1);
-      }
-    }
-}
+//!SCENE CHANGING CODE STARTS
 
 
-//Request for Render
-
+//!Request for Render
 requestAnimationFrame(render);
 
 var counter = 0;
 var emissionValue = 1;
 var emissionMax = 3;
 
-//RENDER STARTS
-function render(){
+//!RENDER STARTS
+function render() {
 
-  if(isDevicePhone)
-  {
-    mouseX = -phoneOrientationZ*9;
-    mouseY = -phoneOrientationY*9;
+  if (isDevicePhone) {
+    mouseX = -phoneOrientationZ * 9;
+    mouseY = -phoneOrientationY * 9;
   }
 
 
-  if(1)//!animateBool)
+  //!CAMERA ANIMATION
+  if (1)
   {
-    camera.position.x += ( - mouseX/30 - camera.position.x ) * .05;
-    camera.position.y += ( - mouseY/15 - camera.position.y ) * .05;
+    camera.position.x += (- mouseX / 30 - camera.position.x) * .05;
+    camera.position.y += (- mouseY / 15 - camera.position.y) * .05;
 
   }
 
   camera.lookAt(scene.position);
 
-  subGroup.rotation.y = subGroup.rotation.y + 0.05;
 
-
-  //  ORIGINAL ANIMATOR
+  //!Counter for changing occulsion
   counter = counter + 0.05;
 
-  if(counter == 180)
-  {
-     counter = 0;
+  if (counter == 180) {
+    counter = 0;
   }
 
 
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 
-  if( (currentScene != -1) && (animateBool))
-  {
-
+//!UPDATING HERE EVERYTHING - MASTER LOOPING
+  if (1) {
     TWEEN.update();
 
     // for(var i = 0 ; i < stringCube[0].length*stringCube[0][0].length ; i+=1)
@@ -326,21 +206,17 @@ function render(){
 
     var meshArrayCounter = 0;
 
-    for(var k = -3 ; k <= 3 ; k++)
-    {
+    for (var k = -3; k <= 3; k++) {
       var arrayCounter = 0;
 
-      for(var j = -1 ; j <= 1 ; j++)
-      {
-        for(var i = -1 ; i <= 1 ; i++)
-        {
+      for (var j = -1; j <= 1; j++) {
+        for (var i = -1; i <= 1; i++) {
 
           var mesh = arrayCube[meshArrayCounter];
 
-         if(stringCubeRotation[currentStage][k+3][arrayCounter] == 45)
-         {
+          if (stringCubeRotation[currentStage][k + 3][arrayCounter] == 45) {
             mesh.material = stretchedMaterial;
-         }
+          }
 
           mesh.scale.x = cubeArrayAnimation[meshArrayCounter].sx;
           mesh.scale.y = cubeArrayAnimation[meshArrayCounter].sy;
@@ -353,11 +229,13 @@ function render(){
           meshArrayCounter++;
           arrayCounter++;
 
-          if( (i == -1) && (j == -1) && (k == -3))
-          {
-            mesh.material.emissiveIntensity = 0.5*(1 + Math.sin(counter));  
-            stretchedMaterial.emissiveIntensity = 0.5*(1 + Math.sin(counter));
+          //!Occulsion ANIMATION
+          if ((i == -1) && (j == -1) && (k == -3)) {
+            // mesh.material.emissiveIntensity = 0.5 * (1 + Math.sin(counter));
+            // stretchedMaterial.emissiveIntensity = 0.5 * (1 + Math.sin(counter));
           }
+
+
 
         }
       }
@@ -375,19 +253,18 @@ var phoneOrientationZ = 0;
 var phoneOrientationY = 0;
 
 var isDevicePhone = false;
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
-{
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
   if (window.DeviceOrientationEvent) {
 
 
-   console.log("DeviceOrientation is supported");
-   isDevicePhone = true;
-   camera.position.z = -13;
+    console.log("DeviceOrientation is supported");
+    isDevicePhone = true;
+    camera.position.z = -13;
 
-   window.addEventListener('deviceorientation', function(event) {
-    //  document.getElementById("moAccel").innerHTML = 0;//event.alpha;
-     // 	document.getElementById("moRotation").innerHTML = event.beta;
+    window.addEventListener('deviceorientation', function (event) {
+      //  document.getElementById("moAccel").innerHTML = 0;//event.alpha;
+      // 	document.getElementById("moRotation").innerHTML = event.beta;
       // document.getElementById("moInterval").innerHTML = event.gamma;
 
       // if( (0 < event.beta) && (event.beta < 45) )
@@ -401,8 +278,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
       phoneOrientationY = event.beta - 45;
 
-      if(Math.abs(event.gamma) < 45)
-      {
+      if (Math.abs(event.gamma) < 45) {
         phoneOrientationZ = event.gamma;
       }
     }, false);
@@ -429,33 +305,29 @@ var mouseY = -1;
 
 
 
-if(isDevicePhone)
-{
-  canvas.addEventListener('touchstart', function(evt) {
+if (isDevicePhone) {
+  canvas.addEventListener('touchstart', function (evt) {
 
-    if(currentScene != -0)
-    {
-      changeScene(0);
-    }
+    // if (currentScene != -0) {
+    //   // changeScene(0);
+    // }
 
   }, false);
 }
 else {
-  canvas.addEventListener('mousemove', function(evt) {
+  canvas.addEventListener('mousemove', function (evt) {
     var mousePos = getMousePos(canvas, evt);
-    if(!isDevicePhone)
-    {
-      mouseX = mousePos.x - winWidth/2;
-      mouseY = mousePos.y - winHeight/2;
+    if (!isDevicePhone) {
+      mouseX = mousePos.x - winWidth / 2;
+      mouseY = mousePos.y - winHeight / 2;
     }
 
   }, false);
 
-  canvas.addEventListener('click', function(evt) {
-    if(currentScene != -0)
-    {
-      changeScene(0);
-    } 
+  canvas.addEventListener('click', function (evt) {
+    // if (currentScene != -0) {
+    //   // changeScene(0);
+    // }
 
   }, false);
 }
@@ -470,10 +342,10 @@ function getMousePos(canvas, evt) {
 
 //WINDOWS RESIZE
 
-window.addEventListener( 'resize', onWindowResize, false );
+window.addEventListener('resize', onWindowResize, false);
 
 function onWindowResize() {
-  winWidth = window.innerWidth/2;
+  winWidth = window.innerWidth / 2;
   winHeight = window.innerHeight;
   var cc = document.getElementById('myCanvas');
 
@@ -482,5 +354,5 @@ function onWindowResize() {
 
   camera.aspect = winWidth / winHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize( winWidth, winHeight );
+  renderer.setSize(winWidth, winHeight);
 }

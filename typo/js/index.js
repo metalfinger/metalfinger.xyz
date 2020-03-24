@@ -1,33 +1,5 @@
-function moveUp() {
-    var perObject = 100 / 4;
-    var newY = currentY + 1;
-
-    if (newY == totalObject) {
-        // newY = 0;
-        newY -= 1;
-    }
-
-    console.log(currentY + "  " + newY);
-    run([{ y: -(perObject * currentY) }, { y: -(perObject * newY) }])
-    currentY = newY;
-}
-
-function moveDown() {
-    var perObject = 100 / 4;
-    var newY = currentY - 1;
-
-    if (newY < 0) {
-        // newY = totalObject-1;
-        newY += 1;
-    }
-
-    console.log(currentY + "  " + newY);
-    run([{ y: -(perObject * currentY) }, { y: -(perObject * newY) }])
-    currentY = newY;
-}
-
-var currentY = 0;
-var totalObject = 4;
+var currentStage = 0;
+var maxStage = 10;
 
 
 var testElement = $('#containerID');
@@ -40,14 +12,39 @@ function run(v) {
     })
 }
 
-
-
 $('#mainBody').bind('mousewheel', function (e) {
     if (e.originalEvent.wheelDelta / 120 > 0) {
-        console.log('up');
+        console.log('DOWN');
         moveDown();
     } else {
-        console.log('down');
+        console.log('UP');
         moveUp();
     }
 });
+
+// MOVE UP FUNCTION
+function moveUp() {
+    var perObject = 100 / maxStage;
+    var newY = currentStage + 1;
+
+    if (newY == maxStage) {
+        newY -= 1;
+    }
+
+    console.log(currentStage + "  " + newY + "  " + maxStage);
+    run([{ y: -(perObject * currentStage) }, { y: -(perObject * newY) }])
+    currentStage = newY;
+}
+
+// MOVE DOWN FUNCTION
+function moveDown() {
+    var perObject = 100 / maxStage;
+    var newY = currentStage - 1;
+
+    if (newY < 0) {
+        newY += 1;
+    }
+    console.log(currentStage + "  " + newY + "  " + maxStage);
+    run([{ y: -(perObject * currentStage) }, { y: -(perObject * newY) }])
+    currentStage = newY;
+}

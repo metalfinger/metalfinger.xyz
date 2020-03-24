@@ -153,6 +153,7 @@ section {
 }
 
 .scroller{
+  /* z-index: -1; */
   height: 50%;
   margin: 0;
   position: absolute;
@@ -160,7 +161,9 @@ section {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   overflow: hidden;
+  transition-timing-function: ease-in-out;
+  background-color: #ff000000;
 }
 .container{
-  background-color: black;
+  background-color: #00000000;
 }
