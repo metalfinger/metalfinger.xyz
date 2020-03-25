@@ -10,7 +10,7 @@ function run(v) {
         duration: 2000,
         step: function (val) {
             testElement.css("transform", `translateY(${val}%)`);
-            // console.log(val+"   "+v[1].y);
+            console.log(val+"   "+v[1].y);
             if(val == v[1].y)
             {
                 console.log("Event Ended   "+scrollAnimating);
