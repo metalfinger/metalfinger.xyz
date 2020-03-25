@@ -157,7 +157,7 @@ function render() {
 
   if (isDevicePhone) {
     mouseX = -phoneOrientationZ * 9;
-    mouseY = -phoneOrientationY * 9;
+    mouseY = -phoneOrientationY * 4.5;
   }
 
 
