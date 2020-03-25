@@ -51,7 +51,7 @@ var material = new THREE.MeshPhongMaterial({
   map: texture,
   // normalMap: bMap,
   // emissiveMap: eMap,
-  emissive: 0x000099,
+  emissive: 0x009900,
   emissiveIntensity: 2,
   // shininess: 3000,
   // specularMap: eMap,
@@ -278,7 +278,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
       //   phoneOrientationY = event.beta;
       // }
 
-      phoneOrientationY = event.beta;// - 45;
+      phoneOrientationY = event.beta - 60;// - 45;
 
       if (Math.abs(event.gamma) < 45) {
         phoneOrientationZ = event.gamma;

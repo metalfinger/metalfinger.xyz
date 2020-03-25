@@ -159,12 +159,13 @@ section {
   height: 31%; 
   /* 50%; */
   margin: 0;
-  position: absolute;
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
   /* top: 50%; */
-  top: 80%;
-    left: 80%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  
+  /* -ms-transform: translateY(-50%);
+  transform: translateY(-50%); */
   overflow: hidden;
   transition-timing-function: ease-in-out;
   background-color: #ff000000;
