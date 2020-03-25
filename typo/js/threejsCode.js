@@ -37,9 +37,9 @@ var light = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
 // scene.add( light);
 
 
-var texture = new THREE.TextureLoader().load("test.gif");
-var bMap = new THREE.TextureLoader().load("testNormal.jpg");
-var eMap = new THREE.TextureLoader().load("/images/a/occ.jpg");
+var texture = new THREE.TextureLoader().load("/images/c/texture.jpg");
+var bMap = new THREE.TextureLoader().load("/images/c/bump.png");
+var eMap = new THREE.TextureLoader().load("/images/c/occ1.jpg");
 
 
 
@@ -51,27 +51,30 @@ var material = new THREE.MeshPhongMaterial({
   // map: texture,
   // normalMap: bMap,
   // emissiveMap: eMap,
-  emissive: 0x003300,
-  emissiveIntensity: 2,
-  // shininess: 3000,
+  // emissive: 0xffffff,
+  // emissiveIntensity: 2,
+  shininess: 20,
   // specularMap: eMap,
   // specular: 0x000000,
-  // skinning: true
+  // skinning: true,
+  // alphaMap: eMap
 
 });
 
-var textureS = new THREE.TextureLoader().load("testExtended.jpg");
-var bMapS = new THREE.TextureLoader().load("testExtended.jpg");
-var eMapS = new THREE.TextureLoader().load("/images/a/occ2.jpg");
+// material.transparent = true;
+
+var textureS = new THREE.TextureLoader().load("/images/c/textureE.jpg");
+var bMapS = new THREE.TextureLoader().load("/images/c/bumpE.png");
+var eMapS = new THREE.TextureLoader().load("/images/c/occE.jpg");
 
 var stretchedMaterial = new THREE.MeshPhongMaterial({
   color: 0xaaaa00,
   // map: textureS,
   // normalMap: bMapS,
   // emissiveMap: eMapS,
-  emissive: 0x003300,
-  emissiveIntensity: 2,
-  // shininess: 0,
+  // emissive: 0xffffff,
+  // emissiveIntensity: 2,
+  shininess: 0,
   // specularMap: eMap,
   // specular: 0x000000,
   // skinning: true
@@ -91,11 +94,13 @@ var arrayCube = [];
 
 //MASTER HOLDER FOR ALL OF THE CUBES -- NO LIGHTS AND CAMERA
 var masterGroup = new THREE.Object3D();
+var rotationGroup = new THREE.Object3D();
 
-scene.add(masterGroup);
+rotationGroup.add(masterGroup);
+scene.add(rotationGroup);
 
 masterGroup.rotation.y = 45 * (Math.PI / 180);
-masterGroup.rotation.x = -30 * (Math.PI / 180);
+// masterGroup.rotation.x = -30 * (Math.PI / 180);
 
 var multiVar = 1;
 
@@ -158,9 +163,12 @@ function render() {
 
   //!CAMERA ANIMATION
   if (1) {
-    camera.position.x += (- mouseX / 30 - camera.position.x) * .05;
-    camera.position.y += (- mouseY / 15 - camera.position.y) * .05;
+    // camera.position.x += (- mouseX / 30 - camera.position.x) * .05;
+    // camera.position.y += (- mouseY / 15 - camera.position.y) * .05;
 
+    rotationGroup.rotation.x += (- mouseY / 200 - rotationGroup.rotation.x) * .05;
+    rotationGroup.rotation.y += ( mouseX / 300 - rotationGroup.rotation.y) * .05;
+    
   }
 
   camera.lookAt(scene.position);
@@ -216,9 +224,11 @@ function render() {
 
           var mesh = arrayCube[meshArrayCounter];
 
-          if (stringCubeRotation[currentStage][k + 3][arrayCounter] == 45) {
-            mesh.material = stretchedMaterial;
-          }
+
+          //!SECOND LARGER TEXTURE 2*1  ->  COMMENTED FOR NOW
+          // if (stringCubeRotation[currentStage][k + 3][arrayCounter] == 45) {
+          //   mesh.material = stretchedMaterial;
+          // }
 
           mesh.scale.x = cubeArrayAnimation[meshArrayCounter].sx;
           mesh.scale.y = cubeArrayAnimation[meshArrayCounter].sy;

@@ -7,18 +7,13 @@ var hideScrollText = false;
 var testElement = $('#containerID');
 function run(v) {
     $(v[0]).animate(v[1], {
-        duration: 2000,
+        duration: 500,
         step: function (val) {
             testElement.css("transform", `translateY(${val}%)`);
-            console.log(val+"   "+v[1].y);
-            if(val == v[1].y)
-            {
-                console.log("Event Ended   "+scrollAnimating);
-                scrollAnimating = false;
-            }
         },
         complete: function () {
-            
+            console.log("Event Ended   "+scrollAnimating);
+            scrollAnimating = false;
         }
     })
 }
@@ -28,7 +23,7 @@ var scrollAnimating = false;
 $('#mainBody').bind('mousewheel', function (e) {
     
     if (!scrollAnimating) {
-        console.log(e.originalEvent.wheelDelta + "      <------   SCrollAnimator is FALSE \m/")
+        console.log(e.originalEvent.wheelDelta + "      <------   SCrollAnimator is FALSE")
         if (e.originalEvent.wheelDelta > 2) {
             moveDown();
         } else if (e.originalEvent.wheelDelta < -2) {

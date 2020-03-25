@@ -54,15 +54,27 @@ function changeBackgroundColor() {
   var newColor = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
 
   //!Original 
-  // var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[currentStage], 1*animationTime);
+  //var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[currentStage], 1 * animationTime);
 
   //!GENERATIVE
-  var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(hexToRgb(getRandomColor()), 1 * animationTime);
+  var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(hexToRgb(getRandomColor1()), 1 * animationTime);
 
   console.log(hexToRgb(getRandomColor()));
 
   tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
   tweenAnimation.start();
+
+
+
+  //!Mesh Colors
+
+  //?Original
+  var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[currentStage], 1 * animationTime);
+
+  //?Generative
+  var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(hexToRgb(getRandomColor2()), 1 * animationTime);
+  array1Tween.easing(TWEEN.Easing.Elastic.InOut)
+  array1Tween.start();
 }
 
 function getRandomColor() {
@@ -71,6 +83,50 @@ function getRandomColor() {
   for (var i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * 16)];
   }
+  return color;
+}
+
+var isF = true;
+function getRandomColor1() {
+  var letters = '0F';
+  var color = '#';
+  
+  // var t = letters[Math.floor(Math.random() * 2)];
+  if(isF)
+  {
+    color += "FFFFFF";
+    isF = false;
+  }
+  else
+  {
+    color += "FF0000";
+    isF = true;
+  }
+  
+  
+  // color = t + t + t + t + t + t;
+
+  return color;
+}
+
+function getRandomColor2() {
+  var letters = 'ABD';
+  var color = '#';
+  
+  // for (var i = 0; i < 6; i++) {
+  //   color += letters[Math.floor(Math.random() * 3)];
+  // }
+
+  if(!isF)
+  {
+    color += "FF0000";
+  }
+  else
+  {
+    color += "FFFFFF";
+  }
+  
+
   return color;
 }
 
@@ -89,7 +145,7 @@ var isCapital = true;
 function changeTypo() {
 
   //!CHANGE BACKGROUND COLOR HERE
-  //changeBackgroundColor();
+  changeBackgroundColor();
 
   var stagee = currentStage;
 
@@ -166,7 +222,7 @@ function changeTypo() {
 
         //!QQQQQQQQQQQQQQ
 
-        
+
 
 
         if (stringCubeRotation[stagee][k + 3][arrayCounter] == 10) {
