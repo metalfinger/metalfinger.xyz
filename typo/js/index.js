@@ -22,24 +22,27 @@ var scrollAnimating = false;
 $('#mainBody').bind('mousewheel', function (e) {
     console.log(e.originalEvent.wheelDelta + "      <------   WHEEL DELTA")
 
-
     if (!scrollAnimating) {
-        if (e.originalEvent.wheelDelta > 2) {            
+        if (e.originalEvent.wheelDelta > 2) {
             moveDown();
         } else if (e.originalEvent.wheelDelta < -2) {
-            console.log("trigger");
-            if (!hideScrollText) {
-                hideScrollText = true;
-
-                document.getElementById("scroll-metalfinger").style.opacity = "0.0";
-            }
             moveUp();
         }
     }
 });
 
+function checkForScrollText() {
+    if (!hideScrollText) {
+        hideScrollText = true;
+
+        document.getElementById("scroll-metalfinger").style.opacity = "0.0";
+    }
+}
+
 // MOVE UP FUNCTION
 function moveUp() {
+    checkForScrollText();
+
     var perObject = 100 / maxStage;
     var newY = currentStage + 1;
     scrollAnimating = true;
