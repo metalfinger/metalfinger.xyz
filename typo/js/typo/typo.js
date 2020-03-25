@@ -28,115 +28,110 @@ var smartYPos = 10;
 var smartYNeg = 0;
 
 //!Animation Change TIMING
-var timing = 0.75;
+var timing = 0.8;
 
 function changeStage(newStage) {
-  if (newStage != currentStage) {
+    if (newStage != currentStage) {
 
-    animateBool = true;
-    currentStage = newStage;
-    if (newStage == 0) {
-      // var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[currentStage], 1*animationTime);
-      // tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
-      // tweenAnimation.start();
+        animateBool = true;
+        currentStage = newStage;
+        if (newStage == 0) {
+            // var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[currentStage], 1*animationTime);
+            // tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
+            // tweenAnimation.start();
 
-      // var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[d], 1*animationTime);
-      // array1Tween.easing(TWEEN.Easing.Elastic.InOut)
-      // array1Tween.start();
+            // var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[d], 1*animationTime);
+            // array1Tween.easing(TWEEN.Easing.Elastic.InOut)
+            // array1Tween.start();
 
-      //!Commented - might be IMPORTANT
-      // changeTypo(currentStage, 1);
+            //!Commented - might be IMPORTANT
+            // changeTypo(currentStage, 1);
+        }
     }
-  }
 }
 
 function changeBackgroundColor() {
-  var newColor = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
+    var newColor = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
 
-  //!Original 
-  //var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[currentStage], 1 * animationTime);
+    //!Original 
+    //var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[currentStage], 1 * animationTime);
 
-  //!GENERATIVE
-  var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(hexToRgb(getRandomColor1()), 1 * animationTime);
+    //!GENERATIVE
+    var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(hexToRgb(getRandomColor1()), 1 * animationTime);
 
-  console.log(hexToRgb(getRandomColor()));
+    console.log(hexToRgb(getRandomColor()));
 
-  tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
-  tweenAnimation.start();
+    tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
+    tweenAnimation.start();
 
 
 
-  //!Mesh Colors
+    //!Mesh Colors
 
-  //?Original
-  var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[currentStage], 1 * animationTime);
+    //?Original
+    var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(arrayColorArray[currentStage], 1 * animationTime);
 
-  //?Generative
-  var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(hexToRgb(getRandomColor2()), 1 * animationTime);
-  array1Tween.easing(TWEEN.Easing.Elastic.InOut)
-  array1Tween.start();
+    //?Generative
+    var array1Tween = new TWEEN.Tween(arrayCube[0].material.color).to(hexToRgb(getRandomColor2()), 1 * animationTime);
+    array1Tween.easing(TWEEN.Easing.Elastic.InOut)
+    array1Tween.start();
 }
 
 function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
 var isF = true;
-function getRandomColor1() {
-  var letters = '0F';
-  var color = '#';
-  
-  // var t = letters[Math.floor(Math.random() * 2)];
-  if(isF)
-  {
-    color += "999999";
-    isF = false;
-  }
-  else
-  {
-    color += "FF0000";
-    isF = true;
-  }
-  
-  
-  // color = t + t + t + t + t + t;
 
-  return color;
+function getRandomColor1() {
+    var letters = '0F';
+    var color = '#';
+
+    // var t = letters[Math.floor(Math.random() * 2)];
+    if (isF) {
+        color += "999999";
+        isF = false;
+    } else {
+        color += "FF0000";
+        isF = true;
+    }
+
+
+    // color = t + t + t + t + t + t;
+
+    return color;
 }
 
 function getRandomColor2() {
-  var letters = 'ABD';
-  var color = '#';
-  
-  // for (var i = 0; i < 6; i++) {
-  //   color += letters[Math.floor(Math.random() * 3)];
-  // }
+    var letters = 'ABD';
+    var color = '#';
 
-  if(!isF)
-  {
-    color += "FF0000";
-  }
-  else
-  {
-    color += "FFFFFF";
-  }
-  
+    // for (var i = 0; i < 6; i++) {
+    //   color += letters[Math.floor(Math.random() * 3)];
+    // }
 
-  return color;
+    if (!isF) {
+        color += "FF0000";
+    } else {
+        color += "FFFFFF";
+    }
+
+
+    return color;
 }
 
 function hexToRgb(hex) {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16) / 255,
-    g: parseInt(result[2], 16) / 255,
-    b: parseInt(result[3], 16) / 255
-  } : null;
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16) / 255,
+        g: parseInt(result[2], 16) / 255,
+        b: parseInt(result[3], 16) / 255
+    } : null;
 }
 
 var isCapital = true;
@@ -144,139 +139,175 @@ var isCapital = true;
 //!LOOP IN STAGE
 function changeTypo() {
 
-  //!CHANGE BACKGROUND COLOR HERE
-  changeBackgroundColor();
+    //!CHANGE BACKGROUND COLOR HERE
+    changeBackgroundColor();
 
-  var stagee = currentStage;
+    var stagee = currentStage;
 
-  console.log(stagee);
+    console.log(stagee);
 
-  if (isCapital) {
-    stagee = stagee * 2;
-  }
-  else {
-    stagee = 1 + (stagee * 2);
-  }
-
-
-  cubeArrayAnimation = [];
-
-  var meshArrayCounter = 0;
-
-  for (var k = -3; k <= 3; k++) {
-    var arrayCounter = 0;
-    for (var j = -1; j <= 1; j++) {
-      for (var i = -1; i <= 1; i++) {
-        var mesh = arrayCube[meshArrayCounter++];
-
-        var position = {
-          sx: mesh.scale.x,
-          sy: mesh.scale.y,
-          sz: mesh.scale.z,
-          rx: mesh.rotation.x,
-          ry: mesh.rotation.y,
-          rz: mesh.rotation.z
-        };
-
-        var _sx = stringCube[stagee][k + 3][arrayCounter] + 0.001;
-        var _sy = stringCube[stagee][k + 3][arrayCounter] + 0.001;
-        var _sz = stringCube[stagee][k + 3][arrayCounter] + 0.001;
-        var _rx = 0;
-        var _ry = 0;
-        var _rz = 0;
-
-
-        // Middle bar rotation
-
-        if (stringCubeRotation[stagee][k + 3][arrayCounter] == 45) {
-          _ry = -45 * (Math.PI / 180);
-          _sz = Math.sqrt(2);
-          _sx = Math.sqrt(2) * 2;
-          // _sy = 1.0001;
-        }
-
-        //!MMMMMMMMMMMMMMMMMMMM
-        if (stringCubeRotation[stagee][k + 3][arrayCounter] == 131) {
-          _rx = -45 * (Math.PI / 180);
-          _sz = Math.sqrt(2) * 2;
-          _sy = Math.sqrt(2);
-          // _sx = 0.999;
-        }
-
-        if (stringCubeRotation[stagee][k + 3][arrayCounter] == 132) {
-          _rz = -45 * (Math.PI / 180);
-          _sx = Math.sqrt(2) * 2;
-          _sy = Math.sqrt(2);
-          // _sz = 0.999;
-        }
-
-        //!NNNNNNNNNNNNNNNNNN
-
-
-        if (stringCubeRotation[stagee][k + 3][arrayCounter] == 142) {
-          _rz = 45 * (Math.PI / 180);
-          _sx = Math.sqrt(2) * 2;
-          _sy = Math.sqrt(2);
-          // _sz = 0.999;
-        }
-
-        //!QQQQQQQQQQQQQQ
-
-
-
-
-        if (stringCubeRotation[stagee][k + 3][arrayCounter] == 10) {
-          _sz = 2;
-          // _sx = Math.sqrt(2);
-        }
-        if (stringCubeRotation[stagee][k + 3][arrayCounter] == 20) {
-          _sx = 2;
-          // _sx = Math.sqrt(2);
-        }
-        if (stringCubeRotation[stagee][k + 3][arrayCounter] == 5) {
-          _sy = 2;
-          // _sx = Math.sqrt(2);
-        }
-
-
-
-        var target = {
-          sx: _sx,
-          sy: _sy,
-          sz: _sz,
-          rx: _rx,
-          ry: _ry,
-          rz: _rz
-        };
-
-        arrayCounter++;
-
-        var tween = new TWEEN.Tween(position).to(target, timing * animationTime);
-
-        tween.easing(TWEEN.Easing.Elastic.InOut)
-
-        // tween.easing(TWEEN.Easing.Easing.)
-        tween.start();
-
-
-        if ((i == 0) && (j == 0) && (k == 0)) {
-          tween.onComplete(function () {
-
-            // if (isCapital) {
-            //   isCapital = false;
-            // }
-            // else {
-            //   isCapital = true;
-            // }
-
-            //!Change again
-            changeTypo();
-          });
-        }
-        cubeArrayAnimation.push(position);
-      }
+    if (isCapital) {
+        stagee = stagee * 2;
+    } else {
+        stagee = 1 + (stagee * 2);
     }
-  }
+
+
+    cubeArrayAnimation = [];
+
+    var meshArrayCounter = 0;
+
+    for (var k = -3; k <= 3; k++) {
+        var arrayCounter = 0;
+        for (var j = -1; j <= 1; j++) {
+            for (var i = -1; i <= 1; i++) {
+                var mesh = arrayCube[meshArrayCounter++];
+
+                var position = {
+                    sx: mesh.scale.x,
+                    sy: mesh.scale.y,
+                    sz: mesh.scale.z,
+                    rx: mesh.rotation.x,
+                    ry: mesh.rotation.y,
+                    rz: mesh.rotation.z
+                };
+
+                var _sx = stringCube[stagee][k + 3][arrayCounter] + 0.001;
+                var _sy = stringCube[stagee][k + 3][arrayCounter] + 0.001;
+                var _sz = stringCube[stagee][k + 3][arrayCounter] + 0.001;
+                var _rx = 0;
+                var _ry = 0;
+                var _rz = 0;
+
+
+                // Middle bar rotation
+
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 45) {
+                    _ry = -45 * (Math.PI / 180);
+                    _sz = Math.sqrt(2);
+                    _sx = Math.sqrt(2) * 2;
+                    // _sy = 1.0001;
+                }
+
+                //!MMMMMMMMMMMMMMMMMMMM
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 131) {
+                    _rx = -45 * (Math.PI / 180);
+                    _sz = Math.sqrt(2) * 2;
+                    _sy = Math.sqrt(2);
+                    // _sx = 0.999;
+                }
+
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 132) {
+                    _rz = -45 * (Math.PI / 180);
+                    _sx = Math.sqrt(2) * 2;
+                    _sy = Math.sqrt(2);
+                    // _sz = 0.999;
+                }
+
+                //!NNNNNNNNNNNNNNNNNN
+
+
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 142) {
+                    _rz = 45 * (Math.PI / 180);
+                    _sx = Math.sqrt(2) * 2;
+                    _sy = Math.sqrt(2);
+                    // _sz = 0.999;
+                }
+
+                //!WWWWWWWWWWWWWWWWWWWWWWWWWW
+
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 231) {
+                    _rx = 45 * (Math.PI / 180);
+                    _sz = Math.sqrt(2) * 2;
+                    _sy = Math.sqrt(2);
+                    // _sx = 0.999;
+                }
+
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 232) {
+                    _rz = 45 * (Math.PI / 180);
+                    _sx = Math.sqrt(2) * 2;
+                    _sy = Math.sqrt(2);
+                    // _sz = 0.999;
+                }
+
+                //!ZZZZZZZZZZZZZZZZZZZZZZZZ
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 260) {
+                    _ry = -45 * (Math.PI / 180);
+                    _rz = -60 * (Math.PI / 180);
+                    // _sz = Math.sqrt(2);
+                    _sx = Math.sqrt(2) * 3.4;
+                    // _sy = 1.0001;
+                }
+
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 261) {
+                    _rx = 45 * (Math.PI / 180);
+                    _sz = Math.sqrt(2) * 2;
+                    _sy = Math.sqrt(2);
+                    // _sx = 0.999;
+                }
+
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 262) {
+                    _rz = -45 * (Math.PI / 180);
+                    _sx = Math.sqrt(2) * 2;
+                    _sy = Math.sqrt(2);
+                    // _sz = 0.999;
+                }
+
+
+
+
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 10) {
+                    _sz = 2;
+                    // _sx = Math.sqrt(2);
+                }
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 20) {
+                    _sx = 2;
+                    // _sx = Math.sqrt(2);
+                }
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 5) {
+                    _sy = 2;
+                    // _sx = Math.sqrt(2);
+                }
+
+
+
+                var target = {
+                    sx: _sx,
+                    sy: _sy,
+                    sz: _sz,
+                    rx: _rx,
+                    ry: _ry,
+                    rz: _rz
+                };
+
+                arrayCounter++;
+
+                var tween = new TWEEN.Tween(position).to(target, timing * animationTime);
+
+                tween.easing(TWEEN.Easing.Elastic.InOut)
+
+                // tween.easing(TWEEN.Easing.Easing.)
+                tween.start();
+
+
+                if ((i == 0) && (j == 0) && (k == 0)) {
+                    tween.onComplete(function() {
+
+                        // if (isCapital) {
+                        //   isCapital = false;
+                        // }
+                        // else {
+                        //   isCapital = true;
+                        // }
+
+                        //!Change again
+                        changeTypo();
+                    });
+                }
+                cubeArrayAnimation.push(position);
+            }
+        }
+    }
 }
 
 //!TRIGGERING LOOPING ANIMATION HERE --> --> --> --> --> --> --> --> 

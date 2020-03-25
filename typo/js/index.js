@@ -1,18 +1,19 @@
 var currentStage = 0;
-var maxStage = 20;
+var maxStage = 27;
 
 var hideScrollText = false;
 
 
 var testElement = $('#containerID');
+
 function run(v) {
     $(v[0]).animate(v[1], {
         duration: 500,
-        step: function (val) {
+        step: function(val) {
             testElement.css("transform", `translateY(${val}%)`);
         },
-        complete: function () {
-            console.log("Event Ended   "+scrollAnimating);
+        complete: function() {
+            console.log("Event Ended   " + scrollAnimating);
             scrollAnimating = false;
         }
     })
@@ -20,8 +21,8 @@ function run(v) {
 
 var scrollAnimating = false;
 
-$('#mainBody').bind('mousewheel', function (e) {
-    
+$('#mainBody').bind('mousewheel', function(e) {
+
     if (!scrollAnimating) {
         console.log(e.originalEvent.wheelDelta + "      <------   SCrollAnimator is FALSE")
         if (e.originalEvent.wheelDelta > 2) {
@@ -84,7 +85,7 @@ var xDown = null;
 var yDown = null;
 
 function getTouches(evt) {
-    return evt.touches ||             // browser API
+    return evt.touches || // browser API
         evt.originalEvent.touches; // jQuery
 }
 
@@ -105,7 +106,7 @@ function handleTouchMove(evt) {
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
 
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+    if (Math.abs(xDiff) > Math.abs(yDiff)) { /*most significant*/
         if (xDiff > 0) {
             /* left swipe */
         } else {

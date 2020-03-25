@@ -47,17 +47,17 @@ var eMap = new THREE.TextureLoader().load("/images/c/occ1.jpg");
 
 //Phone Material
 var material = new THREE.MeshPhongMaterial({
-  color: 0xFFFFFF,
-  // map: texture,
-  // normalMap: bMap,
-  // emissiveMap: eMap,
-  // emissive: 0xffffff,
-  // emissiveIntensity: 2,
-  shininess: 20,
-  // specularMap: eMap,
-  // specular: 0x000000,
-  // skinning: true,
-  // alphaMap: eMap
+    color: 0xFFFFFF,
+    // map: texture,
+    // normalMap: bMap,
+    // emissiveMap: eMap,
+    // emissive: 0xffffff,
+    // emissiveIntensity: 2,
+    shininess: 20,
+    // specularMap: eMap,
+    // specular: 0x000000,
+    // skinning: true,
+    // alphaMap: eMap
 
 });
 
@@ -68,16 +68,16 @@ var bMapS = new THREE.TextureLoader().load("/images/c/bumpE.png");
 var eMapS = new THREE.TextureLoader().load("/images/c/occE.jpg");
 
 var stretchedMaterial = new THREE.MeshPhongMaterial({
-  color: 0xFFFFFF,
-  // map: textureS,
-  // normalMap: bMapS,
-  // emissiveMap: eMapS,
-  // emissive: 0xffffff,
-  // emissiveIntensity: 2,
-  shininess: 0,
-  // specularMap: eMap,
-  // specular: 0x000000,
-  // skinning: true
+    color: 0xFFFFFF,
+    // map: textureS,
+    // normalMap: bMapS,
+    // emissiveMap: eMapS,
+    // emissive: 0xffffff,
+    // emissiveIntensity: 2,
+    shininess: 0,
+    // specularMap: eMap,
+    // specular: 0x000000,
+    // skinning: true
 
 });
 
@@ -100,38 +100,38 @@ rotationGroup.add(masterGroup);
 scene.add(rotationGroup);
 
 masterGroup.rotation.y = 45 * (Math.PI / 180);
-// masterGroup.rotation.x = -30 * (Math.PI / 180);
+masterGroup.rotation.x = -15 * (Math.PI / 180); //?-30 * (Math.PI / 180);
 
 var multiVar = 1;
 
 for (var k = -3; k <= 3; k++) {
-  var arrayCounter = 0;
-  for (var j = -1; j <= 1; j++) {
-    for (var i = -1; i <= 1; i++) {
-      var mesh = new THREE.Mesh(geometry, material);
+    var arrayCounter = 0;
+    for (var j = -1; j <= 1; j++) {
+        for (var i = -1; i <= 1; i++) {
+            var mesh = new THREE.Mesh(geometry, material);
 
-      mesh.position.x = -i;
-      mesh.position.y = -k * multiVar;
-      mesh.position.z = -j;
+            mesh.position.x = -i;
+            mesh.position.y = -k * multiVar;
+            mesh.position.z = -j;
 
-      mesh.scale.z = mesh.scale.x = stringCube[0][k + 3][arrayCounter];
-      mesh.scale.y = stringCube[0][k + 3][arrayCounter] * multiVar;
+            mesh.scale.z = mesh.scale.x = stringCube[0][k + 3][arrayCounter];
+            mesh.scale.y = stringCube[0][k + 3][arrayCounter] * multiVar;
 
-      mesh.rotation.y = stringCubeRotation[0][k + 3][arrayCounter] * (Math.PI / 180);
-      if (stringCubeRotation[0][k + 3][arrayCounter] != 0) {
-        mesh.scale.z = Math.sqrt(2) * 2;
-        mesh.scale.x = Math.sqrt(2);
-      }
+            mesh.rotation.y = stringCubeRotation[0][k + 3][arrayCounter] * (Math.PI / 180);
+            if (stringCubeRotation[0][k + 3][arrayCounter] != 0) {
+                mesh.scale.z = Math.sqrt(2) * 2;
+                mesh.scale.x = Math.sqrt(2);
+            }
 
-      arrayCounter++;
+            arrayCounter++;
 
-      mesh.castShadow = true;
-      mesh.receiveShadow = true;
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
 
-      arrayCube.push(mesh);
-      masterGroup.add(mesh);
+            arrayCube.push(mesh);
+            masterGroup.add(mesh);
+        }
     }
-  }
 }
 
 
@@ -155,105 +155,105 @@ var emissionMax = 3;
 //!RENDER STARTS
 function render() {
 
-  if (isDevicePhone) {
-    mouseX = -phoneOrientationZ * 9;
-    mouseY = -phoneOrientationY * 4.5;
-  }
-
-
-  //!CAMERA ANIMATION
-  if (1) {
-    // camera.position.x += (- mouseX / 30 - camera.position.x) * .05;
-    // camera.position.y += (- mouseY / 15 - camera.position.y) * .05;
-
-    rotationGroup.rotation.x += (- mouseY / 200 - rotationGroup.rotation.x) * .05;
-    rotationGroup.rotation.y += ( mouseX / 300 - rotationGroup.rotation.y) * .05;
-    
-  }
-
-  camera.lookAt(scene.position);
-
-
-  //!Counter for changing occulsion
-  counter = counter + 0.05;
-
-  if (counter == 180) {
-    counter = 0;
-  }
-
-
-  renderer.render(scene, camera);
-  requestAnimationFrame(render);
-
-  //!UPDATING HERE EVERYTHING - MASTER LOOPING
-  if (1) {
-    TWEEN.update();
-
-    // for(var i = 0 ; i < stringCube[0].length*stringCube[0][0].length ; i+=1)
-    // {
-    //   var mesh = arrayCube[i];
-
-    //   mesh.scale.x = cubeArrayAnimation[i].sx;
-    //   mesh.scale.y = cubeArrayAnimation[i].sy;
-    //   mesh.scale.z = cubeArrayAnimation[i].sz;
-
-    //   mesh.rotation.x = cubeArrayAnimation[i].rx;
-    //   mesh.rotation.y = cubeArrayAnimation[i].ry;
-    //   mesh.rotation.z = cubeArrayAnimation[i].rz;
-
-    //   // if(stringCubeRotation[stagee][k+3][arrayCounter] == 45)
-    //   // {
-    //   //   mesh.material = stretchedMaterial;
-    //   // }
-
-    //   if(i == 0)
-    //   {
-    //     mesh.material.emissiveIntensity = 1 + Math.sin(counter);
-    //     console.log("HH");
-    //   }
-
-    // }
-
-    var meshArrayCounter = 0;
-
-    for (var k = -3; k <= 3; k++) {
-      var arrayCounter = 0;
-
-      for (var j = -1; j <= 1; j++) {
-        for (var i = -1; i <= 1; i++) {
-
-          var mesh = arrayCube[meshArrayCounter];
-
-
-          //!SECOND LARGER TEXTURE 2*1  ->  COMMENTED FOR NOW
-          // if (stringCubeRotation[currentStage][k + 3][arrayCounter] == 45) {
-          //   mesh.material = stretchedMaterial;
-          // }
-
-          mesh.scale.x = cubeArrayAnimation[meshArrayCounter].sx;
-          mesh.scale.y = cubeArrayAnimation[meshArrayCounter].sy;
-          mesh.scale.z = cubeArrayAnimation[meshArrayCounter].sz;
-
-          mesh.rotation.x = cubeArrayAnimation[meshArrayCounter].rx;
-          mesh.rotation.y = cubeArrayAnimation[meshArrayCounter].ry;
-          mesh.rotation.z = cubeArrayAnimation[meshArrayCounter].rz;
-
-          meshArrayCounter++;
-          arrayCounter++;
-
-          //!Occulsion ANIMATION
-          if ((i == -1) && (j == -1) && (k == -3)) {
-            mesh.material.emissiveIntensity = 0.5 * (1 + Math.sin(counter));
-            stretchedMaterial.emissiveIntensity = 0.5 * (1 + Math.sin(counter));
-          }
-
-
-
-        }
-      }
+    if (isDevicePhone) {
+        mouseX = -phoneOrientationZ * 9;
+        mouseY = -phoneOrientationY * 4.5;
     }
 
-  }
+
+    //!CAMERA ANIMATION
+    if (1) {
+        // camera.position.x += (- mouseX / 30 - camera.position.x) * .05;
+        // camera.position.y += (- mouseY / 15 - camera.position.y) * .05;
+
+        rotationGroup.rotation.x += (-mouseY / 200 - rotationGroup.rotation.x) * .05;
+        rotationGroup.rotation.y += (mouseX / 300 - rotationGroup.rotation.y) * .05;
+
+    }
+
+    camera.lookAt(scene.position);
+
+
+    //!Counter for changing occulsion
+    counter = counter + 0.05;
+
+    if (counter == 180) {
+        counter = 0;
+    }
+
+
+    renderer.render(scene, camera);
+    requestAnimationFrame(render);
+
+    //!UPDATING HERE EVERYTHING - MASTER LOOPING
+    if (1) {
+        TWEEN.update();
+
+        // for(var i = 0 ; i < stringCube[0].length*stringCube[0][0].length ; i+=1)
+        // {
+        //   var mesh = arrayCube[i];
+
+        //   mesh.scale.x = cubeArrayAnimation[i].sx;
+        //   mesh.scale.y = cubeArrayAnimation[i].sy;
+        //   mesh.scale.z = cubeArrayAnimation[i].sz;
+
+        //   mesh.rotation.x = cubeArrayAnimation[i].rx;
+        //   mesh.rotation.y = cubeArrayAnimation[i].ry;
+        //   mesh.rotation.z = cubeArrayAnimation[i].rz;
+
+        //   // if(stringCubeRotation[stagee][k+3][arrayCounter] == 45)
+        //   // {
+        //   //   mesh.material = stretchedMaterial;
+        //   // }
+
+        //   if(i == 0)
+        //   {
+        //     mesh.material.emissiveIntensity = 1 + Math.sin(counter);
+        //     console.log("HH");
+        //   }
+
+        // }
+
+        var meshArrayCounter = 0;
+
+        for (var k = -3; k <= 3; k++) {
+            var arrayCounter = 0;
+
+            for (var j = -1; j <= 1; j++) {
+                for (var i = -1; i <= 1; i++) {
+
+                    var mesh = arrayCube[meshArrayCounter];
+
+
+                    //!SECOND LARGER TEXTURE 2*1  ->  COMMENTED FOR NOW
+                    // if (stringCubeRotation[currentStage][k + 3][arrayCounter] == 45) {
+                    //   mesh.material = stretchedMaterial;
+                    // }
+
+                    mesh.scale.x = cubeArrayAnimation[meshArrayCounter].sx;
+                    mesh.scale.y = cubeArrayAnimation[meshArrayCounter].sy;
+                    mesh.scale.z = cubeArrayAnimation[meshArrayCounter].sz;
+
+                    mesh.rotation.x = cubeArrayAnimation[meshArrayCounter].rx;
+                    mesh.rotation.y = cubeArrayAnimation[meshArrayCounter].ry;
+                    mesh.rotation.z = cubeArrayAnimation[meshArrayCounter].rz;
+
+                    meshArrayCounter++;
+                    arrayCounter++;
+
+                    //!Occulsion ANIMATION
+                    if ((i == -1) && (j == -1) && (k == -3)) {
+                        mesh.material.emissiveIntensity = 0.5 * (1 + Math.sin(counter));
+                        stretchedMaterial.emissiveIntensity = 0.5 * (1 + Math.sin(counter));
+                    }
+
+
+
+                }
+            }
+        }
+
+    }
 }
 
 
@@ -267,36 +267,35 @@ var phoneOrientationY = 0;
 var isDevicePhone = false;
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
-  if (window.DeviceOrientationEvent) {
+    if (window.DeviceOrientationEvent) {
 
 
-    console.log("DeviceOrientation is supported");
-    isDevicePhone = true;
-    camera.position.z = -13;
+        console.log("DeviceOrientation is supported");
+        isDevicePhone = true;
+        camera.position.z = -13;
 
-    window.addEventListener('deviceorientation', function (event) {
-      //  document.getElementById("moAccel").innerHTML = 0;//event.alpha;
-      // 	document.getElementById("moRotation").innerHTML = event.beta;
-      // document.getElementById("moInterval").innerHTML = event.gamma;
+        window.addEventListener('deviceorientation', function(event) {
+            //  document.getElementById("moAccel").innerHTML = 0;//event.alpha;
+            // 	document.getElementById("moRotation").innerHTML = event.beta;
+            // document.getElementById("moInterval").innerHTML = event.gamma;
 
-      // if( (0 < event.beta) && (event.beta < 45) )
-      // {
-      //   phoneOrientationY = event.beta;
-      // }
-      // if( (45 <= event.beta) && (event.beta < 90) )
-      // {
-      //   phoneOrientationY = event.beta;
-      // }
+            // if( (0 < event.beta) && (event.beta < 45) )
+            // {
+            //   phoneOrientationY = event.beta;
+            // }
+            // if( (45 <= event.beta) && (event.beta < 90) )
+            // {
+            //   phoneOrientationY = event.beta;
+            // }
 
-      phoneOrientationY = event.beta - 60;// - 45;
+            phoneOrientationY = event.beta - 60; // - 45;
 
-      if (Math.abs(event.gamma) < 45) {
-        phoneOrientationZ = event.gamma;
-      }
-    }, false);
-  }
-}
-else {
+            if (Math.abs(event.gamma) < 45) {
+                phoneOrientationZ = event.gamma;
+            }
+        }, false);
+    }
+} else {
 
 
 }
@@ -318,38 +317,37 @@ var mouseY = -1;
 
 
 if (isDevicePhone) {
-  canvas.addEventListener('touchstart', function (evt) {
+    canvas.addEventListener('touchstart', function(evt) {
 
-    // if (currentScene != -0) {
-    //   // changeScene(0);
-    // }
+        // if (currentScene != -0) {
+        //   // changeScene(0);
+        // }
 
-  }, false);
-}
-else {
-  canvas.addEventListener('mousemove', function (evt) {
-    var mousePos = getMousePos(canvas, evt);
-    if (!isDevicePhone) {
-      mouseX = mousePos.x - winWidth / 2;
-      mouseY = mousePos.y - winHeight / 2;
-    }
+    }, false);
+} else {
+    canvas.addEventListener('mousemove', function(evt) {
+        var mousePos = getMousePos(canvas, evt);
+        if (!isDevicePhone) {
+            mouseX = mousePos.x - winWidth / 2;
+            mouseY = mousePos.y - winHeight / 2;
+        }
 
-  }, false);
+    }, false);
 
-  canvas.addEventListener('click', function (evt) {
-    // if (currentScene != -0) {
-    //   // changeScene(0);
-    // }
+    canvas.addEventListener('click', function(evt) {
+        // if (currentScene != -0) {
+        //   // changeScene(0);
+        // }
 
-  }, false);
+    }, false);
 }
 
 function getMousePos(canvas, evt) {
-  var rect = canvas.getBoundingClientRect();
-  return {
-    x: evt.clientX - rect.left,
-    y: evt.clientY - rect.top
-  };
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+    };
 }
 
 //WINDOWS RESIZE
@@ -357,14 +355,14 @@ function getMousePos(canvas, evt) {
 window.addEventListener('resize', onWindowResize, false);
 
 function onWindowResize() {
-  winWidth = window.innerWidth / 2;
-  winHeight = window.innerHeight;
-  var cc = document.getElementById('myCanvas');
+    winWidth = window.innerWidth / 2;
+    winHeight = window.innerHeight;
+    var cc = document.getElementById('myCanvas');
 
-  winWidth = window.innerWidth;
-  cc.style.margin = "0 0 0 0";
+    winWidth = window.innerWidth;
+    cc.style.margin = "0 0 0 0";
 
-  camera.aspect = winWidth / winHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(winWidth, winHeight);
+    camera.aspect = winWidth / winHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(winWidth, winHeight);
 }
