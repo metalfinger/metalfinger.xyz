@@ -21,9 +21,9 @@ function run(v) {
 var scrollAnimating = false;
 
 $('#mainBody').bind('mousewheel', function (e) {
-    console.log(e.originalEvent.wheelDelta + "      <------   WHEEL DELTA")
-
+    
     if (!scrollAnimating) {
+        console.log(e.originalEvent.wheelDelta + "      <------   SCrollAnimator is FALSE \m/")
         if (e.originalEvent.wheelDelta > 2) {
             moveDown();
         } else if (e.originalEvent.wheelDelta < -2) {
