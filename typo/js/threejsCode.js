@@ -1,4 +1,3 @@
-
 var winWidth = window.innerWidth;
 var winHeight = window.innerHeight;
 var cc = document.getElementById('myCanvas')
@@ -38,14 +37,18 @@ var light = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
 // scene.add( light);
 
 
-var texture = new THREE.TextureLoader().load("test.jpg");
+var texture = new THREE.TextureLoader().load("test.gif");
 var bMap = new THREE.TextureLoader().load("testNormal.jpg");
 var eMap = new THREE.TextureLoader().load("/images/a/occ.jpg");
 
+
+
+
+
 //Phone Material
 var material = new THREE.MeshPhongMaterial({
-  color: 0xaa0000,
-  // map: texture,
+  // color: 0xaa0000,
+  map: texture,
   // normalMap: bMap,
   // emissiveMap: eMap,
   emissive: 0x000099,

@@ -13,7 +13,7 @@ function run(v) {
 }
 
 $('#mainBody').bind('mousewheel', function (e) {
-    if (e.originalEvent.wheelDelta / 120 > 0) {
+    if (e.originalEvent.wheelDelta / 10 > 0) {
         console.log('DOWN');
         moveDown();
     } else {
