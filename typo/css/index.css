@@ -161,7 +161,9 @@ section {
   right: 0%;
   overflow: hidden;
   transition-timing-function: ease-in-out;
-  background-color: #ffffff12;
+  background-color: #ff000000;
+  border-bottom: 1px solid #ffffff11;
+  border-top: 1px solid #ffffff11;
 }
 
 .container{
@@ -184,7 +186,9 @@ section {
     right: 0%;
     overflow: hidden;
     transition-timing-function: ease-in-out;
-    background-color: #ff0000aa;
+    background-color: #ff000000;
+    border-bottom: 1px solid #ffffff11;
+    border-top: 1px solid #ffffff11;
   }
 }
 
