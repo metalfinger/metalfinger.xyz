@@ -278,7 +278,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
       //   phoneOrientationY = event.beta;
       // }
 
-      phoneOrientationY = event.beta - 30;
+      phoneOrientationY = event.beta - 60;
 
       if (Math.abs(event.gamma) < 45) {
         phoneOrientationZ = event.gamma;
