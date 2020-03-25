@@ -148,28 +148,43 @@ section {
 
 .text{
   font-size: 20vh; 
-  /* 38vh; */
   padding: 6vh;
   color: #ffffff5c;
   text-align: center;
 }
 
 .scroller{
-  /* z-index: -1; */
   height: 31%; 
-  /* 50%; */
   margin: 2%;
   position: fixed;
   bottom: 0%;
   right: 0%;
-  /* top: 50%; */
-  
-  /* -ms-transform: translateY(-50%);
-  transform: translateY(-50%); */
   overflow: hidden;
   transition-timing-function: ease-in-out;
   background-color: #ffffff12;
 }
+
 .container{
   background-color: #ff000000;
 }
+
+@media only screen and (max-width: 600px) {
+  .text{
+    font-size: 12vh; 
+    padding: 6vh;
+    color: #ffffff5c;
+    text-align: center;
+  }
+  
+  .scroller{
+    height: 23%; 
+    margin: 5%;
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+    overflow: hidden;
+    transition-timing-function: ease-in-out;
+    background-color: #ffffff12;
+  }
+}
+
