@@ -12,6 +12,7 @@ function run(v) {
             testElement.css("transform", `translateY(${val}%)`);
         },
         complete: function () {
+            console.log("Event Ended   "+scrollAnimating);
             scrollAnimating = false;
         }
     })
@@ -113,10 +114,14 @@ function handleTouchMove(evt) {
     } else {
         if (yDiff > 0) {
             /* up swipe */
-            moveUp();
+            if (!scrollAnimating) {
+                moveUp();
+            }
         } else {
             /* down swipe */
-            moveDown();
+            if (!scrollAnimating) {
+                moveDown();
+            }
         }
     }
     /* reset values */
