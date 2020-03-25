@@ -28,7 +28,7 @@ var smartYPos = 10;
 var smartYNeg = 0;
 
 //!Animation Change TIMING
-var timing = 0.5;
+var timing = 0.75;
 
 function changeStage(newStage) {
   if (newStage != currentStage) {

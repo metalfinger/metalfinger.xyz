@@ -7,7 +7,7 @@ var hideScrollText = false;
 var testElement = $('#containerID');
 function run(v) {
     $(v[0]).animate(v[1], {
-        duration: 300,
+        duration: 750,
         step: function (val) {
             testElement.css("transform", `translateY(${val}%)`);
         },
