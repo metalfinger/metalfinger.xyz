@@ -122,9 +122,9 @@ function changeTypo() {
           rz: mesh.rotation.z
         };
 
-        var _sx = stringCube[stagee][k + 3][arrayCounter];;
-        var _sy = stringCube[stagee][k + 3][arrayCounter];;
-        var _sz = stringCube[stagee][k + 3][arrayCounter];
+        var _sx = stringCube[stagee][k + 3][arrayCounter] + 0.001;
+        var _sy = stringCube[stagee][k + 3][arrayCounter] + 0.001;
+        var _sz = stringCube[stagee][k + 3][arrayCounter] + 0.001;
         var _rx = 0;
         var _ry = 0;
         var _rz = 0;
