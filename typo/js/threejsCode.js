@@ -38,13 +38,13 @@ var light = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
 // scene.add( light);
 
 
-var texture = new THREE.TextureLoader().load("/images/a/tex.jpg");
+var texture = new THREE.TextureLoader().load("test.jpg");
 var bMap = new THREE.TextureLoader().load("/images/a/nor.jpg");
 var eMap = new THREE.TextureLoader().load("/images/a/occ.jpg");
 
 //Phone Material
 var material = new THREE.MeshPhongMaterial({
-  color: 0xff0000,
+  color: 0xe30000,
   // map: texture,
   // normalMap: bMap,
   // emissiveMap: eMap,
@@ -57,12 +57,12 @@ var material = new THREE.MeshPhongMaterial({
 
 });
 
-var textureS = new THREE.TextureLoader().load("/images/a/tex2.jpg");
+var textureS = new THREE.TextureLoader().load("testExtended.jpg");
 var bMapS = new THREE.TextureLoader().load("/images/a/nor2.jpg");
 var eMapS = new THREE.TextureLoader().load("/images/a/occ2.jpg");
 
 var stretchedMaterial = new THREE.MeshPhongMaterial({
-  color: 0xff0000,
+  color: 0xe30000,
   // map: textureS,
   // normalMap: bMapS,
   // emissiveMap: eMapS,

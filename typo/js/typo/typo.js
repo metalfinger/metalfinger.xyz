@@ -28,7 +28,7 @@ var smartYPos = 10;
 var smartYNeg = 0;
 
 //!Animation Change TIMING
-var timing = 1
+var timing = 0.5;
 
 function changeStage(newStage) {
   if (newStage != currentStage) {
@@ -51,9 +51,36 @@ function changeStage(newStage) {
 }
 
 function changeBackgroundColor() {
-  var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[currentStage], 1*animationTime);
+  var newColor = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
+
+  //!Original 
+  // var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[currentStage], 1*animationTime);
+
+  //!GENERATIVE
+  var tweenAnimation = new TWEEN.Tween(renderer.getClearColor()).to(hexToRgb(getRandomColor()), 1 * animationTime);
+
+  console.log(hexToRgb(getRandomColor()));
+
   tweenAnimation.easing(TWEEN.Easing.Elastic.InOut)
   tweenAnimation.start();
+}
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16) / 255,
+    g: parseInt(result[2], 16) / 255,
+    b: parseInt(result[3], 16) / 255
+  } : null;
 }
 
 var isCapital = true;
@@ -61,9 +88,12 @@ var isCapital = true;
 //!LOOP IN STAGE
 function changeTypo() {
 
-  changeBackgroundColor();
+  //!CHANGE BACKGROUND COLOR HERE
+  //changeBackgroundColor();
 
   var stagee = currentStage;
+
+  console.log(stagee);
 
   if (isCapital) {
     stagee = stagee * 2;
@@ -109,6 +139,32 @@ function changeTypo() {
           _sy = 1.0001;
         }
 
+        //!MMMMMMMMMMMMMMMMMMMM
+        if (stringCubeRotation[stagee][k + 3][arrayCounter] == 131) {
+          _rx = -45 * (Math.PI / 180);
+          _sz = Math.sqrt(2) * 2;
+          _sy = Math.sqrt(2);
+          _sx = 0.999;
+        }
+
+        if (stringCubeRotation[stagee][k + 3][arrayCounter] == 132) {
+          _rz = -45 * (Math.PI / 180);
+          _sx = Math.sqrt(2) * 2;
+          _sy = Math.sqrt(2);
+          _sz = 0.999;
+        }
+
+        //!NNNNNNNNNNNNNNNNNN
+
+
+        if (stringCubeRotation[stagee][k + 3][arrayCounter] == 142) {
+          _rz = 45 * (Math.PI / 180);
+          _sx = Math.sqrt(2) * 2;
+          _sy = Math.sqrt(2);
+          _sz = 0.999;
+        }
+
+
         if (stringCubeRotation[stagee][k + 3][arrayCounter] == 10) {
           _sz = 2;
           // _sx = Math.sqrt(2);
@@ -146,12 +202,12 @@ function changeTypo() {
         if ((i == 0) && (j == 0) && (k == 0)) {
           tween.onComplete(function () {
 
-            if (isCapital) {
-              isCapital = false;
-            }
-            else {
-              isCapital = true;
-            }
+            // if (isCapital) {
+            //   isCapital = false;
+            // }
+            // else {
+            //   isCapital = true;
+            // }
 
             //!Change again
             changeTypo();
