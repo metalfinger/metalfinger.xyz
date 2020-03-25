@@ -48,10 +48,10 @@ var eMap = new THREE.TextureLoader().load("/images/a/occ.jpg");
 //Phone Material
 var material = new THREE.MeshPhongMaterial({
   color: 0xaaaa00,
-  map: texture,
+  // map: texture,
   // normalMap: bMap,
   // emissiveMap: eMap,
-  emissive: 0x009900,
+  emissive: 0x003300,
   emissiveIntensity: 2,
   // shininess: 3000,
   // specularMap: eMap,
@@ -65,11 +65,11 @@ var bMapS = new THREE.TextureLoader().load("testExtended.jpg");
 var eMapS = new THREE.TextureLoader().load("/images/a/occ2.jpg");
 
 var stretchedMaterial = new THREE.MeshPhongMaterial({
-  color: 0xaa0000,
+  color: 0xaaaa00,
   // map: textureS,
   // normalMap: bMapS,
   // emissiveMap: eMapS,
-  emissive: 0x000099,
+  emissive: 0x003300,
   emissiveIntensity: 2,
   // shininess: 0,
   // specularMap: eMap,

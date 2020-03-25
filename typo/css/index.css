@@ -158,7 +158,7 @@ section {
   /* z-index: -1; */
   height: 31%; 
   /* 50%; */
-  margin: 0;
+  margin: 2%;
   position: fixed;
   bottom: 0%;
   right: 0%;
@@ -168,7 +168,7 @@ section {
   transform: translateY(-50%); */
   overflow: hidden;
   transition-timing-function: ease-in-out;
-  background-color: #ff000000;
+  background-color: #ffffff12;
 }
 .container{
   background-color: #ff000000;
