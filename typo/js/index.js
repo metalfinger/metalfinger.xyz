@@ -1,5 +1,5 @@
 var currentStage = 0;
-var maxStage = 15;
+var maxStage = 20;
 
 
 var testElement = $('#containerID');

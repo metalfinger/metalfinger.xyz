@@ -164,6 +164,10 @@ function changeTypo() {
           // _sz = 0.999;
         }
 
+        //!QQQQQQQQQQQQQQ
+
+        
+
 
         if (stringCubeRotation[stagee][k + 3][arrayCounter] == 10) {
           _sz = 2;
