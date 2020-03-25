@@ -94,7 +94,7 @@ function getRandomColor1() {
   // var t = letters[Math.floor(Math.random() * 2)];
   if(isF)
   {
-    color += "FFFFFF";
+    color += "999999";
     isF = false;
   }
   else

@@ -8,7 +8,7 @@ cc.style.margin = "0 0 0 0";
 var doubleArray;
 
 var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('myCanvas'), antialias: true, alpha: true });
-renderer.setClearColor(0x000000, 1);
+renderer.setClearColor(0xFF0000, 1);
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(winWidth, winHeight);
@@ -47,7 +47,7 @@ var eMap = new THREE.TextureLoader().load("/images/c/occ1.jpg");
 
 //Phone Material
 var material = new THREE.MeshPhongMaterial({
-  color: 0xaaaa00,
+  color: 0xFFFFFF,
   // map: texture,
   // normalMap: bMap,
   // emissiveMap: eMap,
@@ -68,7 +68,7 @@ var bMapS = new THREE.TextureLoader().load("/images/c/bumpE.png");
 var eMapS = new THREE.TextureLoader().load("/images/c/occE.jpg");
 
 var stretchedMaterial = new THREE.MeshPhongMaterial({
-  color: 0xaaaa00,
+  color: 0xFFFFFF,
   // map: textureS,
   // normalMap: bMapS,
   // emissiveMap: eMapS,
