@@ -147,17 +147,22 @@ section {
 /* LATER ADDED */
 
 .text{
-  font-size: 38vh;
+  font-size: 20vh; 
+  /* 38vh; */
   padding: 6vh;
   color: #ffffff5c;
+  text-align: center;
 }
 
 .scroller{
   /* z-index: -1; */
-  height: 50%;
+  height: 31%; 
+  /* 50%; */
   margin: 0;
   position: absolute;
-  top: 50%;
+  /* top: 50%; */
+  top: 80%;
+    left: 80%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   overflow: hidden;
@@ -165,5 +170,5 @@ section {
   background-color: #ff000000;
 }
 .container{
-  background-color: #00000000;
+  background-color: #ff000000;
 }
