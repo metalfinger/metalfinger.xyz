@@ -13,11 +13,14 @@ function run(v) {
 }
 
 $('#mainBody').bind('mousewheel', function (e) {
-    console.log(e.originalEvent.wheelDelta / 240+"      <------   WHEEL DELTA")
-    if (e.originalEvent.wheelDelta / 240 > 0) {
+    console.log(e.originalEvent.wheelDelta+"      <------   WHEEL DELTA")
+    if (e.originalEvent.wheelDelta  > 2) 
+    {
         console.log('DOWN');
+        event.preventDefault();
         moveDown();
-    } else {
+    } else if (e.originalEvent.wheelDelta  < -2) {
+        event.preventDefault();
         console.log('UP');
         moveUp();
     }
