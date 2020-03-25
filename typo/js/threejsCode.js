@@ -39,18 +39,18 @@ var light = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
 
 
 var texture = new THREE.TextureLoader().load("test.jpg");
-var bMap = new THREE.TextureLoader().load("/images/a/nor.jpg");
+var bMap = new THREE.TextureLoader().load("testNormal.jpg");
 var eMap = new THREE.TextureLoader().load("/images/a/occ.jpg");
 
 //Phone Material
 var material = new THREE.MeshPhongMaterial({
-  color: 0xe30000,
+  color: 0xaa0000,
   // map: texture,
   // normalMap: bMap,
   // emissiveMap: eMap,
-  // emissive: 0xffffff,
-  // emissiveIntensity: 2,
-  shininess: 0,
+  emissive: 0x000099,
+  emissiveIntensity: 2,
+  // shininess: 3000,
   // specularMap: eMap,
   // specular: 0x000000,
   // skinning: true
@@ -58,17 +58,17 @@ var material = new THREE.MeshPhongMaterial({
 });
 
 var textureS = new THREE.TextureLoader().load("testExtended.jpg");
-var bMapS = new THREE.TextureLoader().load("/images/a/nor2.jpg");
+var bMapS = new THREE.TextureLoader().load("testExtended.jpg");
 var eMapS = new THREE.TextureLoader().load("/images/a/occ2.jpg");
 
 var stretchedMaterial = new THREE.MeshPhongMaterial({
-  color: 0xe30000,
+  color: 0xaa0000,
   // map: textureS,
   // normalMap: bMapS,
   // emissiveMap: eMapS,
-  // emissive: 0xffffff,
-  // emissiveIntensity: 2,
-  shininess: 0,
+  emissive: 0x000099,
+  emissiveIntensity: 2,
+  // shininess: 0,
   // specularMap: eMap,
   // specular: 0x000000,
   // skinning: true
@@ -154,8 +154,7 @@ function render() {
 
 
   //!CAMERA ANIMATION
-  if (1)
-  {
+  if (1) {
     camera.position.x += (- mouseX / 30 - camera.position.x) * .05;
     camera.position.y += (- mouseY / 15 - camera.position.y) * .05;
 
@@ -175,7 +174,7 @@ function render() {
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 
-//!UPDATING HERE EVERYTHING - MASTER LOOPING
+  //!UPDATING HERE EVERYTHING - MASTER LOOPING
   if (1) {
     TWEEN.update();
 
@@ -231,8 +230,8 @@ function render() {
 
           //!Occulsion ANIMATION
           if ((i == -1) && (j == -1) && (k == -3)) {
-            // mesh.material.emissiveIntensity = 0.5 * (1 + Math.sin(counter));
-            // stretchedMaterial.emissiveIntensity = 0.5 * (1 + Math.sin(counter));
+            mesh.material.emissiveIntensity = 0.5 * (1 + Math.sin(counter));
+            stretchedMaterial.emissiveIntensity = 0.5 * (1 + Math.sin(counter));
           }
 
 

@@ -136,7 +136,7 @@ function changeTypo() {
           _ry = -45 * (Math.PI / 180);
           _sz = Math.sqrt(2);
           _sx = Math.sqrt(2) * 2;
-          _sy = 1.0001;
+          // _sy = 1.0001;
         }
 
         //!MMMMMMMMMMMMMMMMMMMM
@@ -144,14 +144,14 @@ function changeTypo() {
           _rx = -45 * (Math.PI / 180);
           _sz = Math.sqrt(2) * 2;
           _sy = Math.sqrt(2);
-          _sx = 0.999;
+          // _sx = 0.999;
         }
 
         if (stringCubeRotation[stagee][k + 3][arrayCounter] == 132) {
           _rz = -45 * (Math.PI / 180);
           _sx = Math.sqrt(2) * 2;
           _sy = Math.sqrt(2);
-          _sz = 0.999;
+          // _sz = 0.999;
         }
 
         //!NNNNNNNNNNNNNNNNNN
@@ -161,7 +161,7 @@ function changeTypo() {
           _rz = 45 * (Math.PI / 180);
           _sx = Math.sqrt(2) * 2;
           _sy = Math.sqrt(2);
-          _sz = 0.999;
+          // _sz = 0.999;
         }
 
 
