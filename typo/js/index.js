@@ -8,12 +8,18 @@ function run(v) {
         duration: 500,
         step: function (val) {
             testElement.css("transform", `translateY(${val}%)`);
-        }
+        },
+        complete:  function() {
+            scrollAnimating = false;
+        } 
     })
 }
 
+var scrollAnimating = false;
+
 $('#mainBody').bind('mousewheel', function (e) {
     console.log(e.originalEvent.wheelDelta+"      <------   WHEEL DELTA")
+    if(!scrollAnimating){
     if (e.originalEvent.wheelDelta  > 2) 
     {
         console.log('DOWN');
@@ -23,16 +29,18 @@ $('#mainBody').bind('mousewheel', function (e) {
         event.preventDefault();
         console.log('UP');
         moveUp();
-    }
+    }}
 });
 
 // MOVE UP FUNCTION
 function moveUp() {
     var perObject = 100 / maxStage;
     var newY = currentStage + 1;
+    scrollAnimating = true;
 
     if (newY == maxStage) {
         newY -= 1;
+        scrollAnimating = false;
     }
 
     console.log(currentStage + "  " + newY + "  " + maxStage);
@@ -44,9 +52,11 @@ function moveUp() {
 function moveDown() {
     var perObject = 100 / maxStage;
     var newY = currentStage - 1;
+    scrollAnimating = true;
 
     if (newY < 0) {
         newY += 1;
+        scrollAnimating = false;
     }
     console.log(currentStage + "  " + newY + "  " + maxStage);
     run([{ y: -(perObject * currentStage) }, { y: -(perObject * newY) }])
