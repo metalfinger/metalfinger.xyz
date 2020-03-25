@@ -47,7 +47,7 @@ var eMap = new THREE.TextureLoader().load("/images/a/occ.jpg");
 
 //Phone Material
 var material = new THREE.MeshPhongMaterial({
-  // color: 0xaa0000,
+  color: 0xaaaa00,
   map: texture,
   // normalMap: bMap,
   // emissiveMap: eMap,
