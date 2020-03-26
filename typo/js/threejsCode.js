@@ -137,7 +137,7 @@ for (var k = -3; k <= 3; k++) {
 
 
 //CAMERA POSITION FOR DESKTOP
-camera.position.z = -10;
+camera.position.z = -12;
 camera.lookAt(scene.position);
 
 

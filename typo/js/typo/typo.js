@@ -253,6 +253,14 @@ function changeTypo() {
                     // _sz = 0.999;
                 }
 
+                //!RRRRRRRRRRRRRRRRRRRRRRRRRR
+                if (stringCubeRotation[stagee][k + 3][arrayCounter] == 182) {
+                    _rz = 45 * (Math.PI / 180);
+                    _sx = Math.sqrt(2) * 2;
+                    _sy = Math.sqrt(2);
+                    // _sz = 0.999;
+                }
+
 
 
 
