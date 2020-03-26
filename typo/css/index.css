@@ -208,7 +208,8 @@ section {
     position: fixed;
     top: 0;
     right: 0;
-    width: 50%;
+    width: 96%;
     height: 20px;
-    padding: 10px;
+    padding: 0%;
+    margin: 2%;
 }
