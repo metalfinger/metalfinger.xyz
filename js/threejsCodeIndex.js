@@ -30,7 +30,7 @@ var light5 = new THREE.DirectionalLight(0xffffff, 1);
 light5.position.z = -1;
 scene.add(light5);
 
-var envAnimation = [];
+
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ENDS
@@ -50,7 +50,7 @@ var magicalNumberY = 8;
 var magicalNumberZ = 8;
 
 var particleArray = [];
-var envArray = [];
+
 
 var numberOfParticle = 1000;
 
@@ -126,7 +126,6 @@ for (var i = 0; i < 1000; i += 1) {
 
     mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.5;
 
-    envArray.push(mesh);
 
     env.add(mesh);
 }
@@ -241,18 +240,7 @@ function render() {
             mesh.scale.z = particleAnimation[i].sz;
         }
 
-        for (var i = 0; i < 1000; i += 1) {
-            var mesh = envArray[i];
-            mesh.position.x = envAnimation[i].x;
-            mesh.position.y = envAnimation[i].y;
-            mesh.position.z = envAnimation[i].z;
-            mesh.rotation.x = envAnimation[i].rx;
-            mesh.rotation.y = envAnimation[i].ry;
-            mesh.rotation.z = envAnimation[i].rz;
-            mesh.scale.x = envAnimation[i].sx;
-            mesh.scale.y = envAnimation[i].sy;
-            mesh.scale.z = envAnimation[i].sz;
-        }
+
     }
 
 }
