@@ -86,18 +86,18 @@ var depthCounter = -5;
 var radius = magicalNumberX;
 var spread = 1.5;
 
-for (var i = -5; i < 5; i += 1) {
-    for (var j = -5; j < 5; j += 1) {
-        for (var k = -5; k < 5; k += 1) {
-            var mesh = particleArray[barCounter++];
-            mesh.position.x = (i + 0.5) * spread;
-            mesh.position.y = (j + 0.5) * spread;
-            mesh.position.z = (k + 0.5) * spread;
+// for (var i = -5; i < 5; i += 1) {
+//     for (var j = -5; j < 5; j += 1) {
+//         for (var k = -5; k < 5; k += 1) {
+//             var mesh = particleArray[barCounter++];
+//             mesh.position.x = (i + 0.5) * spread;
+//             mesh.position.y = (j + 0.5) * spread;
+//             mesh.position.z = (k + 0.5) * spread;
 
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 
 //!!EnV
@@ -152,7 +152,7 @@ camera.lookAt(scene.position);
 //SCENE CHANGING CODE STARTS
 
 var currentScene = -1;
-var animateBool = false;
+var animateBool = true; //false;
 
 function changeScene(d) {
     if (d != currentScene) {
@@ -308,9 +308,6 @@ var mouseY = -1;
 if (isDevicePhone) {
     canvas.addEventListener('touchstart', function(evt) {
 
-        if (currentScene != -0) {
-            changeScene(0);
-        }
 
     }, false);
 } else {
@@ -325,9 +322,7 @@ if (isDevicePhone) {
 
     canvas.addEventListener('click', function(evt) {
 
-        if (currentScene != -0) {
-            changeScene(0);
-        }
+
 
     }, false);
 }
@@ -355,4 +350,12 @@ function onWindowResize() {
     camera.aspect = winWidth / winHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(winWidth, winHeight);
+}
+
+window.onload = function exampleFunction() {
+
+    if (currentScene != -0) {
+        changeScene(0);
+    }
+
 }
