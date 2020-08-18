@@ -76,10 +76,10 @@ var minArea = maxArea / 2;
 
 for (var i = 0; i < 1000; i += 1) {
     var mesh = new THREE.Mesh(geometry, material);
-    particleArray.push(mesh);
     mesh.position.x = mesh.position.y = mesh.position.z = 0;
     mesh.rotation.x = mesh.rotation.y = mesh.rotation.z = 0;
     mesh.scale.x = mesh.scale.y = mesh.scale.z = 1;
+    particleArray.push(mesh);
     cubeGroup.add(mesh);
 }
 
@@ -158,10 +158,9 @@ var animateBool = true; //false;
 
 function changeScene(d) {
     if (d != currentScene) {
-        fiveminusone(1);
+        fivezero(1);
         animateBool = true;
         currentScene = d;
-
     }
 }
 
@@ -198,7 +197,7 @@ function render() {
         ry = Math.sin(time * 0.2) * multttt,
         rz = Math.sin(time * 0.3) * multttt;
 
-    if (!animateBool) {
+    if (1) {
         cubeGroup.rotation.x = rx;
         cubeGroup.rotation.y = ry;
         cubeGroup.rotation.z = rz;
@@ -211,7 +210,7 @@ function render() {
     //     ry = Math.cos(time * 0.2) * multttt,
     //     rz = Math.cos(time * 0.3) * multttt;
 
-    if (!animateBool) {
+    if (1) {
         env.rotation.x = rx;
         env.rotation.y = ry;
         env.rotation.z = rz;
@@ -305,8 +304,7 @@ var mouseY = -1;
 
 if (isDevicePhone) {
     canvas.addEventListener('touchstart', function(evt) {
-
-
+        //TOUCH EVENTS
     }, false);
 } else {
     canvas.addEventListener('mousemove', function(evt) {
@@ -319,9 +317,7 @@ if (isDevicePhone) {
     }, false);
 
     canvas.addEventListener('click', function(evt) {
-
-
-
+        //MOUSE EVENTS
     }, false);
 }
 
@@ -352,7 +348,7 @@ function onWindowResize() {
 
 window.onload = function exampleFunction() {
 
-    if (currentScene != -0) {
+    if (currentScene != 0) {
         changeScene(0);
     }
 
