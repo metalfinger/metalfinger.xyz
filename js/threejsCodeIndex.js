@@ -77,7 +77,9 @@ var minArea = maxArea / 2;
 for (var i = 0; i < 1000; i += 1) {
     var mesh = new THREE.Mesh(geometry, material);
     particleArray.push(mesh);
-
+    mesh.position.x = mesh.position.y = mesh.position.z = 0;
+    mesh.rotation.x = mesh.rotation.y = mesh.rotation.z = 0;
+    mesh.scale.x = mesh.scale.y = mesh.scale.z = 1;
     cubeGroup.add(mesh);
 }
 
@@ -156,14 +158,10 @@ var animateBool = true; //false;
 
 function changeScene(d) {
     if (d != currentScene) {
-        fivezero(1);
-        console.log("triggered");
-
+        fiveminusone(1);
         animateBool = true;
         currentScene = d;
-        if (d == 0) {
 
-        }
     }
 }
 

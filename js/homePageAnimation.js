@@ -4,6 +4,77 @@ fiveparticleb = 0;
 
 
 
+function fiveminusone(timing) {
+    barCounter = 0;
+
+
+
+    particleAnimation = [];
+    barCounter = 0
+    var depthCounter = -5;
+
+
+    for (var i = -5; i < 5; i += 1) {
+        for (var j = -5; j < 5; j += 1) {
+            for (var k = -5; k < 5; k += 1) {
+
+                var mesh = particleArray[barCounter];
+
+                var intialPo = {
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    rx: 0,
+                    ry: 0,
+                    rz: 0,
+                    sx: 1,
+                    sy: 1,
+                    sz: 1
+                };
+
+                var spread = 1.5;
+
+                var target = {
+                    x: (i + 0.5) * spread,
+                    y: (j + 0.5) * spread,
+                    z: (k + 0.5) * spread,
+                    rx: 0,
+                    ry: 0,
+                    rz: 0,
+                    sx: 1,
+                    sy: 1,
+                    sz: 1
+                };
+
+                var tween = new TWEEN.Tween(intialPo).to(target, timing * animationTime);
+
+                tween.easing(TWEEN.Easing.Elastic.InOut)
+                tween.start();
+
+                if (barCounter == 0) {
+                    tween.onComplete(function() {
+                        if (currentScene == 0) {
+                            console.log("one before delay");
+                            setTimeout(function() {
+                                console.log("one after delay");
+                                fivezero(1);
+                                if (animateBool) {
+                                    animateBool = false;
+                                }
+                            }, 3000);
+
+
+                        }
+                    });
+                }
+
+                particleAnimation.push(intialPo);
+                barCounter++;
+            }
+        }
+    }
+}
+
 function fivezero(timing) {
     barCounter = 0;
 
@@ -29,10 +100,7 @@ function fivezero(timing) {
                     rz: mesh.rotation.z,
                     sx: mesh.scale.x,
                     sy: mesh.scale.y,
-                    sz: mesh.scale.z,
-                    r: mesh.material.color.r,
-                    g: mesh.material.color.g,
-                    b: mesh.material.color.b
+                    sz: mesh.scale.z
                 };
 
                 var spread = 1.5;
@@ -46,10 +114,7 @@ function fivezero(timing) {
                     rz: 0,
                     sx: 1,
                     sy: 1,
-                    sz: 1,
-                    r: fiveparticler,
-                    g: fiveparticleg,
-                    b: fiveparticleb
+                    sz: 1
                 };
 
                 var tween = new TWEEN.Tween(intialPo).to(target, timing * animationTime);
@@ -60,8 +125,10 @@ function fivezero(timing) {
                 if (barCounter == 0) {
                     tween.onComplete(function() {
                         if (currentScene == 0) {
+                            console.log("one before delay");
                             setTimeout(function() {
-                                fiveone(1);
+                                console.log("one after delay");
+                                fivetwo(1);
                                 if (animateBool) {
                                     animateBool = false;
                                 }
@@ -105,10 +172,7 @@ function fiveone(timing) {
                 rz: mesh.rotation.z,
                 sx: mesh.scale.x,
                 sy: mesh.scale.y,
-                sz: mesh.scale.z,
-                r: mesh.material.color.r,
-                g: mesh.material.color.g,
-                b: mesh.material.color.b
+                sz: mesh.scale.z
             };
 
             var iAngle = i * (Math.PI / 180);
