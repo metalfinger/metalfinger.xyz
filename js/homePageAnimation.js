@@ -2,63 +2,17 @@ fiveparticler = 0;
 fiveparticleg = 0;
 fiveparticleb = 0;
 
+
+
 function fivezero(timing) {
     barCounter = 0;
 
-    moebiusAnimation = [];
 
-    for (var i = 0; i < 360; i += 3) {
-        var angle = 0;
-
-        angle = i * (Math.PI / 180);
-
-        var mesh = moebiusArray[barCounter];
-
-        var ry_ = 0;
-
-
-        var position = {
-            x: mesh.position.x,
-            y: mesh.position.y,
-            z: mesh.position.z,
-            rx: mesh.rotation.x,
-            ry: mesh.rotation.y,
-            rz: mesh.rotation.z,
-            sx: mesh.scale.x,
-            sy: mesh.scale.y,
-            sz: mesh.scale.z
-        };
-
-
-        var target = {
-            x: Math.sin(angle) * magicalNumberX * 2.5,
-            y: Math.cos(angle) * magicalNumberY * 2.5,
-            z: 0,
-            rx: 0,
-            ry: 0,
-            rz: 0,
-            sx: barSize * 3,
-            sy: barSize * 3,
-            sz: barSize * 3
-        };
-
-
-        var tween = new TWEEN.Tween(position).to(target, timing * animationTime);
-
-        tween.easing(TWEEN.Easing.Elastic.InOut)
-        tween.start();
-
-
-        moebiusAnimation.push(position);
-
-        barCounter++;
-    }
 
     particleAnimation = [];
-
     barCounter = 0
     var depthCounter = -5;
-    var radius = magicalNumberX;
+
 
     for (var i = -5; i < 5; i += 1) {
         for (var j = -5; j < 5; j += 1) {
@@ -90,9 +44,9 @@ function fivezero(timing) {
                     rx: 0,
                     ry: 0,
                     rz: 0,
-                    sx: 1.5,
-                    sy: 1.5,
-                    sz: 1.5,
+                    sx: 1,
+                    sy: 1,
+                    sz: 1,
                     r: fiveparticler,
                     g: fiveparticleg,
                     b: fiveparticleb
@@ -105,11 +59,14 @@ function fivezero(timing) {
 
                 if (barCounter == 0) {
                     tween.onComplete(function() {
-                        if (currentScene == 5) {
-                            fiveone(1);
-                            if (animateBool) {
-                                animateBool = false;
-                            }
+                        if (currentScene == 0) {
+                            setTimeout(function() {
+                                fiveone(1);
+                                if (animateBool) {
+                                    animateBool = false;
+                                }
+                            }, 3000);
+
 
                         }
                     });
@@ -126,60 +83,11 @@ function fivezero(timing) {
 function fiveone(timing) {
     barCounter = 0;
 
-    moebiusAnimation = [];
-
-    for (var i = 0; i < 360; i += 3) {
-        var angle = 0;
-
-        angle = i * (Math.PI / 180);
-
-        var mesh = moebiusArray[barCounter];
-
-        var ry_ = 0;
-
-
-        var position = {
-            x: mesh.position.x,
-            y: mesh.position.y,
-            z: mesh.position.z,
-            rx: mesh.rotation.x,
-            ry: mesh.rotation.y,
-            rz: mesh.rotation.z,
-            sx: mesh.scale.x,
-            sy: mesh.scale.y,
-            sz: mesh.scale.z
-        };
-
-
-        var target = {
-            x: mesh.position.x,
-            y: mesh.position.y,
-            z: mesh.position.z,
-            rx: mesh.rotation.x,
-            ry: mesh.rotation.y,
-            rz: mesh.rotation.z,
-            sx: mesh.scale.x,
-            sy: mesh.scale.y,
-            sz: mesh.scale.z
-        };
-
-
-        var tween = new TWEEN.Tween(position).to(target, timing * animationTime);
-
-        tween.easing(TWEEN.Easing.Elastic.InOut)
-        tween.start();
-
-
-        moebiusAnimation.push(position);
-
-        barCounter++;
-    }
 
     particleAnimation = [];
-
     barCounter = 0
     var depthCounter = -5;
-    var radius = magicalNumberX;
+
 
     for (var i = 0; i < 360; i += 8) {
         for (var j = 0; j < 180; j += 9) {
@@ -213,9 +121,9 @@ function fiveone(timing) {
                 rx: 0,
                 ry: 0,
                 rz: 0,
-                sx: 1.5,
-                sy: 1.5,
-                sz: 1.5
+                sx: 1,
+                sy: 1,
+                sz: 1
             };
 
             var tween = new TWEEN.Tween(intialPo).to(target, timing * animationTime);
@@ -225,11 +133,15 @@ function fiveone(timing) {
 
             if (barCounter == 0) {
                 tween.onComplete(function() {
-                    if (currentScene == 5) {
-                        fivetwo(1);
-                        if (animateBool) {
-                            animateBool = false;
-                        }
+                    if (currentScene == 0) {
+
+                        setTimeout(function() {
+                            fivetwo(1);
+                            if (animateBool) {
+                                animateBool = false;
+                            }
+                        }, 3000);
+
 
                     }
                 });
@@ -289,56 +201,10 @@ function fiveone(timing) {
 function fivetwo(timing) {
     barCounter = 0;
 
-    moebiusAnimation = [];
 
-    for (var i = 0; i < 360; i += 3) {
-        var angle = 0;
-
-        angle = i * (Math.PI / 180);
-
-        var mesh = moebiusArray[barCounter];
-
-        var ry_ = 0;
-
-
-        var position = {
-            x: mesh.position.x,
-            y: mesh.position.y,
-            z: mesh.position.z,
-            rx: mesh.rotation.x,
-            ry: mesh.rotation.y,
-            rz: mesh.rotation.z,
-            sx: mesh.scale.x,
-            sy: mesh.scale.y,
-            sz: mesh.scale.z
-        };
-
-
-        var target = {
-            x: mesh.position.x,
-            y: mesh.position.y,
-            z: mesh.position.z,
-            rx: mesh.rotation.x,
-            ry: mesh.rotation.y,
-            rz: mesh.rotation.z,
-            sx: mesh.scale.x,
-            sy: mesh.scale.y,
-            sz: mesh.scale.z
-        };
-
-
-        var tween = new TWEEN.Tween(position).to(target, timing * animationTime);
-
-        tween.easing(TWEEN.Easing.Elastic.InOut)
-        tween.start();
-
-
-        moebiusAnimation.push(position);
-
-        barCounter++;
-    }
 
     particleAnimation = [];
+    barCounter = 0;
 
     var p = 17;
     var cc = 0;
@@ -369,9 +235,9 @@ function fivetwo(timing) {
                     rx: 0,
                     ry: 0,
                     rz: 0,
-                    sx: 1.5,
-                    sy: 1.5,
-                    sz: 1.5
+                    sx: 1,
+                    sy: 1,
+                    sz: 1
                 };
 
                 var tween = new TWEEN.Tween(intialPo).to(target, timing * animationTime);
@@ -382,12 +248,14 @@ function fivetwo(timing) {
 
                 if (cc == 0) {
                     tween.onComplete(function() {
-                        if (currentScene == 5) {
-                            fivezero(1);
-                            if (animateBool) {
-                                animateBool = false;
-                            }
 
+                        if (currentScene == 0) {
+                            setTimeout(function() {
+                                fivezero(1);
+                                if (animateBool) {
+                                    animateBool = false;
+                                }
+                            }, 3000);
                         }
                     });
                 }
