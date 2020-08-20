@@ -342,7 +342,7 @@ window.addEventListener('resize', onWindowResize, false);
 function onWindowResize() {
     winWidth = window.innerWidth / 2;
     winHeight = window.innerHeight;
-    var cc = document.getElementById('myCanvas');
+    var cc = document.getElementById('myCanvasMobile');
 
     winWidth = window.innerWidth;
     cc.style.margin = "0 0 0 0";
