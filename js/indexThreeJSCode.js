@@ -10,7 +10,7 @@ var env = new THREE.Object3D();
 var rotationGroup = new THREE.Object3D();
 
 var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('myCanvas'), antialias: true, alpha: true });
-renderer.setClearColor(0x000000, 1);
+renderer.setClearColor(0x00ff00, 1);
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(winWidth, winHeight);
@@ -176,6 +176,8 @@ requestAnimationFrame(render);
 function render() {
 
     if (isDevicePhone) {
+        rotationGroup.position.set(0, 0, 0);
+
         mouseX = phoneOrientationZ * 9; //36;
         mouseY = phoneOrientationY * 4.5; //18;
     }
