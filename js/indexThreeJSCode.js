@@ -176,7 +176,7 @@ requestAnimationFrame(render);
 function render() {
 
     if (isDevicePhone) {
-        rotationGroup.position.set(0, 0, 0);
+        rotationGroup.position.set(0, 10, 0);
 
         mouseX = phoneOrientationZ * 9; //36;
         mouseY = phoneOrientationY * 4.5; //18;
