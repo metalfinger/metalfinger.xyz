@@ -143,7 +143,12 @@ scene.add(rotationGroup);
 
 env.position.set(0, 0, 0);
 cubeGroup.position.set(0, 0, 0);
-rotationGroup.position.set(15, 0, 0);
+
+if (window.innerWidth < 900) {
+    rotationGroup.position.set(0, 10, 0);
+} else {
+    rotationGroup.position.set(15, 0, 0);
+}
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ENDS
@@ -176,7 +181,7 @@ requestAnimationFrame(render);
 function render() {
 
     if (isDevicePhone) {
-        rotationGroup.position.set(0, 10, 0);
+
 
         mouseX = phoneOrientationZ * 9; //36;
         mouseY = phoneOrientationY * 4.5; //18;
@@ -342,6 +347,12 @@ function getMousePos(canvas, evt) {
 window.addEventListener('resize', onWindowResize, false);
 
 function onWindowResize() {
+    if (window.innerWidth < 900) {
+        rotationGroup.position.set(0, 10, 0);
+    } else {
+        rotationGroup.position.set(15, 0, 0);
+    }
+
     winWidth = window.innerWidth / 2;
     winHeight = window.innerHeight;
     var cc = document.getElementById('myCanvas');
