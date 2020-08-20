@@ -7,6 +7,7 @@ cc.style.margin = "0 0 0 0";
 
 var cubeGroup = new THREE.Object3D();
 var env = new THREE.Object3D();
+var rotationGroup = new THREE.Object3D();
 
 var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('myCanvas'), antialias: true, alpha: true });
 renderer.setClearColor(0x000000, 1);
@@ -134,13 +135,15 @@ for (var i = 0; i < 1000; i += 1) {
 
 
 
+rotationGroup.add(cubeGroup);
+rotationGroup.add(env);
+scene.add(rotationGroup);
 
-scene.add(cubeGroup);
-scene.add(env);
 
 
 env.position.set(0, 0, 0);
 cubeGroup.position.set(0, 0, 0);
+rotationGroup.position.set(15, 0, 0);
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ENDS
@@ -181,8 +184,11 @@ function render() {
 
     if (1) //!animateBool)
     {
-        camera.position.x += (-mouseX / 10 - camera.position.x) * .05;
-        camera.position.y += (-mouseY / 05 - camera.position.y) * .05;
+        // camera.position.x += (-mouseX / 10 - camera.position.x) * .05;
+        // camera.position.y += (-mouseY / 05 - camera.position.y) * .05;
+
+        rotationGroup.rotation.x += (-mouseY / 200 - rotationGroup.rotation.x) * .05;
+        rotationGroup.rotation.y += (mouseX / 300 - rotationGroup.rotation.y) * .05;
 
     }
 
