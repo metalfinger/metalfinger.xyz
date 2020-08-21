@@ -148,7 +148,7 @@ if (window.innerWidth < 900) {
     rotationGroup.position.set(0, 10, 0);
     camera.position.z = -60;
 } else {
-    rotationGroup.position.set(15, 0, 0);
+    rotationGroup.position.set(-15, 0, 0);
     camera.position.z = -50;
 }
 
@@ -353,7 +353,7 @@ function onWindowResize() {
         rotationGroup.position.set(0, 10, 0);
         camera.position.z = -60;
     } else {
-        rotationGroup.position.set(15, 0, 0);
+        rotationGroup.position.set(-15, 0, 0);
         camera.position.z = -50;
     }
 
