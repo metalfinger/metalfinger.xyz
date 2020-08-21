@@ -10,7 +10,7 @@ var env = new THREE.Object3D();
 var rotationGroup = new THREE.Object3D();
 
 var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('myCanvas'), antialias: true, alpha: true });
-renderer.setClearColor(0x00ff00, 1);
+renderer.setClearColor(0x000000, 1);
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(winWidth, winHeight);
@@ -143,14 +143,21 @@ scene.add(rotationGroup);
 
 env.position.set(0, 0, 0);
 cubeGroup.position.set(0, 0, 0);
-rotationGroup.position.set(15, 0, 0);
+
+if (window.innerWidth < 900) {
+    rotationGroup.position.set(0, 10, 0);
+    camera.position.z = -60;
+} else {
+    rotationGroup.position.set(15, 0, 0);
+    camera.position.z = -50;
+}
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ENDS
 
 
 
-camera.position.z = -50;
+
 camera.lookAt(scene.position);
 
 
@@ -176,7 +183,7 @@ requestAnimationFrame(render);
 function render() {
 
     if (isDevicePhone) {
-        rotationGroup.position.set(0, 0, 0);
+
 
         mouseX = phoneOrientationZ * 9; //36;
         mouseY = phoneOrientationY * 4.5; //18;
@@ -267,7 +274,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
         console.log("DeviceOrientation is supported");
         isDevicePhone = true;
-        camera.position.z = -60;
+
 
         window.addEventListener('deviceorientation', function(event) {
             //  document.getElementById("moAccel").innerHTML = 0;//event.alpha;
@@ -342,6 +349,14 @@ function getMousePos(canvas, evt) {
 window.addEventListener('resize', onWindowResize, false);
 
 function onWindowResize() {
+    if (window.innerWidth < 900) {
+        rotationGroup.position.set(0, 10, 0);
+        camera.position.z = -60;
+    } else {
+        rotationGroup.position.set(15, 0, 0);
+        camera.position.z = -50;
+    }
+
     winWidth = window.innerWidth / 2;
     winHeight = window.innerHeight;
     var cc = document.getElementById('myCanvas');
