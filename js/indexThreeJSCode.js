@@ -126,9 +126,9 @@ if (window.innerWidth < window.innerHeight) {
 for (var i = 0; i < 1000; i += 1) {
     var mesh = new THREE.Mesh(geometry, material);
 
-    mesh.position.x = Math.random() * spread - spread / 2;
-    mesh.position.y = Math.random() * spread - spread / 2;
-    mesh.position.z = Math.random() * spread - spread / 2;
+    mesh.position.x = 0; //Math.random() * spread - spread / 2;
+    mesh.position.y = 0; //Math.random() * spread - spread / 2;
+    mesh.position.z = 0; //Math.random() * spread - spread / 2;
 
     mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.5;
 
@@ -194,7 +194,7 @@ function changeScene(d) {
         if (d == 0) //!  ME
         {
             console.log("ME TRIGGERED");
-            fivezero(1);
+            fiveminusone(1);
         } else if (d == 1) //! --------- SKILL
         {
 
