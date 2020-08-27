@@ -192,13 +192,14 @@ function changeScene(d) {
     if (d != currentScene) {
         if (currentScene == 0) //!  ME
         {
-
+            console.log("ME TRIGGERED");
             fivezero(1);
         } else if (1) //! --------- SKILL
         {
 
         } else if (2) //! --------- CONTACT
         {
+            console.log("CONTACT TRIGGERED");
             contactzero(1);
         } else //! ---------------- WORK
         {
