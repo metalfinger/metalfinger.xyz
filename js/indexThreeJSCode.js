@@ -190,7 +190,21 @@ var animateBool = true; //false;
 
 function changeScene(d) {
     if (d != currentScene) {
-        fivezero(1);
+        if (currentScene == 0) //!  ME
+        {
+
+            fivezero(1);
+        } else if (1) //! --------- SKILL
+        {
+
+        } else if (2) //! --------- CONTACT
+        {
+            contactzero(1);
+        } else //! ---------------- WORK
+        {
+
+        }
+
 
         animateBool = true;
         currentScene = d;

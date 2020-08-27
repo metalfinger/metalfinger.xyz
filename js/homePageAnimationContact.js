@@ -141,7 +141,7 @@ function contactzero(timing) {
 
                 if (barCounter == 0) {
                     tween.onComplete(function() {
-                        if (currentScene == 0) {
+                        if (currentScene == 2) {
 
 
 
@@ -466,7 +466,7 @@ function contactone(timing) {
 
             if (barCounter == 0) {
                 tween.onComplete(function() {
-                    if (currentScene == 0) {
+                    if (currentScene == 2) {
 
                         contactzero(1);
                         if (animateBool) {
