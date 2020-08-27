@@ -190,8 +190,8 @@ var animateBool = true; //false;
 
 function changeScene(d) {
     if (d != currentScene) {
-        // fivezero(1);
-        contactzero(1);
+        fivezero(1);
+
         animateBool = true;
         currentScene = d;
     }

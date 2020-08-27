@@ -57,9 +57,9 @@ function fivezero(timing) {
                 if (barCounter == 0) {
                     tween.onComplete(function() {
                         if (currentScene == 0) {
-                            console.log("one before delay");
+
                             setTimeout(function() {
-                                console.log("one after delay");
+
                                 fiveone(1);
                                 if (animateBool) {
                                     animateBool = false;

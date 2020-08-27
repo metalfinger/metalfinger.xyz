@@ -90,6 +90,8 @@
 
 function contactzero(timing) {
 
+    console.log("akjshf aksldjhf lkasjdfh lkasjdfh lkajdsfh laksjdhf ");
+
     barCounter = 0;
     particleAnimation = [];
     barCounter = 0
