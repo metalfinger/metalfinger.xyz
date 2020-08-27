@@ -98,6 +98,11 @@ function fiveminusone(timing) {
         };
 
         var spread1 = window.innerWidth / 8;
+
+        if (window.innerWidth < window.innerHeight) {
+            spread1 = window.innerHeight / 4;
+        }
+
         var target = {
             x: Math.random() * spread1 - spread1 / 2,
             y: Math.random() * spread1 - spread1 / 2,
