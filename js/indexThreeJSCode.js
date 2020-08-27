@@ -190,14 +190,15 @@ var animateBool = true; //false;
 
 function changeScene(d) {
     if (d != currentScene) {
-        if (currentScene == 0) //!  ME
+
+        if (d == 0) //!  ME
         {
             console.log("ME TRIGGERED");
             fivezero(1);
-        } else if (1) //! --------- SKILL
+        } else if (d == 1) //! --------- SKILL
         {
 
-        } else if (2) //! --------- CONTACT
+        } else if (d == 2) //! --------- CONTACT
         {
             console.log("CONTACT TRIGGERED");
             contactzero(1);
@@ -206,13 +207,13 @@ function changeScene(d) {
 
         }
 
-
         animateBool = true;
         currentScene = d;
     }
 }
 
 var envAnimation = [];
+var particleAnimation = [];
 
 //Request for Render
 
