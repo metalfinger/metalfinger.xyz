@@ -259,9 +259,6 @@ function fiveone(timing) {
             b: mesh.material.color.b
         };
 
-        var iAngle = i * (Math.PI / 180);
-        var jAngle = j * (Math.PI / 180);
-
         var target = {
             x: 0,
             y: 0,

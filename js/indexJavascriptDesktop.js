@@ -357,7 +357,7 @@ function onWindowResize() {
         camera.position.z = -50;
     }
 
-    winWidth = window.innerWidth / 2;
+    winWidth = window.innerWidth;
     winHeight = window.innerHeight;
     var cc = document.getElementById('myCanvas');
 

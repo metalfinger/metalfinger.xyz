@@ -50,6 +50,10 @@ function fivezero(timing) {
                 tween.easing(TWEEN.Easing.Elastic.InOut)
                 tween.start();
 
+                var tweenRender = new TWEEN.Tween(renderer.getClearColor()).to({ r: 0, g: 0, b: 0 }, 1 * animationTime);
+                tweenRender.easing(TWEEN.Easing.Elastic.InOut)
+                tweenRender.start();
+
                 if (barCounter == 0) {
                     tween.onComplete(function() {
                         if (currentScene == 0) {
@@ -71,6 +75,48 @@ function fivezero(timing) {
                 barCounter++;
             }
         }
+    }
+
+    //! ENV 
+    envAnimation = [];
+    barCounter = 0
+
+    spread = 1.;
+    for (var i = 0; i < 1000; i += 1) {
+        var mesh = envArray[barCounter];
+
+        var intialPo = {
+            x: mesh.position.x,
+            y: mesh.position.y,
+            z: mesh.position.z,
+            rx: mesh.rotation.x,
+            ry: mesh.rotation.y,
+            rz: mesh.rotation.z,
+            sx: mesh.scale.x,
+            sy: mesh.scale.y,
+            sz: mesh.scale.z
+        };
+
+
+        var target = {
+            x: mesh.position.x,
+            y: mesh.position.y,
+            z: mesh.position.z,
+            rx: mesh.rotation.x,
+            ry: mesh.rotation.y,
+            rz: mesh.rotation.z,
+            sx: mesh.scale.x,
+            sy: mesh.scale.y,
+            sz: mesh.scale.z
+        };
+
+        var tween = new TWEEN.Tween(intialPo).to(target, timing * animationTime);
+
+        tween.easing(TWEEN.Easing.Elastic.InOut)
+        tween.start();
+
+        envAnimation.push(intialPo);
+        barCounter++;
     }
 }
 
@@ -188,6 +234,48 @@ function fiveone(timing) {
         barCounter++;
     }
 
+    //! ENV 
+    envAnimation = [];
+    barCounter = 0
+
+    spread = 1.;
+    for (var i = 0; i < 1000; i += 1) {
+        var mesh = envArray[barCounter];
+
+        var intialPo = {
+            x: mesh.position.x,
+            y: mesh.position.y,
+            z: mesh.position.z,
+            rx: mesh.rotation.x,
+            ry: mesh.rotation.y,
+            rz: mesh.rotation.z,
+            sx: mesh.scale.x,
+            sy: mesh.scale.y,
+            sz: mesh.scale.z
+        };
+
+
+        var target = {
+            x: mesh.position.x,
+            y: mesh.position.y,
+            z: mesh.position.z,
+            rx: mesh.rotation.x,
+            ry: mesh.rotation.y,
+            rz: mesh.rotation.z,
+            sx: mesh.scale.x,
+            sy: mesh.scale.y,
+            sz: mesh.scale.z
+        };
+
+        var tween = new TWEEN.Tween(intialPo).to(target, timing * animationTime);
+
+        tween.easing(TWEEN.Easing.Elastic.InOut)
+        tween.start();
+
+        envAnimation.push(intialPo);
+        barCounter++;
+    }
+
 }
 
 function fivetwo(timing) {
@@ -294,6 +382,48 @@ function fivetwo(timing) {
 
         particleAnimation.push(intialPo);
         cc++
+    }
+
+    //! ENV 
+    envAnimation = [];
+    barCounter = 0
+
+    spread = 1.;
+    for (var i = 0; i < 1000; i += 1) {
+        var mesh = envArray[barCounter];
+
+        var intialPo = {
+            x: mesh.position.x,
+            y: mesh.position.y,
+            z: mesh.position.z,
+            rx: mesh.rotation.x,
+            ry: mesh.rotation.y,
+            rz: mesh.rotation.z,
+            sx: mesh.scale.x,
+            sy: mesh.scale.y,
+            sz: mesh.scale.z
+        };
+
+
+        var target = {
+            x: mesh.position.x,
+            y: mesh.position.y,
+            z: mesh.position.z,
+            rx: mesh.rotation.x,
+            ry: mesh.rotation.y,
+            rz: mesh.rotation.z,
+            sx: mesh.scale.x,
+            sy: mesh.scale.y,
+            sz: mesh.scale.z
+        };
+
+        var tween = new TWEEN.Tween(intialPo).to(target, timing * animationTime);
+
+        tween.easing(TWEEN.Easing.Elastic.InOut)
+        tween.start();
+
+        envAnimation.push(intialPo);
+        barCounter++;
     }
 
 }

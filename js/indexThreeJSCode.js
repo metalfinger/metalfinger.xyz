@@ -33,7 +33,6 @@ scene.add(light5);
 
 
 
-
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ENDS
 
 
@@ -51,6 +50,7 @@ var magicalNumberY = 8;
 var magicalNumberZ = 8;
 
 var particleArray = [];
+var envArray = [];
 
 
 var numberOfParticle = 1000;
@@ -83,6 +83,9 @@ for (var i = 0; i < 1000; i += 1) {
     particleArray.push(mesh);
     cubeGroup.add(mesh);
 }
+
+
+
 
 barCounter = 0
 var depthCounter = -5;
@@ -129,9 +132,28 @@ for (var i = 0; i < 1000; i += 1) {
 
     mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.5;
 
-
+    envArray.push(mesh);
     env.add(mesh);
 }
+
+// var circleRadius = 16.0;
+// for (var i = -500; i < 500; i += 1) {
+
+//     var iAngle = i * (Math.PI / 180);
+
+
+//     var mesh = new THREE.Mesh(geometry, material);
+
+//     mesh.position.x = (circleRadius) * Math.sin(iAngle);
+//     mesh.position.y = (circleRadius) * Math.cos(iAngle);
+//     mesh.position.z = i * 0.02;
+
+//     mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.5;
+
+//     envArray.push(mesh);
+//     env.add(mesh);
+// }
+
 
 
 
@@ -168,12 +190,14 @@ var animateBool = true; //false;
 
 function changeScene(d) {
     if (d != currentScene) {
-        fivezero(1);
+        // fivezero(1);
+        contactzero(1);
         animateBool = true;
         currentScene = d;
     }
 }
 
+var envAnimation = [];
 
 //Request for Render
 
@@ -205,7 +229,7 @@ function render() {
 
     var time = Date.now() * 0.001;
 
-    var multttt = 0.5;
+    var multttt = 0.3;
 
     //!!Center Rotation
     var rx = Math.sin(time * 0.4) * multttt,
@@ -252,10 +276,25 @@ function render() {
             mesh.scale.z = particleAnimation[i].sz;
         }
 
+        for (var i = 0; i < 1000; i += 1) {
+            var mesh = envArray[i];
+            mesh.position.x = envAnimation[i].x;
+            mesh.position.y = envAnimation[i].y;
+            mesh.position.z = envAnimation[i].z;
+            mesh.rotation.x = envAnimation[i].rx;
+            mesh.rotation.y = envAnimation[i].ry;
+            mesh.rotation.z = envAnimation[i].rz;
+            mesh.scale.x = envAnimation[i].sx;
+            mesh.scale.y = envAnimation[i].sy;
+            mesh.scale.z = envAnimation[i].sz;
+        }
+
 
     }
 
 }
+
+
 
 
 var windowWidthAnimationFactor = 1;
