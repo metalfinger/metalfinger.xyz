@@ -1,96 +1,6 @@
-// var spread = 1.0;
-// for (var i = -1; i < 2; i += 1) {
-//     for (var j = -8; j < 9; j += 1) {
-//         for (var k = -1; k < 2; k += 1) {
-//             var mesh = new THREE.Mesh(geometry, material);
-//             mesh.position.x = (i + 5.) * spread;
-//             mesh.position.y = (j + 0.) * spread * 1.;
-//             mesh.position.z = (k + 0.) * spread;
-//             mesh.rotation.x = mesh.rotation.y = mesh.rotation.z = 0;
-//             mesh.scale.x = mesh.scale.y = mesh.scale.z = 1;
-//             particleArray.push(mesh);
-//             cubeGroup.add(mesh);
-//         }
-//     }
-// }
-
-
-
-// for (var i = -1; i < 2; i += 1) {
-//     for (var j = -8; j < 9; j += 1) {
-//         for (var k = -1; k < 2; k += 1) {
-//             var mesh = new THREE.Mesh(geometry, material);
-//             mesh.position.x = (i - 1.) * spread;
-//             mesh.position.y = (j + 0.) * spread * 1.;
-//             mesh.position.z = (k + 0.) * spread;
-//             mesh.rotation.x = mesh.rotation.y = mesh.rotation.z = 0;
-//             mesh.scale.x = mesh.scale.y = mesh.scale.z = 1;
-//             particleArray.push(mesh);
-//             cubeGroup.add(mesh);
-//         }
-//     }
-// }
-
-// for (var i = -3; i < 4; i += 1) {
-//     for (var j = -1; j < 2; j += 1) {
-//         for (var k = -1; k < 2; k += 1) {
-//             var mesh = new THREE.Mesh(geometry, material);
-//             mesh.position.x = (i + 2.) * spread;
-//             mesh.position.y = (j + 0.) * spread * 1.;
-//             mesh.position.z = (k + 0.) * spread;
-//             mesh.rotation.x = mesh.rotation.y = mesh.rotation.z = 0;
-//             mesh.scale.x = mesh.scale.y = mesh.scale.z = 1;
-//             particleArray.push(mesh);
-//             cubeGroup.add(mesh);
-//         }
-//     }
-// }
-
-// for (var i = -1; i < 2; i += 1) {
-//     for (var j = -3; j < 8; j += 1) {
-//         for (var k = -1; k < 2; k += 1) {
-//             var mesh = new THREE.Mesh(geometry, material);
-//             mesh.position.x = (i - 7.) * spread;
-//             mesh.position.y = (j - 5.) * spread * 1.;
-//             mesh.position.z = (k + 0.) * spread;
-//             mesh.rotation.x = mesh.rotation.y = mesh.rotation.z = 0;
-//             mesh.scale.x = mesh.scale.y = mesh.scale.z = 1;
-//             particleArray.push(mesh);
-//             cubeGroup.add(mesh);
-//         }
-//     }
-// }
-
-// spread = 0.35;
-// for (var i = -3; i < 4; i += 1) {
-//     for (var j = -3; j < 4; j += 1) {
-//         for (var k = -3; k < 4; k += 1) {
-//             var mesh = new THREE.Mesh(geometry, material);
-//             mesh.position.x = (i) * spread - 7.;
-//             mesh.position.y = (j) * spread + 7.;
-//             mesh.position.z = (k + 0.) * spread;
-//             mesh.rotation.x = mesh.rotation.y = mesh.rotation.z = 0;
-//             mesh.scale.x = mesh.scale.y = mesh.scale.z = 1;
-//             particleArray.push(mesh);
-//             cubeGroup.add(mesh);
-//         }
-//     }
-// }
-
-// for (var i = 0; i < 125; i += 1) {
-//     var mesh = new THREE.Mesh(geometry, material);
-//     mesh.position.x = mesh.position.y = mesh.position.z = 0;
-//     mesh.rotation.x = mesh.rotation.y = mesh.rotation.z = 0;
-//     mesh.scale.x = mesh.scale.y = mesh.scale.z = 1;
-//     particleArray.push(mesh);
-//     cubeGroup.add(mesh);
-// }
-
 //!  ORIGINAL CODE
 
 function contactzero(timing) {
-
-    console.log("akjshf aksldjhf lkasjdfh lkasjdfh lkajdsfh laksjdhf ");
 
     barCounter = 0;
     particleAnimation = [];
@@ -135,9 +45,7 @@ function contactzero(timing) {
                 tween.easing(TWEEN.Easing.Elastic.InOut)
                 tween.start();
 
-                var tweenRender = new TWEEN.Tween(renderer.getClearColor()).to({ r: 1, g: 0, b: 0 }, 1 * animationTime);
-                tweenRender.easing(TWEEN.Easing.Elastic.InOut)
-                tweenRender.start();
+
 
                 if (barCounter == 0) {
                     tween.onComplete(function() {

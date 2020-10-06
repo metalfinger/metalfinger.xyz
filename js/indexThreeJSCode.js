@@ -66,7 +66,7 @@ var geometry = new THREE.SphereGeometry(barSize, 32, 32);
 
 var material = new THREE.MeshPhongMaterial({
     color: 0xffffff,
-    specular: 0x666666,
+    specular: 0xffffff,
     shininess: 0
 });
 
@@ -108,7 +108,11 @@ var spread = 1.5;
 
 //!!EnV
 
-var material = new THREE.MeshPhongMaterial({ color: 0xffaa00, specular: 0xffaa00, emissive: 0xffaa00, shininess: 10, opacity: 0.8, transparent: true });
+var material = new THREE.MeshPhongMaterial({
+    color: 0xffffff,
+    specular: 0xffffff,
+    shininess: 0
+});
 
 
 var maxArea = 40;
@@ -188,8 +192,35 @@ camera.lookAt(scene.position);
 var currentScene = -1;
 var animateBool = true; //false;
 
+var envColorArray = [];
+envColorArray.push({ r: 1, g: 1, b: 0 }); //0 ME
+envColorArray.push({ r: 0, g: 0, b: 1 }); //1 SKILL
+envColorArray.push({ r: 1, g: 0, b: 0 }); //2 CONTACT
+envColorArray.push({ r: 246 / 255, g: 255 / 255, b: 0 }); //3 WORK
+
+var rendererColorArray = [];
+rendererColorArray.push({ r: 0, g: 0, b: 0 }); //0 ME
+rendererColorArray.push({ r: 207 / 255, g: 0, b: 15 / 255 }); //1 SKILL
+rendererColorArray.push({ r: 142 / 255, g: 68 / 255, b: 173 / 255 }); //2 CONTACT
+rendererColorArray.push({ r: 224 / 255, g: 12 / 255, b: 125 / 255 }); //3 WORK
+
 function changeScene(d) {
     if (d != currentScene) {
+
+        // var tween = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[d], 1 * animationTime);
+        // tween.easing(TWEEN.Easing.Elastic.InOut)
+        // tween.start();
+        // // rendererColorAnimation.push(renderer.getClearColor());
+
+        var tween = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[d], 1 * animationTime);
+        tween.easing(TWEEN.Easing.Elastic.InOut)
+        tween.start();
+
+        var tweenCube = new TWEEN.Tween(envArray[0].material.color).to(envColorArray[d], 1 * animationTime);
+        tweenCube.easing(TWEEN.Easing.Elastic.InOut)
+        tweenCube.start();
+
+        console.log(envColorArray[d]);
 
         if (d == 0) //!  ME
         {
@@ -197,16 +228,17 @@ function changeScene(d) {
             fiveminusone(1);
         } else if (d == 1) //! --------- SKILL
         {
-
+            console.log("SKILL TRIGGERED");
+            skillzero(1);
         } else if (d == 2) //! --------- CONTACT
         {
             console.log("CONTACT TRIGGERED");
             contactzero(1);
         } else //! ---------------- WORK
         {
-
+            console.log("WORK TRIGGERED");
+            onezero(1);
         }
-
         animateBool = true;
         currentScene = d;
     }
@@ -293,6 +325,7 @@ function render() {
         }
 
         for (var i = 0; i < 1000; i += 1) {
+
             var mesh = envArray[i];
             mesh.position.x = envAnimation[i].x;
             mesh.position.y = envAnimation[i].y;
@@ -309,6 +342,7 @@ function render() {
     }
 
 }
+
 
 
 
@@ -388,6 +422,7 @@ if (isDevicePhone) {
 
     canvas.addEventListener('click', function(evt) {
         //MOUSE EVENTS
+
     }, false);
 }
 
@@ -427,7 +462,6 @@ function onWindowResize() {
 window.onload = function exampleFunction() {
 
     if (currentScene != 0) {
-        changeScene(0);
+        changeScene(3);
     }
-
 }

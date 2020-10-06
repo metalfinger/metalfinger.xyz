@@ -58,13 +58,10 @@ function fiveminusone(timing) {
                     tween.onComplete(function() {
                         if (currentScene == 0) {
 
-                            setTimeout(function() {
-
-                                fiveone(1);
-                                if (animateBool) {
-                                    animateBool = false;
-                                }
-                            }, 3000);
+                            fiveone(1);
+                            if (animateBool) {
+                                animateBool = false;
+                            }
 
 
                         }
@@ -180,13 +177,10 @@ function fivezero(timing) {
                     tween.onComplete(function() {
                         if (currentScene == 0) {
 
-                            setTimeout(function() {
-
-                                fiveone(1);
-                                if (animateBool) {
-                                    animateBool = false;
-                                }
-                            }, 3000);
+                            fiveone(1);
+                            if (animateBool) {
+                                animateBool = false;
+                            }
 
 
                         }
@@ -295,12 +289,10 @@ function fiveone(timing) {
                 tween.onComplete(function() {
                     if (currentScene == 0) {
 
-                        setTimeout(function() {
-                            fivetwo(1);
-                            if (animateBool) {
-                                animateBool = false;
-                            }
-                        }, 3000);
+                        fivetwo(1);
+                        if (animateBool) {
+                            animateBool = false;
+                        }
 
 
                     }
@@ -452,12 +444,10 @@ function fivetwo(timing) {
                     tween.onComplete(function() {
 
                         if (currentScene == 0) {
-                            setTimeout(function() {
-                                fivezero(1);
-                                if (animateBool) {
-                                    animateBool = false;
-                                }
-                            }, 3000);
+                            fivezero(1);
+                            if (animateBool) {
+                                animateBool = false;
+                            }
                         }
                     });
                 }

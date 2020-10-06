@@ -224,17 +224,19 @@ function changeScene(d) {
         var tween = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[d], 1 * animationTime);
         tween.easing(TWEEN.Easing.Elastic.InOut)
         tween.start();
-        rendererColorAnimation.push(renderer.getClearColor());
+        // rendererColorAnimation.push(renderer.getClearColor());
 
         var tweenCube = new TWEEN.Tween(moebiusArray[0].material.color).to(cubeColorArray[d], 1 * animationTime);
         tweenCube.easing(TWEEN.Easing.Elastic.InOut)
         tweenCube.start();
-        cubeColorAnimation.push(moebiusArray[0].material.color);
+
+        console.log(cubeColorArray[d]);
+        // cubeColorAnimation.push(moebiusArray[0].material.color);
 
         var tweenSphere = new TWEEN.Tween(particleArray[0].material.color).to(sphereColorArray[d], 1 * animationTime);
         tweenSphere.easing(TWEEN.Easing.Elastic.InOut)
         tweenSphere.start();
-        sphereColorAnimation.push(particleArray[0].material.color);
+        // sphereColorAnimation.push(particleArray[0].material.color);
 
 
 
