@@ -166,9 +166,11 @@ function skillzero(timing) {
 
             if (barCounter == 0) {
                 tween.onComplete(function() {
-                    skillone(1);
-                    if (animateBool) {
-                        animateBool = false;
+                    if (currentScene == 1) {
+                        skillone(1);
+                        if (animateBool) {
+                            animateBool = false;
+                        }
                     }
                 });
             }
@@ -531,7 +533,9 @@ function skillone(timing) {
 
                 if (barCounter == 500) {
                     tween.onComplete(function() {
-                        skilltwo(1);
+                        if (currentScene == 1) {
+                            skilltwo(1);
+                        }
                     });
                 }
 
@@ -702,7 +706,9 @@ function skilltwo(timing) {
 
                 if (barCounter == 400) {
                     tween.onComplete(function() {
-                        skillskill(1);
+                        if (currentScene == 1) {
+                            skillskill(1);
+                        }
                     });
                 }
 
@@ -865,7 +871,9 @@ function skillskill(timing) {
 
                 if (barCounter == 0) {
                     tween.onComplete(function() {
-                        skillzero(1);
+                        if (currentScene == 1) {
+                            skillzero(1);
+                        }
                     });
                 }
 

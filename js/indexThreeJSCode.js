@@ -190,7 +190,7 @@ camera.lookAt(scene.position);
 //SCENE CHANGING CODE STARTS
 
 var currentScene = -1;
-var animateBool = true; //false;
+var animateBool = false;
 
 var envColorArray = [];
 envColorArray.push({ r: 1, g: 1, b: 0 }); //0 ME
@@ -206,6 +206,8 @@ rendererColorArray.push({ r: 224 / 255, g: 12 / 255, b: 125 / 255 }); //3 WORK
 
 function changeScene(d) {
     if (d != currentScene) {
+
+        animateBool = true;
 
         // var tween = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[d], 1 * animationTime);
         // tween.easing(TWEEN.Easing.Elastic.InOut)
@@ -239,7 +241,7 @@ function changeScene(d) {
             console.log("WORK TRIGGERED");
             onezero(1);
         }
-        animateBool = true;
+
         currentScene = d;
     }
 }

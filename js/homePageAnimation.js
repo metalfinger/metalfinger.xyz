@@ -57,13 +57,10 @@ function fiveminusone(timing) {
                 if (barCounter == 0) {
                     tween.onComplete(function() {
                         if (currentScene == 0) {
-
                             fiveone(1);
                             if (animateBool) {
                                 animateBool = false;
                             }
-
-
                         }
                     });
                 }

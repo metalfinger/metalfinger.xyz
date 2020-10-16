@@ -194,7 +194,9 @@ function onezero(timing) {
 
         if (k == 0) {
             tween.onComplete(function() {
-                oneone(1);
+                if (currentScene == 3) {
+                    oneone(1);
+                }
             });
         }
 
@@ -407,7 +409,9 @@ function oneone(timing) {
 
         if (k == 0) {
             tween.onComplete(function() {
-                onezero(1);
+                if (currentScene == 3) {
+                    onezero(1);
+                }
             });
         }
 
