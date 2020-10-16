@@ -462,6 +462,6 @@ function onWindowResize() {
 window.onload = function exampleFunction() {
 
     if (currentScene != 0) {
-        changeScene(3);
+        changeScene(0);
     }
 }
