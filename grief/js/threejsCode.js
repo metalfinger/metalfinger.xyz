@@ -506,7 +506,7 @@ function render() {
     }
     if (currentScene == -1) {
         //zeroCalled(0);
-        changeScene(0);
+        //changeScene(0);                   //!!CHANGE SCENE TO ZERO TO START THE FIRST ANIMATION
     }
 
 
