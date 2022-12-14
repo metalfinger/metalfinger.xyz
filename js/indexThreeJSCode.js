@@ -210,9 +210,9 @@ function changeScene(d) {
         animateBool = true;
 
 
-        // var tween = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[d], 1 * animationTime);
-        // tween.easing(TWEEN.Easing.Elastic.InOut)
-        // tween.start();
+        var tween = new TWEEN.Tween(renderer.getClearColor()).to(rendererColorArray[d], 1 * animationTime);
+        tween.easing(TWEEN.Easing.Elastic.InOut)
+        tween.start();
 
         var tweenCube = new TWEEN.Tween(envArray[0].material.color).to(envColorArray[d], 1 * animationTime);
         tweenCube.easing(TWEEN.Easing.Elastic.InOut)
